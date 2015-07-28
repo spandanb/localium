@@ -1,0 +1,57 @@
+/* Signup Form */
+.signup-email{
+    width: 50px;
+    float: left;
+}
+
+.form-control.signup-email{
+    background-color: transparent;
+    height: 40px;
+}
+
+.form-control.signup-email:focus {
+    background-color: rgba(0,0, 0, 0.3);
+    border-color: #CD72E5;
+    color: #FFF;
+}
+
+.btn.signup-btn{
+    float: left;
+    line-height: 1.8;
+    background-color: #CD72E5;
+    color: #FFF;
+}
+
+.btn-default .signup-btn{
+    /*Remove the while border around the button*/
+    border-color: transparent;
+}
+
+.btn.signup-btn:hover {
+    background-color: #E47FFF;
+    color: #FFF;
+}
+
+.signup-form{
+    margin-top: 40px;
+    /*15px gets applied by col-lg-3; 40-15=25*/
+    margin-left: 25px; 
+}
+
+/*The main text and 
+the subtext*/
+.hero-text {
+    margin-left: 40px;
+}
+
+#hero-main{
+    color: #D7D6D7;
+    font-size: 60px;
+    text-shadow: black 0.1em 0.1em 0.2em;
+    
+}
+
+#hero-subtext{
+    color: #D7D6D7;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
