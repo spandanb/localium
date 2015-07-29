@@ -40,8 +40,9 @@
 
 /*The main text and 
 the subtext*/
-.hero-text {
+#hero-text {
     margin-left: 40px;
+    text-align: left;
 }
 
 #hero-main{
@@ -55,3 +56,4 @@ the subtext*/
     color: #D7D6D7;
     text-shadow: black 0.1em 0.1em 0.2em;
 }
+
