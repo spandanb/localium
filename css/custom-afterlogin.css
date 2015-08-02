@@ -23,9 +23,28 @@
   }         
 }
 
+
+
+.affix-bottom {
+  position: absolute;
+  width: 213px;
+}
+ 
+@media (min-width: 1200px) {
+  .affix-bottom {
+    width: 263px;
+  }
+}
+
 .blog_posts.item-row{
     margin-top: 0px;
+    padding-top: 0px;
     background-color:#FFF;
+}
+
+.title .section-title{
+    margin-top:50px;
+    margin-bottom: 50px;
 }
 
 .item-container{

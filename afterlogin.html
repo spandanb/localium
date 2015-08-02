@@ -82,37 +82,33 @@
     <div class="col-md-2">
       <ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix">
         <li>
-          <a href="#web-design">Sweaters</a>
+          <a href="#">Tops</a>
         </li>
         <li>
-          <a href="#web-design">Sweaters</a>
+          <a href="#">Dresses</a>
         </li>
         <li>
-          <a href="#web-design">Sweaters</a>
+          <a href="#">Bottoms</a>
         </li>
         <li>
-          <a href="#web-design">Sweaters</a>
+          <a href="#">Footwear</a>
+        </li>
+        <li>
+          <a href="#">Jackets</a>
+        </li>
+        <li>
+          <a href="#">Accessories</a>
         </li>
      </ul>
     </div>
     
-    <script>
-        //Fixes the left nav bar
-        $(document).ready(function(){
-            $('#nav').affix({
-                offset: {
-                    top: $('#nav').offset().top 
-                }
-            });
-        });
-    </script>
 
     <div class="col-md-9">
 
     	<section class="blog_posts item-row">
     		<div class="wrapper">
     			<div class="title animated wow fadeIn">
-    				<h2>New Items</h2>
+    				<h2 class="section-title">New Items</h2>
     				<h3>Recently added items to our inventory.</h3>
     				<hr class="separator"/>
     			</div>
@@ -127,7 +123,7 @@
         							<span class="month">Jun</span>
         						</div>
         						<a href="#">
-        							<img class="item-image" src="img/blog_post1.jpg" alt=""/>
+        							<img class="item-image" src="img/clothing/sweater1.jpg" alt=""/>
         						</a>
         					</div>
         					<div class="item-title-container">
@@ -144,7 +140,7 @@
         							<span class="month">Jun</span>
         						</div>
         						<a href="#">
-        							<img class="item-image" src="img/blog_post1.jpg" alt=""/>
+        							<img class="item-image" src="img/clothing/sweater2.jpg" alt=""/>
         						</a>
         					</div>
         					<div class="item-title-container">
@@ -161,7 +157,7 @@
         							<span class="month">Jun</span>
         						</div>
         						<a href="#">
-        							<img class="item-image" src="img/blog_post1.jpg" alt=""/>
+        							<img class="item-image" src="img/clothing/sweater3.jpg" alt=""/>
         						</a>
         					</div>
         					<div class="item-title-container">
@@ -172,7 +168,8 @@
         				</div>
                         
                         <script>
-                            var item = $(".item-container");
+                            //Repeats item
+                            var item = $(".wrapper");
                             item.clone().appendTo(item.parent());
                             item.clone().appendTo(item.parent());
                         </script>
@@ -182,145 +179,6 @@
                 </div> <!-- End Container -->    
     
     
-    			<ul class="clearfix">
-                    <!-- Item 1-->
-    				<li class="animated wow fadeInDown">
-    					<div class="media">
-    						<div class="date">
-    							<span class="day">25</span>
-    							<span class="month">Jun</span>
-    						</div>
-    						<a href="#">
-    							<img src="img/blog_post1.jpg" alt=""/>
-    						</a>
-    					</div>
-    					<a href="#">
-    						<h1>Sed do eiusmod tempor incididunt.</h1>
-    					</a>
-    				</li>
-    
-                    <!-- Item 2-->
-    				<li class="animated wow fadeInDown" data-wow-delay=".2s">
-    					<div class="media">
-    						<div class="date">
-    							<span class="day">11</span>
-    							<span class="month">May</span>
-    						</div>
-    						<a href="#">
-    							<img src="img/blog_post2.jpg" alt=""/>
-    						</a>
-    					</div>					
-    					<a href="#">
-    						<h1>Velit esse cillum dollore fugiat nulla.</h1>
-    					</a>
-    				</li>
-    
-                    <!-- Item 3-->
-    				<li class="animated wow fadeInDown" data-wow-delay=".4s">
-    					<div class="media">
-    						<div class="date">
-    							<span class="day">13</span>
-    							<span class="month">Feb</span>
-    						</div>
-    						<a href="#">
-    							<img src="img/blog_post3.jpg" alt=""/>
-    						</a>
-    					</div>
-    					<a href="#">
-    						<h1>Officia deserunt mollit est anim laborum.</h1>
-    					</a>
-    				</li>
-    
-                    <!-- Item 4-->
-    				<li class="animated wow fadeInDown" data-wow-delay=".6s">
-    					<div class="media">
-    						<div class="date">
-    							<span class="day">10</span>
-    							<span class="month">Jan</span>
-    						</div>
-    						<a href="#">
-    							<img src="img/blog_post4.jpg" alt=""/>
-    						</a>
-    					</div>
-    					<a href="#"><h1>Culpa qui officia deserunt 
-    					mollit ani
-    					m.</h1>
-    				</a>
-    				</li>
-    			</ul>
-    		</div>
-    	</section><!--  End blog_posts  -->
-    
-    	<section class="blog_posts">
-    		<div class="wrapper">
-    			<div class="title animated wow fadeIn">
-    				<h2>Recent Posts</h2>
-    				<h3>the most recent posts from our blog</h3>
-    				<hr class="separator"/>
-    			</div>
-    
-    			<ul class="clearfix">
-    				<li class="animated wow fadeInDown">
-    					<div class="media">
-    						<div class="date">
-    							<span class="day">25</span>
-    							<span class="month">Jun</span>
-    						</div>
-    						<a href="#">
-    							<img src="img/blog_post1.jpg" alt=""/>
-    						</a>
-    					</div>
-    					<a href="#">
-    						<h1>Sed do eiusmod tempor incididunt.</h1>
-    					</a>
-    				</li>
-    
-    				<li class="animated wow fadeInDown" data-wow-delay=".2s">
-    					<div class="media">
-    						<div class="date">
-    							<span class="day">11</span>
-    							<span class="month">May</span>
-    						</div>
-    						<a href="#">
-    							<img src="img/blog_post2.jpg" alt=""/>
-    						</a>
-    					</div>					
-    					<a href="#">
-    						<h1>Velit esse cillum dollore fugiat nulla.</h1>
-    					</a>
-    				</li>
-    
-    				<li class="animated wow fadeInDown" data-wow-delay=".4s">
-    					<div class="media">
-    						<div class="date">
-    							<span class="day">13</span>
-    							<span class="month">Feb</span>
-    						</div>
-    						<a href="#">
-    							<img src="img/blog_post3.jpg" alt=""/>
-    						</a>
-    					</div>
-    					<a href="#">
-    						<h1>Officia deserunt mollit est anim laborum.</h1>
-    					</a>
-    				</li>
-    
-    				<li class="animated wow fadeInDown" data-wow-delay=".6s">
-    					<div class="media">
-    						<div class="date">
-    							<span class="day">10</span>
-    							<span class="month">Jan</span>
-    						</div>
-    						<a href="#">
-    							<img src="img/blog_post4.jpg" alt=""/>
-    						</a>
-    					</div>
-    					<a href="#"><h1>Culpa qui officia deserunt 
-    					mollit ani
-    					m.</h1>
-    				</a>
-    				</li>
-    			</ul>
     		</div>
     	</section><!--  End blog_posts  -->
 
@@ -379,7 +237,7 @@
 	</footer>
     </div -->
 
-<div class="text-center">
+<div id="footer" class="text-center">
     <hr />
   <div class="row">
     <div class="col-lg-12">
@@ -417,5 +275,18 @@
     </div>
 </div>
 
+    <script>
+        //Fixes the left nav bar
+        $(document).ready(function(){
+            $('#nav').affix({
+                offset: {
+                    top: $('#nav').offset().top,
+                    //Doesn't work because footer spans entire page
+                    //bottom: $('#footer').outerHeight(true) 
+                    bottom: '400px'//Also doesn't work
+                }
+            });
+        });
+    </script>
 </body>
 </html>
