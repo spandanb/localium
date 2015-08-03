@@ -1,0 +1,125 @@
+#logo-img{
+    position: relative;
+    top: 10px;
+}
+
+#billboard{
+    height: 450px;
+}
+
+#hero-text{
+    margin-top: 0px;
+    padding-top: 150px;
+}
+
+.hero-subtext{
+    width: 60%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.affix {
+  top: 50px;
+  width: 213px;
+}
+ 
+@media (min-width: 1200px) {
+  .affix {
+    width: 263px;
+  }         
+}
+
+
+
+.affix-bottom {
+  position: absolute;
+  width: 213px;
+}
+ 
+@media (min-width: 1200px) {
+  .affix-bottom {
+    width: 263px;
+  }
+}
+
+.blog_posts.item-container-main{
+    margin-top: 0px;
+    padding-top: 0px;
+    background-color:#FFF;
+}
+
+.item-row{
+    padding-top: 20px;    
+}
+
+.title .section-title{
+    margin-top:50px;
+    margin-bottom: 50px;
+}
+
+.item-container{
+    float:left; 
+    margin-right: 40px;
+    width: 300px;
+}
+
+.item-image{
+    width: 100%;    
+    max-height: 300px;
+}
+
+/*For the overlay date*/
+.container-top{
+    height: 300px;
+    position: relative;
+}
+
+
+.container-top .like-container{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 40px;
+    padding: 10px 0; 
+    text-align:center;
+}
+
+.container-top .like-container .like{
+    font-size: 28px;
+    color: #737373;
+    text-shadow: 1px 1px 2px #6B6B6B;
+}
+
+.container-top .like-container .like:hover {
+    text-decoration: none;
+    color: #ff4d4d;
+}
+
+.container-top .date .day{
+    color: #fff;
+    font-family: "raleway-bold";
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.container-top .date .month{
+    color: #fff;
+    font-family: "raleway-regular";
+    font-size: 12px;
+}
+
+.item-info-container{
+    margin-right: 20px;
+    width: 100%;
+    text-align: center;
+}
+.item-title{
+    color: #616161;
+    font-family: "raleway-regular";
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 26px;
+    margin: 20px 0 0 0;
+    word-break:break-all;
+}
+
