@@ -48,6 +48,17 @@
     background-color:#FFF;
 }
 
+.sidebar-sub{
+    list-style: none;    
+    padding: 0 15px;
+    color: #6D8FAD;
+}
+
+.sidebar-sub a:hover {
+    text-decoration: none;
+    color: #47AAFF;
+}
+
 .item-row{
     padding-top: 20px;    
 }
@@ -93,19 +104,6 @@
 .container-top .like-container .like:hover {
     text-decoration: none;
     color: #ff4d4d;
-}
-
-.container-top .date .day{
-    color: #fff;
-    font-family: "raleway-bold";
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.container-top .date .month{
-    color: #fff;
-    font-family: "raleway-regular";
-    font-size: 12px;
 }
 
 .item-info-container{
