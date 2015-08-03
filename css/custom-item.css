@@ -121,3 +121,14 @@
     word-break:break-all;
 }
 
+#footer{
+    background-color: #404040;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+#footer a:hover {
+    text-decoration: none;
+    background-color: #404040;
+    color:#70a1cc;    
+}

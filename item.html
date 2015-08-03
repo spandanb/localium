@@ -25,7 +25,7 @@
 </head>
 <body>
 
-    <!-- Nav bar -->
+    <!--Top Nav bar-->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -83,211 +83,161 @@
 		</div>
 	</section>
     
-    <div class="col-md-2">
-      <ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix">
-        <!-- Clothing-->
-        <li>
-          <h4 class="sidebar-main">Clothing</h4>
-          <ul>
-            <li class="sidebar-sub"><a href="#">Tops</a></li>
-            <li class="sidebar-sub"><a href="#">Dresses</a></li>
-            <li class="sidebar-sub" ><a href="#">Bottoms</a></li>
-            <li class="sidebar-sub" ><a href="#">Footwear</a></li>
-            <li class="sidebar-sub" ><a href="#">Jackets</a></li>
-            <li class="sidebar-sub" ><a href="#">Accessories</a></li>
-          </ul>  
-        </li>
+    <div class="container-fluid"> 
+        <div class="row-fluid"> 
+            <div class="col-md-2">
+              <ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix">
+                <!-- Clothing-->
+                <li>
+                  <h4 class="sidebar-main">Clothing</h4>
+                  <ul>
+                    <li class="sidebar-sub"><a href="#">Tops</a></li>
+                    <li class="sidebar-sub"><a href="#">Dresses</a></li>
+                    <li class="sidebar-sub" ><a href="#">Bottoms</a></li>
+                    <li class="sidebar-sub" ><a href="#">Footwear</a></li>
+                    <li class="sidebar-sub" ><a href="#">Jackets</a></li>
+                    <li class="sidebar-sub" ><a href="#">Accessories</a></li>
+                  </ul>  
+                </li>
+        
+                <!-- Style -->
+                <li>
+                  <h4 class="sidebar-main">Style</h4>
+                  <ul>
+                    <li class="sidebar-sub"><a href="#"></a></li>
+                    <li class="sidebar-sub"><a href="#">Urbanist</a></li>
+                    <li class="sidebar-sub" ><a href="#">Bohemian</a></li>
+                    <li class="sidebar-sub" ><a href="#">Freestyle</a></li>
+                    <li class="sidebar-sub" ><a href="#">Rugged Nutcracker</a></li>
+                    <li class="sidebar-sub" ><a href="#">Retro</a></li>
+                  </ul>  
+                </li>
+        
+                <!-- Store -->
+                <li>
+                  <h4 class="sidebar-main">From</h4>
+                  <ul>
+                    <li class="sidebar-sub"><a href="#"></a></li>
+                    <li class="sidebar-sub"><a href="#">Zimulu Designs</a></li>
+                    <li class="sidebar-sub" ><a href="#">Black Bear and Co.</a></li>
+                    <li class="sidebar-sub" ><a href="#">Metro</a></li>
+                    <li class="sidebar-sub" ><a href="#">Handlebars</a></li>
+                  </ul>  
+                </li>
+             </ul>
+            </div>
+            
+        
+            <div class="col-md-9">
+        
+            	<section class="blog_posts item-container-main">
+            		<div class="wrapper">
+                        <div class="container">
+                            <div class="row item-row">
+                                <!-- Item 1 -->
+                				<div class="animated wow fadeInDown item-container">
+                					<div class="container-top">
+                                        <div class="like-container">
+                							<a href="#" class="like">&#9829;</a>
+                						</div>
+                						<a href="#">
+                							<img class="item-image" src="img/clothing/sweater1.jpg" alt=""/>
+                						</a>
+                					</div>
+                					<div class="item-info-container">
+                                        <a href="#">
+                						    <p class="item-title">Retrofit Fairisle Shawl Pullover</p>
+                                        </a>
+                                        <p>
+                                           <span class="item-price">24 CAD </span> 
+                                           &middot;
+                                           <a href="#" class="item-seller">Zimulu Designs</a> 
+                                        </p>
+                                    </div>
+                				</div>
+                               
+                                <script>
+                                    //Copy items
+                                    var item = $(".item-container");
+                                    item.clone().appendTo(item.parent());
+                                    item.clone().appendTo(item.parent());
+                                    
+                                    //Copy rows 
+                                    var item = $(".item-row");
+                                    item.clone().appendTo(item.parent());
+                                    item.clone().appendTo(item.parent());
+                                </script>
+        
+                                <script>
+                                    var getRandArr = function(){
+                                        var ind = [1,2,3,4,5,6]; 
+                                        var arr = [];
+                                        for(; ind.length>0;){
+                                            var i=Math.floor(Math.random() * ind.length);
+                                            arr.push(ind.splice(i, 1)[0]);
+                                        }
+                                        return arr;
+                                    } 
+                                    var getRand = function(){
+                                        return 1 + Math.floor(Math.random() * 6);
+                                    }
+        
+                                    //Iterate over each image 
+                                    $(".item-image").each(function(i, ele){
+                                        ele.src = "img/clothing/sweater" + getRand()  + ".jpg"
+                                    })
+        
+        
+                                </script>
+            
+            
+                            </div><!-- End Row -->
+                        </div> <!-- End Container -->    
+            
+            
+            		</div>
+            	</section><!--  End .blog_posts  -->
+        
+            </div><!-- End right hand content -->
+        </div><!-- End .row -->
+    </div><!-- End .container -->
 
-        <!-- Style -->
-        <li>
-          <h4 class="sidebar-main">Style</h4>
-          <ul>
-            <li class="sidebar-sub"><a href="#"></a></li>
-            <li class="sidebar-sub"><a href="#">Urbanist</a></li>
-            <li class="sidebar-sub" ><a href="#">Bohemian</a></li>
-            <li class="sidebar-sub" ><a href="#">Freestyle</a></li>
-            <li class="sidebar-sub" ><a href="#">Rugged Nutcracker</a></li>
-            <li class="sidebar-sub" ><a href="#">Retro</a></li>
-          </ul>  
-        </li>
-
-        <!-- Store -->
-        <li>
-          <h4 class="sidebar-main">From</h4>
-          <ul>
-            <li class="sidebar-sub"><a href="#"></a></li>
-            <li class="sidebar-sub"><a href="#">Zimulu Designs</a></li>
-            <li class="sidebar-sub" ><a href="#">Black Bear and Co.</a></li>
-            <li class="sidebar-sub" ><a href="#">Metro</a></li>
-            <li class="sidebar-sub" ><a href="#">Handlebars</a></li>
-          </ul>  
-        </li>
-     </ul>
-    </div>
-    
-
-    <div class="col-md-9">
-
-    	<section class="blog_posts item-container-main">
-    		<div class="wrapper">
-                <div class="container">
-                    <div class="row item-row">
-                        <!-- Item 1 -->
-        				<div class="animated wow fadeInDown item-container">
-        					<div class="container-top">
-                                <div class="like-container">
-        							<a href="#" class="like">&#9829;</a>
-        						</div>
-        						<a href="#">
-        							<img class="item-image" src="img/clothing/sweater1.jpg" alt=""/>
-        						</a>
-        					</div>
-        					<div class="item-info-container">
-                                <a href="#">
-        						    <p class="item-title">Retrofit Fairisle Shawl Pullover</p>
-                                </a>
-                                <p>
-                                   <span class="item-price">24 CAD </span> 
-                                   &middot;
-                                   <a href="#" class="item-seller">Zimulu Designs</a> 
-                                </p>
-                            </div>
-        				</div>
-                       
-                        <script>
-                            //Copy items
-                            var item = $(".item-container");
-                            item.clone().appendTo(item.parent());
-                            item.clone().appendTo(item.parent());
-                            
-                            //Copy rows 
-                            var item = $(".row");
-                            item.clone().appendTo(item.parent());
-                            item.clone().appendTo(item.parent());
-                        </script>
-
-                        <script>
-                            var getRandArr = function(){
-                                var ind = [1,2,3,4,5,6]; 
-                                var arr = [];
-                                for(; ind.length>0;){
-                                    var i=Math.floor(Math.random() * ind.length);
-                                    arr.push(ind.splice(i, 1)[0]);
-                                }
-                                return arr;
-                            } 
-                            var getRand = function(){
-                                return 1 + Math.floor(Math.random() * 6);
-                            }
-
-                            //Iterate over each image 
-                            $(".item-image").each(function(i, ele){
-                                ele.src = "img/clothing/sweater" + getRand()  + ".jpg"
-                            })
-
-
-                        </script>
-    
-    
-                    </div><!-- End Row -->
-                </div> <!-- End Container -->    
-    
-    
-    		</div>
-    	</section><!--  End blog_posts  -->
-
-    </div><!-- End right hand content -->
-    <!--
-	<section class="services wrapper">
-		<ul class="clearfix">
-			<li class="animated wow fadeInDown"  data-wow-delay=".2s">
-				<img class="icon" src="img/icon2.png" alt=""/>
-				<span class="separator"></span>
-				<h2>Explore Online</h2>
-				<p>Look at items from the comfort of your home. 
-                Search items by style, color, seller.</p>
-			</li>
-			<li class="animated wow fadeInDown"  data-wow-delay=".4s">
-				<img class="icon" src="img/icon3.png" alt=""/>
-				<span class="separator"></span>
-				<h2>Find What You Like</h2>
-				<p>See what others have bought, and use our 
-                recommendations to find the right fit.</p>
-			</li>
-			<li class="animated wow fadeInDown">
-				<img class="icon" src="img/icon1.png" alt=""/>
-				<span class="separator"></span>
-				<h2>Buy Locally</h2>
-				<p>Buy local shops and artisans, and support local businesses.</p>
-			</li>
-		</ul>
-	</section--><!--  End services  -->
-
-    <!--
-	<section class="video">
-		<img src="img/video_logo.png" alt="" class="video_logo animated wow fadeInDown"/>
-		<h3 class="animated wow fadeInDown">who we are & what we do</h3>
-		<a href="http://www.youtube.com/embed/cBJyo0tgLnw" id="play_btn" class="fancybox animated wow flipInX" data-wow-duration="2s"></a>
-	</section--><!--  End video  -->
-    
-    <!--div id="footer-container">
-	<footer id="footer">
-		<div class="wrapper">
-			<div class="rights">
-				<img src="img/footer_logo.png" alt="" class="footer_logo"/>
-				<p>© Sublime. All Rights Reserved 2014 - More Free Templates at <a href="http://pixelhint.com" target="_blank">Pixelhint.com</a></p>
-			</div>
-
-			<nav>
-				<ul>
-					<li><a href="#">About</a></li>
-					<li><a href="#">FAQ</a></li>
-					<li><a href="#">Services</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</nav>
-		</div>		
-	</footer>
-    </div -->
-
-<div id="footer" class="text-center">
-    <hr />
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="col-md-3">
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="#">About us</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3">
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3">
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="col-md-3">
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>  
-    </div>
-  </div>
-  <hr>
-    <div class="row">
+    <div id="footer" class="container-fluid text-center">
+      <div class="row-fluid">
         <div class="col-lg-12">
-            <ul class="nav nav-pills nav-justified">
-                <li><a href="/">© 2015 Prada.</a></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Privacy</a></li>
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">About us</a></li>
             </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>  
+        </div>
+      </div>
+      <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="/">© 2015 Prada.</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
     <script>
         //Fixes the left nav bar
@@ -297,7 +247,7 @@
                     top: $('#nav').offset().top,
                     //Doesn't work because footer spans entire page
                     //bottom: $('#footer').outerHeight(true) 
-                    bottom: '400px'//Also doesn't work
+                    bottom: 175
                 }
             });
         });
