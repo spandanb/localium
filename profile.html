@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Sublime - stunning free HTML5/CSS3 website template</title>
+	<meta charset="utf-8">
+	<meta name="author" content="pixelhint.com">
+	<meta name="description" content="Sublime Stunning free HTML5/CSS3 website template"/>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/fancybox-thumbs.css">
+	<link rel="stylesheet" type="text/css" href="css/fancybox-buttons.css">
+	<link rel="stylesheet" type="text/css" href="css/fancybox.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/custom-profile.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/fancybox.js"></script>
+    <script type="text/javascript" src="js/fancybox-buttons.js"></script>
+    <script type="text/javascript" src="js/fancybox-media.js"></script>
+    <script type="text/javascript" src="js/fancybox-thumbs.js"></script>
+    <script type="text/javascript" src="js/wow.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <!--Top Nav bar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+		  <a href="#">
+            <img id="logo-img" class="logo" src="img/logo_dark.png" alt=""/>
+          </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          
+          <ul class="nav navbar-nav navbar-right">
+            <!-- Favorites -->
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                    Favorites 
+                    <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">My closet</a></li>
+                <li><a href="#">My favorites</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Preferences</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+            
+            <!-- User -->
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                    Spandan 
+                    <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">My closet</a></li>
+                <li><a href="#">My favorites</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Preferences</a></li>
+                <li><a href="#">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	
+    <section id="billboard" class="billboard dark">
+		<div id="hero-text" class="caption dark clearfix">
+			<h1>Zimulu Designs</h1>
+			<p class="hero-subtext">
+               Express yourself with leather and textile accessories. 
+            </p>
+			<hr>
+		</div>
+	</section>
+    
+    <div class="container-fluid"> 
+        <div class="row-fluid"> 
+            <div class="col-md-3 profile">
+                <h4>Shop Owner</h4>
+                <img src="img/shop/profile-pic.jpg">    
+                <a href="#">Jane McDoe</a>
+                <h4 class="">Contact Info</h4>
+                <p>16 Augusta Dr. </p>
+                <p>Kensington Market </p>
+                <p>Toronto </p>
+                <p>416-776-6667</p>
+            </div>
+            
+        
+            <div class="col-md-8">
+                <div class="store-story">
+                    <img src="img/shop/store-pic.jpg"> 
+                    <h3>Storytelling Through Textiles</h3>
+                    <p>
+                        When I was a child I saw a woman selling dresses made from sari silks at a market in my hometown on Vancouver Island in the Pacific Northwest. I thought this fabric was one of the most beautiful things I had ever seen and it conjured images of palaces and maharaj, smoky mysterious corners, exotic smells and foreign music. At that time I pledged to myself that when I was old enough,
+                        I would go to India.  ....
+                    </p>
+                
+                </div>
+        
+            </div><!-- End right hand content -->
+        </div><!-- End .row -->
+    </div><!-- End .container -->
+
+    <div id="footer" class="container-fluid text-center">
+      <div class="row-fluid">
+        <div class="col-lg-12">
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">About us</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>  
+        </div>
+      </div>
+      <hr>
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="/">© 2015 Prada.</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //Fixes the left nav bar
+        $(document).ready(function(){
+            $('#nav').affix({
+                offset: {
+                    top: $('#nav').offset().top,
+                    //Doesn't work because footer spans entire page
+                    //bottom: $('#footer').outerHeight(true) 
+                    bottom: 175
+                }
+            });
+        });
+    </script>
+</body>
+</html>
