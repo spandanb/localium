@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+            <div class="account-wall-2">
+
+                <h3 class="text-center">LOG IN</h3>
+            
+                <!-- <div class="alert alert-danger" ng-show="form.acctnumber.$dirty && form.acctnumber.$invalid">
+                    <span ng-show="form.acctnumber.$error.required">Account Number is required.</span>
+                </div>
+                <div class="alert alert-danger" ng-show="form.password.$dirty && form.password.$invalid">
+                    <span ng-show="form.password.$error.required">Password is required.</span>
+                </div> -->
+
+                <hr class="colorgraph-custom">
+            
+                <form role="form" name="form" novalidate ng-submit="signin()">
+                    <div class="form-group col-xs-12 col-sm-6 col-md-12">
+                        <input type="text" ng-model=acctnumber name=acctnumber class="form-control" placeholder="USERNAME" tabindex="1" required>
+                    </div>
+                    <div class="form-group col-xs-12 col-sm-6 col-md-12">
+                        <input type="password" ng-model=password name=password class="form-control" placeholder="PASSWORD" tabindex="2" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12">
+                                <hr class="colorgraph-custom">
+                                <input type="submit" value="LOGIN" class="btn btn-success btn-block btn-lg">
+                                <a class="btn btn-info btn-block btn-lg" href="" >REGISTER </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>  

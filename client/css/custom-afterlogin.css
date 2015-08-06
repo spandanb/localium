@@ -1,0 +1,103 @@
+#logo-img{
+    position: relative;
+    top: 10px;
+}
+
+#billboard{
+    height: 450px;
+}
+
+#hero-text{
+    margin-top: 0px;
+    padding-top: 150px;
+}
+
+.affix {
+  top: 50px;
+  width: 213px;
+}
+ 
+@media (min-width: 1200px) {
+  .affix {
+    width: 263px;
+  }         
+}
+
+
+
+.affix-bottom {
+  position: absolute;
+  width: 213px;
+}
+ 
+@media (min-width: 1200px) {
+  .affix-bottom {
+    width: 263px;
+  }
+}
+
+.blog_posts.item-row{
+    margin-top: 0px;
+    padding-top: 0px;
+    background-color:#FFF;
+}
+
+.title .section-title{
+    margin-top:50px;
+    margin-bottom: 50px;
+}
+
+.item-container{
+    float:left; 
+    margin-right: 40px;
+    width: 300px;
+}
+
+.item-image{
+    width: 100%;    
+}
+
+/*For the overlay date*/
+.container-top{
+    height: 300px;
+    position: relative;
+}
+
+
+.container-top .date{
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 40px;
+    background: rgba(62, 62, 62, 0.7);
+    padding: 10px 0; 
+    text-align:center;
+}
+
+.container-top .date .day{
+    color: #fff;
+    font-family: "raleway-bold";
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.container-top .date .month{
+    color: #fff;
+    font-family: "raleway-regular";
+    font-size: 12px;
+}
+
+.item-title-container{
+    margin-right: 20px;
+    width: 100%;
+}
+.item-title{
+    color: #616161;
+    font-family: "raleway-regular";
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 26px;
+    margin: 20px 0 0 0;
+    word-break:break-all;
+}
+
