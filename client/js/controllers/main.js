@@ -1,8 +1,6 @@
 angular.module('app.controllers',[])
-.controller('homeCtrl',function($scope,$state,$modal){
-	console.log("Hello Woeld");
-	$scope.animationsEnabled = true;
-	  $scope.items = ['item1', 'item2', 'item3'];
+.controller('homeCtrl',function($scope,$state,$modal,$scrollspy,$location,$anchorScroll){
+
 	$scope.logIn = function(){
 		$scope.navbarCollapsed =true;
     $state.go('login');
@@ -14,15 +12,6 @@ angular.module('app.controllers',[])
 		$state.go('signUp');
 	};
 
-	$scope.demo = function(){
-		$scope.navbarCollapsed =true;
-    $state.go('demo');
-	};
-
-	$scope.description= function(){
-    $scope.navbarCollapsed =true;
-		$state.go('detail');
-	};
 
 	$scope.openModal = function () {
 
@@ -36,7 +25,14 @@ angular.module('app.controllers',[])
 
   };
 
-
+$scope.scrollToHref = function (id){
+        // set the location.hash to the id of
+        // the element you wish to scroll to.
+        console.log('I am in the controller');
+        $location.hash(id);
+        // call $anchorScroll()
+        $anchorScroll();
+    };
 
 })
 .controller('demoCtrl',function($scope,$state){

@@ -17,6 +17,11 @@ body {
     color: #fed136;
 }
 
+.mainBody{
+    height:100%;
+    width:100%;
+}
+
 p {
     font-size: 14px;
     line-height: 1.75;
@@ -48,10 +53,15 @@ a.active {
 h1,
 h2,
 h3,
+ {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
 h4,
 h5,
-h6 {
-    text-transform: uppercase;
+h6{
+
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
 }
@@ -62,10 +72,18 @@ h6 {
 
 .bg-light-gray {
     background-color: #f7f7f7;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .bg-darkest-gray {
     background-color: #222;
+}
+
+.bg-light {
+    background-color: #ffffff;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 .btn-primary {

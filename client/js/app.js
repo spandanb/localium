@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('megaTradingApp',['ngResource','ui.bootstrap','app.controllers','ui.router'])
+angular.module('megaTradingApp',['ngResource','ui.bootstrap','app.controllers','ui.router','mgcrea.ngStrap','mgcrea.ngStrap.helpers.dimensions'])
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
 .state('home',{ 
