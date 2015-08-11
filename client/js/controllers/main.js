@@ -25,6 +25,13 @@ angular.module('app.controllers',[])
 
   };
 
+    $scope.description = function () {
+
+      $state.go('detail');
+
+  };
+
+
 $scope.scrollToHref = function (id){
         // set the location.hash to the id of
         // the element you wish to scroll to.
@@ -112,4 +119,15 @@ $scope.scrollToHref = function (id){
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
-});;
+}).directive("scroll", function ($window) {
+    return function(scope, element, attrs) {
+        angular.element($window).bind("scroll", function() {
+             if (this.pageYOffset >= 200) {
+                 scope.boolChangeClass = true;
+             } else {
+                 scope.boolChangeClass = false;
+             }
+            scope.$apply();
+        });
+    };
+});

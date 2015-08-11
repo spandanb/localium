@@ -1,9 +1,9 @@
  <header>
         <div class="container">
-            <div class="intro-text">
+            <div class="intro-text" style="padding-top:150px">
                 <div class="intro-lead-in">Welcome To Our Studio!</div>
                 <div class="intro-heading">It's Nice To Meet You</div>
-                <button class="btn btn-default btn" ng-click="description()" style="padding:20px">Browse</button>
+                <!-- <button class="btn btn-default btn" ng-click="description()" style="padding:20px">Browse</button> -->
                
             </div>
         </div>
@@ -177,11 +177,18 @@
                 <div class="bs-sidebar hidden-print" role="complementary" data-offset-top="-60" bs-affix bs-scrollspy-list>
                   <ul class="nav bs-sidenav">
                     <li bs-scrollspy data-target="#getting-started" >
-                      <a ng-click="scrollToHref('getting-started')">Books</a>
+                      <a ng-click="scrollToHref('getting-started')"><font size="4" color="black">Books</font></a>
                     </li>
-                    <hr style="margin: 2px 0;">
-                    <li bs-scrollspy="" data-target="#modals">
-                      <a  ng-click="scrollToHref('modals')">Clothes</a>
+               
+                    <li bs-scrollspy="" data-target="#Clothes">
+                      <a  ng-click="scrollToHref('Clothes')"><font size="4" color="black">Clothes</font></a>
+                    </li>
+                    <li bs-scrollspy data-target="#Electronics" >
+                      <a ng-click="scrollToHref('Electronics')"><font size="4" color="black">Electronics</font></a>
+                    </li>
+                    
+                    <li bs-scrollspy="" data-target="#Furniture">
+                      <a  ng-click="scrollToHref('Furniture')"><font size="4" color="black">Furniture</font></a>
                     </li>
                     <!-- <li bs-scrollspy="" data-target="#asides" >
                       <a href="#asides">Aside</a>
@@ -194,8 +201,8 @@
             </div>
             <div class="col-md-10">
             <section id="getting-started" style="padding-top:60px;padding-bottom:0px;">
-                <div class="col-lg-12 text-left">
-                    <h3 class="section-heading">Books</h3>
+                <div class="col-lg-12 text-left" style="padding-left:0">
+                    <h3 class="section-heading" Style="font-size:31px">Books</h3>
             
                 </div>
                  <div class="row">
@@ -242,10 +249,17 @@
                     </div>
                 </div>
             </div>
-        
+            <div class="row">
+                <a class="btn btn-success pull-right">Check More Out <span><i class="fa fa-arrow-right fa-1x"></i></span></a>
+            </div>
+            <hr>
             </section>
 
-            <section id="modals" style="padding-top:0px">
+            <section id="Clothes" style="padding-top:60px;padding-bottom:0px;">
+                <div class="col-lg-12 text-left" style="padding-left:0">
+                    <h3 class="section-heading" Style="font-size:31px">Clothes</h3>
+            
+                </div>
                  <div class="row">
                 <div class="col-md-4 col-sm-6 portfolio-item">
                     <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
@@ -290,8 +304,124 @@
                     </div>
                 </div>
             </div>
-        
+            <div class="row">
+                <a class="btn btn-success pull-right">Check More Out <span><i class="fa fa-arrow-right fa-1x"></i></span></a>
+            </div>
+            <hr>
             </section>
+            
+
+            <section id="Electronics" style="padding-top:60px;padding-bottom:0px;">
+                <div class="col-lg-12 text-left" style="padding-left:0">
+                    <h3 class="section-heading" Style="font-size:31px">Electronics</h3>
+            
+                </div>
+                 <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Round Icons</h4>
+                        <p class="text-muted">Graphic Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Startup Framework</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Treehouse</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a class="btn btn-success pull-right">Check More Out <span><i class="fa fa-arrow-right fa-1x"></i></span></a>
+            </div>
+            <hr>
+            </section>
+
+            <section id="Furniture" style="padding-top:60px;padding-bottom:0px;">
+                <div class="col-lg-12 text-left" style="padding-left:0">
+                    <h3 class="section-heading" Style="font-size:31px">Furniture</h3>
+            
+                </div>
+                 <div class="row">
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Round Icons</h4>
+                        <p class="text-muted">Graphic Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Startup Framework</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Treehouse</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a class="btn btn-success pull-right">Check More Out <span><i class="fa fa-arrow-right fa-1x"></i></span></a>
+            </div>
+            <hr>
+            </section>
+
+
             </div>
         </div>
                 

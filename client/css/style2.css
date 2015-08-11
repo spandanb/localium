@@ -147,3 +147,28 @@
 	background-color: transparent;
 
 }
+
+.bs-sidebar .nav>.active:focus>a, .bs-sidebar .nav>.active:hover>a, .bs-sidebar .nav>.active>a {
+    padding-right: 13px;
+    font-weight: 700;
+    color: #b94846;
+    background-color: transparent;
+    border-right: 2px solid #b94846;
+}
+
+.navbar-custom {
+    background-color:#229922;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+}
