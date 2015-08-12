@@ -6,14 +6,16 @@ var server = http.createServer(app);
 var io = socket.listen(server);
 var path = require('path');
 var fs = require('fs');
+var bodyParser = require('body-parser');
 var passport = require('passport');
+var config = require('./server/config/config'); 
+
 var mongoose = require('mongoose');
 var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);
-var config = require('./server/config/config'); 
-var bodyParser = require('body-parser');
 var db = require('./server/db/mongo').db;
 var modelsPath = path.join(__dirname, 'server/models');
+
 var cookieParser = require('cookie-parser');
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(cookieParser());
@@ -22,16 +24,20 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   require(modelsPath + '/' + file);
 });
 
+
+//NOTE: Uncomment if need to connect to DB
+/*
 app.use(session({
   secret: 'MEAN',
-  saveUninitialized: false, //true 
-  resave: false, //true
+  saveUninitialized: false, 
+  resave: false, 
   store: new mongoStore({
     url: config.db,
     collection: 'sessions',
-    
   })
 }));
+*/
+
 var pass = require('./server/config/pass.js');
 //
 app.use(passport.initialize());
