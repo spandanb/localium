@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 angular.module('prada',['ngResource',
                         'ui.bootstrap',

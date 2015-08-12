@@ -1,3 +1,5 @@
+"use strict";
+
 angular.module('app.controllers',[])
 .controller('homeCtrl',function($scope,$state,$modal,$scrollspy,$location,$anchorScroll){
 
