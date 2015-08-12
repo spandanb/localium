@@ -1,0 +1,91 @@
+<md-dialog aria-label="Post Item">
+<form>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-input-container>
+                <label>Title</label>
+                <input ng-model="post.title">
+            </md-input-container>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="answer('not applicable')">
+                <i class="material-icons">clear</i>
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content style="width:1000px;max-height:810px; ">
+        <div layout="row">
+            <div flex="50">
+                <div layout="row">
+                    <div flex="50">
+                        <md-input-container>
+                            <label>Asking Price</label>
+                            <input ng-model="post.askingPrice">
+                        </md-input-container>
+                    </div>
+                    <div flex="50">
+                        <md-input-container>
+                            <label>Retail Price</label>
+                            <input ng-model="post.retailPrice">
+                        </md-input-container>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div flex="50">
+                        <md-select placeholder="Category" ng-model="post.category">
+                            <md-option>Clothing and Apparel</md-option> 
+                            <md-option>Books</md-option> 
+                            <md-option>Electronics</md-option> 
+                            <md-option>Furniture and Household Items</md-option> 
+                        </md-select>
+                    </div>
+                    <div flex="50">
+                        <md-select placeholder="Condition" ng-model="post.condition">
+                            <md-option>New</md-option> 
+                            <md-option>Slightly Used</md-option> 
+                            <md-option>Moderately Used</md-option> 
+                            <md-option>Acceptable</md-option> 
+                        </md-select>
+                    </div>
+                </div>
+                <div layout="row">
+                   <md-input-container flex>
+                        <label>Description</label>
+                        <textarea ng-model="post.description" columns="1" md-maxlength="200"></textarea>
+                   </md-input-container> 
+                </div>
+                <div layout="row">
+                    <md-chips 
+                        flex 
+                        md-autocomplete-snap 
+                        md-require-match
+                        ng-model="post.tags"
+                        readonly="false"
+                        placeholder="Enter a tag"
+                        delete-button-label="Remove Tag"
+                        delete-hint="Press delete to remove tag"
+                        secondary-placeholder="+Tag">
+                    </md-chips>
+                </div>
+            </div>
+            <div flex="50">
+                <div class="upload-img-container">
+                    <img src="img/icons/upload.png" alt="">
+                    <div> Add Photos</div>
+                </div>
+            </div>
+        </div>
+
+    </md-dialog-content>
+
+    <div class="md-actions" layout="row">
+        <span flex></span>
+        <md-button ng-click="answer('not useful')">
+            Exit 
+        </md-button>
+        <md-button ng-click="answer('useful')" style="margin-right:20px;">
+            Post 
+        </md-button>
+      </div>
+    </form>
+</md-dialog> 

@@ -1,0 +1,348 @@
+
+    <!-- Custom CSS -->
+    <link href="css/custom-agency-listing.css" rel="stylesheet">
+    <link href="css/custom-listing.css" rel="stylesheet">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink" >
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Prada</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <!-- Left section -->
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="" href="#">Clothing</a>
+                    </li>
+                    <li>
+                        <a class="" href="#">Books</a>
+                    </li>
+                    <li>
+                        <a class="" href="#">Electronics</a>
+                    </li>
+                    <li>
+                        <a class="" href="#">Furniture</a>
+                    </li>
+                    <li>
+                        <div class="search-container">
+                            <input type="text" placeholder="Search"> 
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Right section -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                     <li >
+                        <!--a id="post-item-btn" href="" data-toggle="modal" data-target="#myModal"-->
+                        <a id="post-item-btn" href="" ng-click="postItem()">
+                            Post
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                        <!--button class="btn btn-default" >Post an Item</button-->
+                    </li>
+
+                    <li dropdown on-toggle="toggled(open)">
+                        <a href is-open dropdown-toggle>
+                            Spandan 
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href>Postings</a></li>
+                            <li><a href>Favorites</a></li>
+                            <li><a href>Recently Viewed</a></li>
+                            <li class="divider"></li>
+                            <li><a href>Preferences</a></li>
+                            <li><a href>Logout</a></li>
+                         </ul>
+                    </li>
+                </ul>
+
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="intro-text col-md-6 col-md-offset-3">
+                            <div class="hero-main-text">Clothing</div>
+                            <div class="hero-sub-text">Buy, sell, and exchange clothing here.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-2 hidden-xs hidden-sm">
+                <!-- Sidebar -->
+                <ul class="nav">
+                    <li>
+                        <h4>Filter</h4>
+                        <hr>  
+                    </li>     
+                    <li>
+                        <div> Size </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <md-checkbox ng-model="filter.size.xs" class="md-warm">xs</md-checkbox>
+                            </div>
+    
+                            <div class="col-md-4">
+                                <md-checkbox ng-model="filter.size.s" class="md-warm">s</md-checkbox>
+                            </div>    
+
+                            <div class="col-md-4">
+                                <md-checkbox ng-model="filter.size.m" class="md-warm">m</md-checkbox>
+                            </div>
+    
+                            <div class="col-md-4">
+                                <md-checkbox ng-model="filter.size.l" class="md-warm">l</md-checkbox>
+                            </div>    
+
+                            <div class="col-md-4">
+                                <md-checkbox ng-model="filter.size.xl" class="md-warm">xl</md-checkbox>
+                            </div>    
+
+                            <div class="col-md-4">
+                                <md-checkbox ng-model="filter.size.xxl" class="md-warm">xxl+</md-checkbox>
+                            </div>    
+                        </div>
+                        <hr>
+                    </li>
+                    <li>
+                        <div> Price </div>
+                         <div class="checkbox">
+                             <md-checkbox ng-model="filter.price1" class="md-warm">&lt; $5</md-checkbox>
+                         </div>
+                         <div class="checkbox">
+                             <md-checkbox ng-model="filter.price2" class="md-warm"> $5 - $10</md-checkbox>
+                         </div>
+                         <div class="checkbox">
+                             <md-checkbox ng-model="filter.price4" class="md-warm"> $10 - $50</md-checkbox>
+                         </div>
+                         <div class="checkbox">
+                             <md-checkbox ng-model="filter.price5" class="md-warm">$50 - $100</md-checkbox>
+                         </div>
+                         <div class="checkbox">
+                             <md-checkbox ng-model="filter.price6" class="md-warm">$100+</md-checkbox>
+                         </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+
+                    <div class="container-fluid">
+                        <div id="sort-menu" class="row-fluid">
+                            <span>SORT BY:</span>
+                            <a href="#">Recently Added</a>
+                            <a href="#">Most Viewed</a>
+                            <a href="#">Price: Low-to-High</a>
+                            <a href="#">Price: High-to-Low</a>
+                        </div>
+                    </div>     
+
+
+                <!-- Posts -->
+                <!-- Portfolio Grid Section -->
+                <section id="portfolio" class="bg-light-gray">
+                    <div class="container-fluid">
+                        <div class="row-fluid item-row">
+                            <div ng-repeat="item in items" class="item-container col-md-4 col-sm-6  ">
+                                <div class="item-container-inner portfolio-item"> 
+                                    <div class="item-container-top">
+                                        <carousel interval=0 no-wrap=false template-url="imgCarousel.html" >
+                                            <slide ng-repeat="slide in item.slides" active="slide.active">
+                                                <div class="img-container"> 
+                                                    <img ng-src="{{slide.img}}" class="img-responsive">
+                                                </div>
+                                            </slide>
+                                        </carousel>
+    
+                				        <!-- Like heart -->
+                                        <div class="like-container">
+                                            <a href="#" class="like">&#9829;</a>
+                						</div>
+    
+                                        <!-- Item Price -->
+                                        <div class="item-price">
+                                            <span class="item-price-currency-sym">$</span>
+                                            <span class="item-price-value">{{item.price}}</span>
+                                            <span class="item-price-currency-abr">CAD</span>
+                                        </div>
+                
+                                        <!-- User Image -->
+                                        <div class="user-pic-container">
+                                           <img src="img/user/profile-pic.jpg">
+                                        </div>
+    
+                                    </div><!-- Ends .item-container-top-->    
+                                    <div class="portfolio-caption">
+                                        <a href="">{{item.name}}</a>
+                                    </div>
+                                </div><!-- Ends .item-container-inner -->
+                            </div><!-- Ends .item-container -->
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div><!-- Closes main .container -->
+
+
+    <nav class="navbar navbar-default navbar-fixed-bottom navbar-shrink" id="dummy-chat-holder">
+        <div class="container">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <!-- Right section -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                    <li class="dropdown">
+                      <a id="chat-toggle" class="dropdown-toggle chat-toggle" data-toggle="dropdown" role="button">
+                            <span class="caret" style="color:red"></span>
+                      </a>
+                      <div class="dropdown-menu">
+                        <div class="chat">
+                            <div class="top-bar">
+                                <div class="chat-img-container">
+                                    <img src="img/user/profile-pic.jpg">
+                                </div>    
+                                <span class="username">John Smith</span>
+                                
+                                <span class="pull-right glyphicon glyphicon-remove quit-sym"></span>
+                                <span class="pull-right glyphicon glyphicon-minus minimize-sym"></span>
+                            </div>
+                            <div class="messages-container">
+                                <div class="talk-bubble tri-right left-top">
+                                     <div class="talktext">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, 
+                                            consectetur adipiscing elit. 
+                                            Sed aliquam dui erat. 
+                                            Cras tempus neque vitae ex efficitur imperdiet.
+                                        </p>
+                                      </div>
+                                </div> 
+
+                                <div class="talk-bubble tri-left right-top">
+                                     <div class="talktext">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, 
+                                            consectetur adipiscing elit. 
+                                            Sed aliquam dui erat. 
+                                        </p>
+                                      </div>
+                                </div> 
+                            </div>    
+                            <div class="input-group">
+                                 <input type="text" class="form-control" placeholder="Enter Message">
+                                 <span class="input-group-btn">
+                                   <button class="btn btn-default" type="button">Send</button>
+                                 </span>
+                            </div>
+                        </div>
+                      </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Prada 2015</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2>Project Name</h2>
+                            <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                            <img class="img-responsive img-centered" src="img/portfolio/roundicons-free.png" alt="">
+                            <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                            <p>
+                                <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
+                            <ul class="list-inline">
+                                <li>Date: July 2014</li>
+                                <li>Client: Round Icons</li>
+                                <li>Category: Graphic Design</li>
+                            </ul>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
