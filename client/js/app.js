@@ -35,5 +35,5 @@ $stateProvider
     controller:'detailCtrl'
 })
 
-$urlRouterProvider.otherwise("/listing");
+$urlRouterProvider.otherwise("/home");
 });
