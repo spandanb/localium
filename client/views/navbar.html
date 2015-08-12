@@ -1,0 +1,81 @@
+<!-- Custom CSS -->
+<link href="css/custom-agency-listing.css" rel="stylesheet">
+<link href="css/custom-listing.css" rel="stylesheet">
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-shrink" >
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">Prada</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!-- Left section -->
+            <ul class="nav navbar-nav navbar-left">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="" href="#">Clothing</a>
+                </li>
+                <li>
+                    <a class="" href="#">Books</a>
+                </li>
+                <li>
+                    <a class="" href="#">Electronics</a>
+                </li>
+                <li>
+                    <a class="" href="#">Furniture</a>
+                </li>
+                <li>
+                    <div class="search-container">
+                        <input type="text" placeholder="Search"> 
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Right section -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                 <li >
+                    <!--a id="post-item-btn" href="" data-toggle="modal" data-target="#myModal"-->
+                    <a id="post-item-btn" href="" ng-click="postItem()">
+                        Post
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <!--button class="btn btn-default" >Post an Item</button-->
+                </li>
+
+                <li dropdown on-toggle="toggled(open)">
+                    <a href is-open dropdown-toggle>
+                        Spandan 
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href>Postings</a></li>
+                        <li><a href>Favorites</a></li>
+                        <li><a href>Recently Viewed</a></li>
+                        <li class="divider"></li>
+                        <li><a href>Preferences</a></li>
+                        <li><a href>Logout</a></li>
+                     </ul>
+                </li>
+            </ul>
+
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>

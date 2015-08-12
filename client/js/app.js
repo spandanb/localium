@@ -11,13 +11,24 @@ angular.module('prada',['ngResource',
 $stateProvider
 .state('home',{ 
     url:'/home',
-    templateUrl:'../views/home.html',
-    controller:'homeCtrl'
+    views:{
+        'main': {
+            templateUrl:'../views/home.html',
+            controller: 'homeCtrl'
+        }
+    }
 })
 .state('listing', {
     url:'/listing',
-    templateUrl:'../views/listing.html',
-    controller:'listingCtrl'
+    views: {
+        'navbar': {
+            templateUrl: '../views/navbar.html'
+        },
+        'main':{
+            templateUrl: '../views/listing.html',
+            controller: 'listingCtrl',
+        }
+    }
 })
 .state('login', {
     url:'/login',
