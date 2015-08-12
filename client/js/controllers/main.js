@@ -2,7 +2,7 @@
 
 angular.module('app.controllers',[])
 .controller('homeCtrl',function($scope,$state,$modal,$scrollspy,$location,$anchorScroll){
-
+  $ccope.boolChangeClass = false;
 	$scope.logIn = function(){
 		$scope.navbarCollapsed =true;
     $state.go('login');
@@ -121,15 +121,4 @@ $scope.scrollToHref = function (id){
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
-}).directive("scroll", function ($window) {
-    return function(scope, element, attrs) {
-        angular.element($window).bind("scroll", function() {
-             if (this.pageYOffset >= 200) {
-                 scope.boolChangeClass = true;
-             } else {
-                 scope.boolChangeClass = false;
-             }
-            scope.$apply();
-        });
-    };
 });
