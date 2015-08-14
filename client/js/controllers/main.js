@@ -1,8 +1,8 @@
-"use strict";
 
 angular.module('app.controllers',[])
 .controller('homeCtrl',function($scope,$state,$modal,$scrollspy,$location,$anchorScroll){
-  $ccope.boolChangeClass = false;
+   console.log('I am in the controller');
+  $scope.boolChangeClass = false;
 	$scope.logIn = function(){
 		$scope.navbarCollapsed =true;
     $state.go('login');
@@ -42,6 +42,10 @@ $scope.scrollToHref = function (id){
         // call $anchorScroll()
         $anchorScroll();
     };
+
+$scope.bookMore = function(){
+      $state.go('detail');
+};
 
 })
 .controller('demoCtrl',function($scope,$state){

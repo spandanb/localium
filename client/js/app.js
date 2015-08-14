@@ -7,16 +7,16 @@ angular.module('prada',['ngResource',
                         'mgcrea.ngStrap',
                         'app.directives',
                         'mgcrea.ngStrap.helpers.dimensions',
-                        'ngMaterial'])
+                        'ngMaterial',
+                        'app.listing'])
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
 .state('home',{ 
     url:'/home',
-    controller: 'homeCtrl',
     views:{
         'main': {
-            templateUrl:'../views/home.html'
-           
+            templateUrl:'../views/home.html',
+            controller: 'homeCtrl',
         }
     }
 })

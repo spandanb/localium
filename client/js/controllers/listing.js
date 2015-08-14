@@ -1,6 +1,6 @@
 'use strict'
 
-angular.module('app.controllers',[])
+angular.module('app.listing',[])
 .controller('listingCtrl', function($scope, $modal, $mdDialog){
 
     //Called when top dropdown toggled
