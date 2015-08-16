@@ -37,6 +37,11 @@ angular.module('app.listing',[])
             $scope.status = 'You cancelled the dialog.';
         });
     }
+
+    $scope.currentPage = 1;
+    $scope.pageChanged = function(){
+        console.log("Page changed");    
+    }
     
 }).controller('postModalCtrl', function($scope, $mdDialog, $timeout, $q){
     $scope.hide = function() {
