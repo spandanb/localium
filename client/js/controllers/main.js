@@ -22,7 +22,6 @@ angular.module('app.controllers',[])
       templateUrl: '../views/videoModal.html',
       controller: 'ModalInstanceCtrl',
       size: 'lg'
-
     });
 
   };

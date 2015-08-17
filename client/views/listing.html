@@ -2,6 +2,18 @@
 <link href="css/custom-agency-listing.css" rel="stylesheet">
 <link href="css/custom-listing.css" rel="stylesheet">
 
+<!-- Img Carousel Template -->
+<script type="text/ng-template" id="imgCarouselTemplate.html">
+    <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
+        <ol class="carousel-indicators" ng-show="slides.length > 1">
+            <li ng-repeat="slide in slides | orderBy:indexOfSlide track by $index" ng-class="{active: isActive(slide)}" ng-click="select(slide)"></li>
+        </ol>
+        <div class="carousel-inner" ng-transclude></div>
+        <a class="left carousel-control custom-carousel-control" ng-click="prev()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a class="right carousel-control custom-carousel-control" ng-click="next()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a>
+    </div>
+</script>
+
 <!-- Header -->
 <header>
     <div class="container">
@@ -29,27 +41,27 @@
                     <div> Size </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.xs" class="md-warm">xs</md-checkbox>
+                            <md-checkbox ng-model="filter.size.xs" class="md-warm">XS</md-checkbox>
                         </div>
 
                         <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.s" class="md-warm">s</md-checkbox>
+                            <md-checkbox ng-model="filter.size.s" class="md-warm">S</md-checkbox>
                         </div>    
 
                         <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.m" class="md-warm">m</md-checkbox>
+                            <md-checkbox ng-model="filter.size.m" class="md-warm">M</md-checkbox>
                         </div>
 
                         <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.l" class="md-warm">l</md-checkbox>
+                            <md-checkbox ng-model="filter.size.l" class="md-warm">L</md-checkbox>
                         </div>    
 
                         <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.xl" class="md-warm">xl</md-checkbox>
+                            <md-checkbox ng-model="filter.size.xl" class="md-warm">XL</md-checkbox>
                         </div>    
 
                         <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.xxl" class="md-warm">xxl+</md-checkbox>
+                            <md-checkbox ng-model="filter.size.xxl" class="md-warm">XXL+</md-checkbox>
                         </div>    
                     </div>
                     <hr>
@@ -95,7 +107,7 @@
                         <div ng-repeat="item in items" class="item-container col-md-4 col-sm-6  ">
                             <div class="item-container-inner portfolio-item"> 
                                 <div class="item-container-top">
-                                    <carousel interval=0 no-wrap=false template-url="imgCarousel.html" >
+                                    <carousel interval=0 no-wrap=false template-url="imgCarouselTemplate.html">
                                         <slide ng-repeat="slide in item.slides" active="slide.active">
                                             <div class="img-container"> 
                                                 <img ng-src="{{slide.img}}" class="img-responsive">

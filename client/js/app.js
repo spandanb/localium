@@ -2,12 +2,13 @@
 
 angular.module('prada',['ngResource',
                         'ui.bootstrap',
-                        'app.controllers',
                         'ui.router',
                         'mgcrea.ngStrap',
-                        'app.directives',
                         'mgcrea.ngStrap.helpers.dimensions',
+                        'mgcrea.ngStrap.alert',
                         'ngMaterial',
+                        'app.directives',
+                        'app.controllers',
                         'app.listing'])
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
