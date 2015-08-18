@@ -2,6 +2,10 @@
 <link href="css/custom-agency-listing.css" rel="stylesheet">
 <link href="css/custom-listing.css" rel="stylesheet">
 
+<!-- Custom Dependencies -->
+<script src="other_components/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+
 <!-- Img Carousel Template -->
 <script type="text/ng-template" id="imgCarouselTemplate.html">
     <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
@@ -13,6 +17,7 @@
         <a class="right carousel-control custom-carousel-control" ng-click="next()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a>
     </div>
 </script>
+
 
 <!-- Header -->
 <header>
