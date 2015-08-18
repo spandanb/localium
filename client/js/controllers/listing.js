@@ -33,10 +33,12 @@ angular.module('app.listing', ['ui.bootstrap'])
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose:true
-        }).then(function(answer) {
-            $scope.status = 'You said the information was "' + answer + '".';
+        }).then(function(item) {
+            console.log(item);
+            //Upload item to backend
         }, function() {
             $scope.status = 'You cancelled the dialog.';
+            console.log($scope.status);
         });
     }
     
@@ -46,14 +48,15 @@ angular.module('app.listing', ['ui.bootstrap'])
         //console.log("Page changed");    
     }
 
-    $scope.slides = [{image:"img/clothing/sweater3.jpg"}, {image:"img/clothing/sweater2.jpg"}];
-
-
     
 }).controller('postModalCtrl', function($scope, 
                                         $mdDialog, 
-                                        $timeout, 
-                                        $q){
+                                        FileUploader){
+
+    $scope.item= {};
+    //Need for the tags
+    $scope.item.tags = [];
+
     $scope.hide = function() {
         $mdDialog.hide();
     };
@@ -62,13 +65,11 @@ angular.module('app.listing', ['ui.bootstrap'])
         $mdDialog.cancel();
     };
 
-    $scope.answer = function(answer) {
-        $mdDialog.hide(answer);
+    $scope.postItem = function(){
+        $mdDialog.hide($scope.item);
     };
 
-    //Need for the tags
-    $scope.post = {};
-    $scope.post.tags = [];
-
+    //To upload images
+    $scope.uploader = new FileUploader();
 
 });
