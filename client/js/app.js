@@ -1,13 +1,15 @@
 "use strict";
 
 angular.module('prada',['ngResource',
-                        'ui.bootstrap',
-                        'app.controllers',
+                        'ui.bootstrap.carousel',
+                        'ui.bootstrap.dropdown',
+                        'ui.bootstrap.pagination',
                         'ui.router',
                         'mgcrea.ngStrap',
-                        'app.directives',
                         'mgcrea.ngStrap.helpers.dimensions',
                         'ngMaterial',
+                        'app.directives',
+                        'app.controllers',
                         'app.listing'])
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
@@ -25,11 +27,12 @@ $stateProvider
     url:'/listing',
     views: {
         'navbar': {
-            templateUrl: '../views/navbar.html'
+            templateUrl: '../views/navbar.html',
+            controller: 'listingCtrl'
         },
         'main':{
             templateUrl: '../views/listing.html',
-            controller: 'listingCtrl',
+            controller: 'listingCtrl'
         }
     }
 })

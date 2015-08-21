@@ -488,3 +488,9 @@ footer a:hover {
     outline: none;
     box-shadow: none;
 }
+
+.pagination-container{
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+}

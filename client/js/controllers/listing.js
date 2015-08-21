@@ -1,7 +1,9 @@
-'use strict'
+"use strict";
 
-angular.module('app.listing',[])
-.controller('listingCtrl', function($scope, $modal, $mdDialog){
+angular.module('app.listing', ['ui.bootstrap'])
+.controller('listingCtrl', function($scope, 
+                                    $modal, 
+                                    $mdDialog){
 
     //Called when top dropdown toggled
     $scope.toggled = function(open) {
@@ -20,10 +22,10 @@ angular.module('app.listing',[])
             slides.push({img:"img/clothing/sweater" + ri + ".jpg"});       
         }
         item.slides = slides;
-
         $scope.items.push(item);
     }
 
+    //For post item modal
     $scope.postItem = function(ev){
         $mdDialog.show({
             controller: 'postModalCtrl',
@@ -38,7 +40,20 @@ angular.module('app.listing',[])
         });
     }
     
-}).controller('postModalCtrl', function($scope, $mdDialog, $timeout, $q){
+    //For paginator
+    $scope.currentPage = 1;
+    $scope.pageChanged = function(){
+        //console.log("Page changed");    
+    }
+
+    $scope.slides = [{image:"img/clothing/sweater3.jpg"}, {image:"img/clothing/sweater2.jpg"}];
+
+
+    
+}).controller('postModalCtrl', function($scope, 
+                                        $mdDialog, 
+                                        $timeout, 
+                                        $q){
     $scope.hide = function() {
         $mdDialog.hide();
     };
