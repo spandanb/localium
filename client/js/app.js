@@ -19,6 +19,7 @@ $stateProvider
 .state('home',{ 
     url:'/home',
     views:{
+        
         'main': {
             templateUrl:'../views/home.html',
             controller: 'homeCtrl',
@@ -69,9 +70,29 @@ $stateProvider
 })
 .state('detail', {
     url:'/detail',
-    templateUrl:'../views/detail.html',
-    controller:'detailCtrl'
-})
+        views: {
+        'navbar': {
+            templateUrl: '../views/navbar.html'
+        },
+        'main':{
+           templateUrl:'../views/detail.html',
+           controller:'detailCtrl'
+        }
+    }
 
+})
+.state('chatPage', {
+    url:'/chatPage',
+        views: {
+        'navbar': {
+            templateUrl: '../views/navbar.html'
+        },
+        'main':{
+           templateUrl:'../views/chatPage.html',
+           controller:'chatPageCtrl'
+        }
+    }
+
+})
 $urlRouterProvider.otherwise("/home");
 });

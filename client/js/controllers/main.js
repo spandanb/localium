@@ -2,10 +2,14 @@
 angular.module('app.controllers',[])
 .controller('homeCtrl',function($scope,$state,$modal,$scrollspy,$location,$anchorScroll){
    console.log('I am in the controller');
-  $scope.boolChangeClass = false;
-	$scope.logIn = function(){
-		$scope.navbarCollapsed =true;
-    $state.go('login');
+  //$scope.boolChangeClass = false;
+	$scope.login = function(){
+		var modalInstance = $modal.open({
+      animation: false,
+      templateUrl: '../views/videoModal.html',
+      controller: 'ModalInstanceCtrl',
+      size: 'lg'
+    });
 
 	};
 
@@ -14,21 +18,9 @@ angular.module('app.controllers',[])
 		$state.go('signUp');
 	};
 
+  $scope.description = function () {
 
-	$scope.openModal = function () {
-
-    var modalInstance = $modal.open({
-      animation: false,
-      templateUrl: '../views/videoModal.html',
-      controller: 'ModalInstanceCtrl',
-      size: 'lg'
-    });
-
-  };
-
-    $scope.description = function () {
-
-      $state.go('detail');
+    $state.go('detail');
 
   };
 
@@ -43,8 +35,10 @@ $scope.scrollToHref = function (id){
     };
 
 $scope.bookMore = function(){
-      $state.go('detail');
+      $state.go('chatPage');
 };
+
+
 
 })
 .controller('demoCtrl',function($scope,$state){
