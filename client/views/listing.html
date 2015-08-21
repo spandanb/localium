@@ -24,8 +24,8 @@
     <div class="container">
         <div class="row">
             <div class="intro-text col-md-6 col-md-offset-3">
-                        <div class="hero-main-text">Clothing</div>
-                        <div class="hero-sub-text">Buy, sell, and exchange clothing here.</div>
+                        <div class="hero-main-text">{{text.category}}</div>
+                        <div class="hero-sub-text">{{text.subtext}}</div>
                     </div>
                 </div>
             </div>
@@ -35,62 +35,8 @@
 
 <div class="container-fluid">
     <div class="row-fluid">
-        <!-- Sidebar -->
-        <div class="col-md-2 hidden-xs hidden-sm">
-            <ul class="nav">
-                <li>
-                    <h4>Filter</h4>
-                    <hr>  
-                </li>     
-                <li>
-                    <div> Size </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.xs" class="md-warm">XS</md-checkbox>
-                        </div>
-
-                        <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.s" class="md-warm">S</md-checkbox>
-                        </div>    
-
-                        <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.m" class="md-warm">M</md-checkbox>
-                        </div>
-
-                        <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.l" class="md-warm">L</md-checkbox>
-                        </div>    
-
-                        <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.xl" class="md-warm">XL</md-checkbox>
-                        </div>    
-
-                        <div class="col-md-4">
-                            <md-checkbox ng-model="filter.size.xxl" class="md-warm">XXL+</md-checkbox>
-                        </div>    
-                    </div>
-                    <hr>
-                </li>
-                <li>
-                    <div> Price </div>
-                     <div class="checkbox">
-                         <md-checkbox ng-model="filter.price1" class="md-warm">&lt; $5</md-checkbox>
-                     </div>
-                     <div class="checkbox">
-                         <md-checkbox ng-model="filter.price2" class="md-warm"> $5 - $10</md-checkbox>
-                     </div>
-                     <div class="checkbox">
-                         <md-checkbox ng-model="filter.price4" class="md-warm"> $10 - $50</md-checkbox>
-                     </div>
-                     <div class="checkbox">
-                         <md-checkbox ng-model="filter.price5" class="md-warm">$50 - $100</md-checkbox>
-                     </div>
-                     <div class="checkbox">
-                         <md-checkbox ng-model="filter.price6" class="md-warm">$100+</md-checkbox>
-                     </div>
-                </li>
-            </ul>
-        </div><!-- End sidebar -->
+        <div ui-view="sidebar"></div>
+        <!--div class="col-md-2 hidden-xs hidden-sm"></div-->
         <div class="col-md-10"><!-- Main Body -->
 
             <div class="container-fluid">

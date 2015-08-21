@@ -1,10 +1,9 @@
 "use strict";
 
 angular.module('app.ctrl.listing', ['ui.bootstrap'])
-.controller('listingCtrl', function($scope, 
-                                    $modal, 
-                                    $mdDialog){
-
+.controller('listingCtrl', function($scope 
+                                    ){
+    console.log("In here");
     //Called when top dropdown toggled
     $scope.toggled = function(open) {
         //console.log('Dropdown is now: ', open);
@@ -24,23 +23,6 @@ angular.module('app.ctrl.listing', ['ui.bootstrap'])
         item.slides = slides;
         $scope.items.push(item);
     }
-
-    //For post item modal
-    $scope.postItem = function(ev){
-        $mdDialog.show({
-            controller: 'postModalCtrl',
-            templateUrl: '../views/postModal.html',
-            parent: angular.element(document.body),
-            targetEvent: ev,
-            clickOutsideToClose:true
-        }).then(function(item) {
-            console.log(item);
-            //Upload item to backend
-        }, function() {
-            $scope.status = 'You cancelled the dialog.';
-            console.log($scope.status);
-        });
-    }
     
     //For paginator
     $scope.currentPage = 1;
@@ -49,31 +31,42 @@ angular.module('app.ctrl.listing', ['ui.bootstrap'])
     }
 
     
-}).controller('postModalCtrl', function($scope, 
-                                        $mdDialog, 
-                                        FileUploader){
+}).controller('clothingCtrl', function($scope,
+                                       $controller){
+    //Inherit from listingCtrl
+    $controller('listingCtrl', {$scope: $scope});    
+    $scope.text = {
+        category: "Clothing and Apparel",
+        subtext: "Buy, sell, and exchange clothing here."
+    }
 
-    $scope.item= {};
-    //Need for the tags
-    $scope.item.tags = [];
 
-    $scope.hide = function() {
-        $mdDialog.hide();
-    };
+}).controller('booksCtrl', function($scope,
+                                    $controller){
+    $controller('listingCtrl', {$scope: $scope});    
+    $scope.text = {
+        category: "Books",
+        subtext: "Buy and sell books and other \
+            school supplies, like notes and subscriptions here."
+    }
 
-    $scope.cancel = function() {
-        $mdDialog.cancel();
-    };
+})
+.controller('electronicsCtrl', function($scope,
+                                        $controller){
+    $controller('listingCtrl', {$scope: $scope});    
+    $scope.text = {
+        category: "Electronics",
+        subtext: "Buy and sell electronics here."
+    }
 
-    $scope.postItem = function(){
-        $mdDialog.hide($scope.item);
-    };
-
-    //To upload images
-    $scope.uploader = new FileUploader();
-
-}).controller('postItemCtrl', function($scope){
-    $scope.item = {};
-
+})
+.controller('furnitureCtrl', function($scope,
+                                      $controller){
+    $controller('listingCtrl', {$scope: $scope});    
+    $scope.text = {
+        category: "Furniture and Household Goods",
+        subtext: "Buy and sell furniture and household goods like coffee machines here."
+    }
 });
+
 
