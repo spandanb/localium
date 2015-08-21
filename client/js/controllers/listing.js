@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('app.listing', ['ui.bootstrap'])
+angular.module('app.ctrl.listing', ['ui.bootstrap'])
 .controller('listingCtrl', function($scope, 
                                     $modal, 
                                     $mdDialog){
@@ -72,4 +72,8 @@ angular.module('app.listing', ['ui.bootstrap'])
     //To upload images
     $scope.uploader = new FileUploader();
 
+}).controller('postItemCtrl', function($scope){
+    $scope.item = {};
+
 });
+

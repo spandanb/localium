@@ -10,7 +10,10 @@ angular.module('prada',['ngResource',
                         'ngMaterial',
                         'app.directives',
                         'app.controllers',
-                        'app.listing'])
+                        'app.ctrl.listing',
+                        'app.ctrl.postItem',
+                        'angularFileUpload' //For file upload
+                        ])
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
 .state('home',{ 
@@ -32,6 +35,25 @@ $stateProvider
         'main':{
             templateUrl: '../views/listing.html',
             controller: 'listingCtrl'
+        },
+        'footer':{
+            templateUrl: '../views/footer.html'
+        }
+    }
+})
+.state('post', {
+    url:'/post',
+    views:{
+        'navbar': {
+            templateUrl: '../views/navbar.html',
+            controller: 'listingCtrl'
+        },
+        'main':{
+            templateUrl: '../views/postItem.html',
+            controller: 'postItemCtrl'
+        },
+        'footer':{
+            templateUrl: '../views/footer.html'
         }
     }
 })
