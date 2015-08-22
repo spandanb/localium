@@ -6,12 +6,13 @@ angular.module('app.controllers',[])
 	$scope.login = function(){
 		var modalInstance = $modal.open({
       animation: false,
-      templateUrl: '../views/videoModal.html',
+      templateUrl: '../views/loginModal.html',
       controller: 'ModalInstanceCtrl',
-      size: 'lg'
+      size: 'sm'
     });
 
 	};
+
 
 	$scope.signUp = function(){
     $scope.navbarCollapsed =true;
@@ -108,7 +109,7 @@ $scope.bookMore = function(){
 
     return '';
   };
-}).controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+}).controller('ModalInstanceCtrl', function ($scope, $modalInstance,FacebookLogin) {
 
 
   $scope.ok = function () {
@@ -117,5 +118,12 @@ $scope.bookMore = function(){
 
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
+  };
+
+  $scope.facebookLogin =function(){
+    console.log("facebookLogin");
+    FacebookLogin.get({}, function(data){
+
+    });
   };
 });

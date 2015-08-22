@@ -26,7 +26,7 @@ fs.readdirSync(modelsPath).forEach(function (file) {
 
 
 //NOTE: Uncomment if need to connect to DB
-/*
+
 app.use(session({
   secret: 'MEAN',
   saveUninitialized: false, 
@@ -36,7 +36,7 @@ app.use(session({
     collection: 'sessions',
   })
 }));
-*/
+
 
 var pass = require('./server/config/pass.js');
 //
@@ -44,14 +44,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use('/*', function(req, res, next) {
-    //req.get("Access-Control-Allow-Origin", "*");
-    //res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Origin", "http://localhost:8100");
-    res.header('Access-Control-Allow-Methods', 'OPTIONS,GET,POST,PUT,DELETE');
-    res.header('Access-Control-Allow-Credentials', 'true');
-    //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type,Authorization, Accept");
-    next();
+app.use(function(req, res, next) {
+    console.log("I am in the app use");
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    if ('OPTIONS' == req.method) {
+        res.send(200);
+    }
+    else {
+        next();
+    } 
 });
 
 
