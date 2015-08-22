@@ -2,104 +2,164 @@
 <link href="css/custom-agency-listing.css" rel="stylesheet">
 <link href="css/custom-listing.css" rel="stylesheet">
 
+
+<!-- Img Carousel Template -->
+<script type="text/ng-template" id="imgCarouselTemplate.html">
+    <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
+        <div class="carousel-inner" ng-transclude></div>
+        <a class="left carousel-control custom-carousel-control" ng-click="prev()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a class="right carousel-control custom-carousel-control" ng-click="next()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a>
+    </div>
+</script>
+
+<!-- Row Carousel Template -->
+<script type="text/ng-template" id="rowCarouselTemplate.html">
+    <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
+        <div class="carousel-inner" ng-transclude></div>
+        <a class="left carousel-control custom-row-carousel-control custom-row-carousel-control-left" 
+            ng-click="prev()" 
+            ng-show="slides.length > 1 && getCurrentIndex()!=0">
+            <span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control custom-row-carousel-control custom-row-carousel-control-right" 
+            ng-click="next()" 
+            ng-show="slides.length > 1 && getCurrentIndex() < slides.length -1">
+            <span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+</script>
+
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top navbar-shrink" >
     <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="#page-top">Prada</a>
+        <div class="row">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Prada</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+                <!-- Left section -->
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="" ui-sref="listing.clothing">Clothing</a>
+                    </li>
+                    <li>
+                        <a class="" ui-sref="listing.books">Books</a>
+                    </li>
+                    <li>
+                        <a class="" ui-sref="listing.electronics">Electronics</a>
+                    </li>
+                    <li>
+                        <a class="" ui-sref="listing.furniture">Furniture</a>
+                    </li>
+                    <li>
+                        <div class="search-container">
+                            <input type="text" placeholder="Search" ng-model="search"> 
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </div>
+                    </li>
+                </ul>
+    
+                <!-- Right section -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li >
+                        <a id="post-item-btn" ui-sref="post">
+                            Post 
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </li>
+    
+                    <li class="dropdown">
+                         <a  href="" data-toggle="modal" data-target="#myModal">
+                            Log In
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                         <a  href="" data-toggle="modal" data-target="#myModal" style="padding-right:50px">
+                            Sign Up
+                            
+                        </a>
+                    </li>
+                    <!--
+                    <li dropdown on-toggle="toggled(open)">
+                        <a href is-open dropdown-toggle>
+                            Spandan 
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href>Postings</a></li>
+                            <li><a href>Favorites</a></li>
+                            <li><a href>Recently Viewed</a></li>
+                            <li class="divider"></li>
+                            <li><a href>Preferences</a></li>
+                            <li><a href>Logout</a></li>
+                         </ul>
+                    </li>
+                    -->
+                </ul>
+            </div><!-- .navbar-collapse -->
+        </div><!-- .row-->
+    </div><!-- .container-->
+        
+    <div collapse="!showSearchResults" class="container search-results-container">
+        <div class="row">
+            <a href="" class="pull-right" ng-click="exitSearch()">
+                    <span class="glyphicon glyphicon-remove"></span>
+            </a>
+        </div> 
+
+        <div class="row">
+            <!-- Row Carousel -->
+            <carousel interval=0 template-url="rowCarouselTemplate.html">
+                <slide ng-repeat="coll in itemCollection" active="slide.active">
+                    <div class="row item-row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="row">
+                                <div ng-repeat="item in coll" class="item-container col-md-4 col-sm-6">
+                                    <div class="item-container-inner portfolio-item"> 
+                                        <div class="item-container-top">
+                                            <!-- Item Carousel -->
+                                            <carousel interval=0 no-wrap=false template-url="imgCarouselTemplate.html">
+                                                <slide ng-repeat="slide in item.slides" active="slide.active">
+                                                    <div class="img-container"> 
+                                                        <img ng-src="{{slide.img}}" class="img-responsive">
+                                                    </div>
+                                                </slide>
+                                            </carousel>
+                
+                                            <!-- Item Price -->
+                                            <div class="item-price">
+                                                <span class="item-price-currency-sym">$</span>
+                                                <span class="item-price-value">{{item.price}}</span>
+                                                <span class="item-price-currency-abr">CAD</span>
+                                            </div>
+                
+                                        </div><!-- Ends .item-container-top-->    
+                                        <div class="portfolio-caption">
+                                            <a href="">{{item.name}}</a>
+                                        </div>
+                                    </div><!-- .item-container-inner -->
+                                </div><!-- .item-container -->
+                            </div><!-- .row -->
+                        </div>
+                    </div><!-- .row-->
+                </slide>
+            </carousel>
+        </div> <!-- .row -->           
+
+        <div class="row">
+           <p class="search-results-text">Showing items matching tag <b>{{search}}</b></p> 
+           <button type="button" class="btn btn-default btn-success pull-right">See all items!</button>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse">
-            <!-- Left section -->
-            <ul class="nav navbar-nav navbar-left">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-                <li>
-                    <a class="" ui-sref="listing.clothing">Clothing</a>
-                </li>
-                <li>
-                    <a class="" ui-sref="listing.books">Books</a>
-                </li>
-                <li>
-                    <a class="" ui-sref="listing.electronics">Electronics</a>
-                </li>
-                <li>
-                    <a class="" ui-sref="listing.furniture">Furniture</a>
-                </li>
-                <li>
-                    <div class="search-container">
-                        <input type="text" placeholder="Search"> 
-                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    </div>
-                </li>
-            </ul>
-
-            <!-- Right section -->
-            <!--
-            <ul class="nav navbar-nav navbar-right">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-                <li >
-                    <a id="post-item-btn" href="" ng-click="postItem()">
-                        Post(Modal) 
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                </li>
-                <li >
-                    <a id="post-item-btn" ui-sref="post">
-                        Post
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                </li>
-
-                <li dropdown on-toggle="toggled(open)">
-                    <a href is-open dropdown-toggle>
-                        Spandan 
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href>Postings</a></li>
-                        <li><a href>Favorites</a></li>
-                        <li><a href>Recently Viewed</a></li>
-                        <li class="divider"></li>
-                        <li><a href>Preferences</a></li>
-                        <li><a href>Logout</a></li>
-                     </ul>
-                </li>
-            </ul> 
-            -->
-             <ul class="nav navbar-nav navbar-right">
-                <li >
-                    <a id="post-item-btn" ui-sref="post">
-                        Post 
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-                </li>
-
-                <li class="dropdown">
-                     <a  href="" data-toggle="modal" data-target="#myModal">
-                        Log In
-                    </a>
-                </li>
-                <li class="dropdown">
-                     <a  href="" data-toggle="modal" data-target="#myModal" style="padding-right:50px">
-                        Sign Up
-                        
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container-fluid -->
+    </div><!-- .container -->
 </nav>
+

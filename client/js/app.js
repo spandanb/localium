@@ -2,7 +2,9 @@
 
 angular.module('prada',['ngResource',
                         'ui.bootstrap.carousel',
+                        'ui.bootstrap.collapse',
                         'ui.bootstrap.dropdown',
+                        'ui.bootstrap.modal',
                         'ui.bootstrap.pagination',
                         'ui.router',
                         'mgcrea.ngStrap',
@@ -12,6 +14,8 @@ angular.module('prada',['ngResource',
                         'app.controllers',
                         'app.ctrl.listing',
                         'app.ctrl.postItem',
+                        'app.ctrl.nav',
+                        'app.services',
                         'angularFileUpload' //For file upload
                         ])
 .config(function($stateProvider,$urlRouterProvider){
@@ -19,7 +23,6 @@ $stateProvider
 .state('home',{ 
     url:'/home',
     views:{
-        
         'main': {
             templateUrl:'../views/home.html',
             controller: 'homeCtrl',
@@ -32,7 +35,7 @@ $stateProvider
     views: {
         'navbar': {
             templateUrl: '../views/navbar.html',
-            controller: 'listingCtrl'
+            controller: 'navCtrl'
         },
         'main':{
             template: '<div ui-view="specific"></div>'
@@ -95,7 +98,7 @@ $stateProvider
     views:{
         'navbar': {
             templateUrl: '../views/navbar.html',
-            controller: 'listingCtrl'
+            controller: 'navCtrl'
         },
         'main':{
             templateUrl: '../views/postItem.html',

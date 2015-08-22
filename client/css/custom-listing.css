@@ -449,10 +449,10 @@ footer a:hover {
 
 /********* UI Bootstrap **********/
 /*Show navigation arrows on image carousel on hover*/
-.carousel .carousel-control { 
+.carousel .carousel-control.custom-carousel-control { 
     visibility: hidden; 
 }
-.carousel:hover .carousel-control { 
+.carousel:hover .carousel-control.custom-carousel-control { 
     visibility: visible; 
 }
 .carousel-control.custom-carousel-control{
@@ -462,6 +462,23 @@ footer a:hover {
     display: inline-block;    
     color:#326aff;
     background-image: none;
+}
+
+.carousel-control.custom-row-carousel-control{
+    position:absolute;
+    top: 10px;
+    z-index: 5;
+    display: inline-block;    
+    color:#000;
+    background-image: none;
+}
+
+.carousel-control.custom-row-carousel-control-left{
+    left: -20px;
+}
+
+.carousel-control.custom-row-carousel-control-right{
+    right: -20px;
 }
 
 .post-select{
@@ -493,4 +510,16 @@ footer a:hover {
     float: none;
     margin: 0 auto;
     width: 50%;
+}
+
+/**Search Bar**/
+.container.search-results-container{
+   margin-top: 20px;     
+   margin-bottom:20px;
+}
+
+.search-results-text{
+   position: absolute;
+   margin-left: 50px;
+   margin-top:20px;
 }
