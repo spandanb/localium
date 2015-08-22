@@ -29,17 +29,65 @@ $stateProvider
 })
 .state('listing', {
     url:'/listing',
+    abstract: true,
     views: {
         'navbar': {
             templateUrl: '../views/navbar.html',
             controller: 'listingCtrl'
         },
         'main':{
-            templateUrl: '../views/listing.html',
-            controller: 'listingCtrl'
+            template: '<div ui-view="specific"></div>'
         },
         'footer':{
             templateUrl: '../views/footer.html'
+        },
+    }
+})
+.state('listing.clothing', {
+    url:'/clothing',
+    views: {
+        'specific@listing':{
+            templateUrl: '../views/listing.html',
+            controller: 'clothingCtrl'
+        },
+        'sidebar@listing.clothing':{
+            templateUrl: '../views/sidebarClothing.html',
+        }
+    }
+})
+.state('listing.books', {
+    url:'/books',
+    views: {
+        'specific@listing':{
+            templateUrl: '../views/listing.html',
+            controller: 'booksCtrl'
+        },
+        'sidebar@listing.books':{
+            templateUrl: '../views/sidebarBooks.html',
+        }
+    }
+})
+.state('listing.electronics', {
+    url:'/electronics',    
+    views: {
+        'specific@listing':{
+            templateUrl: '../views/listing.html',
+            controller: 'electronicsCtrl'
+        },
+        'sidebar@listing.electronics':{
+            templateUrl: '../views/sidebarElectronics.html',
+        }
+    }
+})
+.state('listing.furniture', {
+    url:'/furniture',    
+    views: {
+        'specific@listing':{
+            templateUrl: '../views/listing.html',
+            controller: 'furnitureCtrl'
+        },
+        'sidebar@listing.furniture':{
+            templateUrl: '../views/sidebarFurniture.html',
         }
     }
 })
