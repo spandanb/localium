@@ -17,8 +17,8 @@ var  User = mongoose.model('User');
 	});
 	
 passport.use(new FacebookStrategy({
-	clientID: '1542287599365097', //Spandan
-	clientSecret: 'f819c784285e67dd28c83da432ac2aff', //Spandan
+	clientID: '857581521001557', //Spandan
+	clientSecret: '0e1cdebce300cc09763b88e9c157fe15', //Spandan
 	//clientID: '799344473467471', //Aditya
     //clientSecret: 'bb23deaf1ed3b4f80108bf2134791b80', //Aditya
     callbackURL: "/auth/facebook/callback"

@@ -14,13 +14,13 @@ module.exports = function(app){
 //Useful for debugging
 app.all('*', function(req, res, next){
         //Output string
-        req.session.ip_addr = req.connection.remoteAddress;
+        /*req.session.ip_addr = req.connection.remoteAddress;
         var output = "\n" + req.method + " " + req.url;
         if (!!req.body && Object.keys(req.body).length) { //Contains passed in params
             output += ", " + JSON.stringify(req.body);
         }
-        output += "; IP ADDR: " + req.connection.remoteAddress;
-        console.log(output);
+        output += "; IP ADDR: " + req.connection.remoteAddress;*/
+        //console.log(output);
         next();
 });
 
@@ -42,7 +42,7 @@ app.get('/auth/facebook',
 //  passport.authenticate('facebook', { successRedirect: '/home', //person/me/feed', //'/home',
 //                                    failureRedirect: 'http://localhost:8100/#/login' }));
 
-app.get('/auth/facebook/callback', function(req, res, next){
+/*app.get('/auth/facebook/callback', function(req, res, next){
     var querystring = require('querystring');
     
     console.log(req.session.passport); 
@@ -77,11 +77,26 @@ app.get('/auth/facebook/callback', function(req, res, next){
         res.redirect(path);
     });
   })(req, res, next);
-});
+});*/
 
+app.get('/auth/facebook/callback', 
+  passport.authenticate('facebook', { successRedirect: '/#/home',
+                                      failureRedirect: '/#/login' }));
 /*
 Hack to send {userId: <userId>} to url with that page
 */
+
+app.get('/#/home',auth.ensureAuthenticated,function(req,res){
+    console.log("In route.js:/home/------------------");
+    //console.log(req.session.passport.user);
+    //console.log(req.user);
+    var id = req.user;  
+    /*res.render('home', {
+            user : req.user // get the user out of session and pass to template
+    });*/
+    res.send(req.user);
+});
+
 app.get('/home/person?', function(req, res, next){
     console.log("In userId route *******************************")
     //parser only matches url; not query params
@@ -99,13 +114,13 @@ app.get('/ensureAuthenticated', auth.ensureAuthenticated);
 app.delete('/session',user.logOut);
 app.get('/session',user.session);
 
-app.get('/home',auth.ensureAuthenticated,function(req,res){
+/*app.get('/home',auth.ensureAuthenticated,function(req,res){
 	console.log("In route.js:/home/------------------");
 	console.log(req.session.passport.user);
 	console.log(req.user);
 	var id = req.user;	
 	res.redirect('http://localhost:8100/#/home/person/'+ id+ '/feed');
-});
+});*/
 app.get('/auth/instagram', passport.authenticate('instagram'));
 
 app.get('/auth/instagram/callback', 
