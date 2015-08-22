@@ -1,22 +1,24 @@
 "use strict";
 
 angular.module('prada',['ngResource',
+                        'mgcrea.ngStrap',
+                        'mgcrea.ngStrap.helpers.dimensions',
                         'ui.bootstrap.carousel',
                         'ui.bootstrap.collapse',
                         'ui.bootstrap.dropdown',
                         'ui.bootstrap.modal',
                         'ui.bootstrap.pagination',
                         'ui.router',
-                        'mgcrea.ngStrap',
-                        'mgcrea.ngStrap.helpers.dimensions',
                         'ngMaterial',
                         'app.directives',
                         'app.controllers',
                         'app.ctrl.listing',
                         'app.ctrl.postItem',
+                        'duScroll',
                         'app.ctrl.nav',
                         'app.services',
                         'angularFileUpload' //For file upload
+
                         ])
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
