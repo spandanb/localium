@@ -1,7 +1,8 @@
 "use strict";
 
 angular.module('app.ctrl.listing', [])
-.controller('listingCtrl', function($scope, Mock){
+.controller('listingCtrl', function($scope, 
+                                    Mock){
 
     //Called when top dropdown toggled
     $scope.toggled = function(open) {
@@ -16,6 +17,8 @@ angular.module('app.ctrl.listing', [])
     $scope.pageChanged = function(){
         //console.log("Page changed");    
     }
+
+
 
     
 }).controller('clothingCtrl', function($scope,
