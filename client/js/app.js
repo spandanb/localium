@@ -13,7 +13,8 @@ angular.module('prada',['ngResource',
                         'app.ctrl.listing',
                         'app.ctrl.postItem',
                         'angularFileUpload', //For file upload
-                        'services'
+                        'services',
+                        'duScroll'
                         ])
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
