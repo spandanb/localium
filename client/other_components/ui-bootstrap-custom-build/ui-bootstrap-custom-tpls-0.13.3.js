@@ -5,8 +5,69 @@
  * Version: 0.13.3 - 2015-08-09
  * License: MIT
  */
-angular.module("ui.bootstrap", ["ui.bootstrap.tpls","ui.bootstrap.carousel","ui.bootstrap.dropdown","ui.bootstrap.position","ui.bootstrap.pagination","ui.bootstrap.modal"]);
+angular.module("ui.bootstrap", ["ui.bootstrap.tpls","ui.bootstrap.collapse","ui.bootstrap.carousel","ui.bootstrap.dropdown","ui.bootstrap.position","ui.bootstrap.pagination","ui.bootstrap.modal"]);
 angular.module("ui.bootstrap.tpls", ["template/carousel/carousel.html","template/carousel/slide.html","template/pagination/pager.html","template/pagination/pagination.html","template/modal/backdrop.html","template/modal/window.html"]);
+angular.module('ui.bootstrap.collapse', [])
+
+  .directive('collapse', ['$animate', function ($animate) {
+
+    return {
+      link: function (scope, element, attrs) {
+        function expand() {
+          element.removeClass('collapse')
+            .addClass('collapsing')
+            .attr('aria-expanded', true)
+            .attr('aria-hidden', false);
+
+          $animate.addClass(element, 'in', {
+            to: { height: element[0].scrollHeight + 'px' }
+          }).then(expandDone);
+        }
+
+        function expandDone() {
+          element.removeClass('collapsing');
+          element.css({height: 'auto'});
+        }
+
+        function collapse() {
+          if(! element.hasClass('collapse') && ! element.hasClass('in')) {
+            return collapseDone();
+          }
+
+          element
+            // IMPORTANT: The height must be set before adding "collapsing" class.
+            // Otherwise, the browser attempts to animate from height 0 (in
+            // collapsing class) to the given height here.
+            .css({height: element[0].scrollHeight + 'px'})
+            // initially all panel collapse have the collapse class, this removal
+            // prevents the animation from jumping to collapsed state
+            .removeClass('collapse')
+            .addClass('collapsing')
+            .attr('aria-expanded', false)
+            .attr('aria-hidden', true);
+
+          $animate.removeClass(element, 'in', {
+            to: {height: '0'}
+          }).then(collapseDone);
+        }
+
+        function collapseDone() {
+          element.css({height: '0'}); // Required so that collapse works when animation is disabled
+          element.removeClass('collapsing');
+          element.addClass('collapse');
+        }
+
+        scope.$watch(attrs.collapse, function (shouldCollapse) {
+          if (shouldCollapse) {
+            collapse();
+          } else {
+            expand();
+          }
+        });
+      }
+    };
+  }]);
+
 /**
 * @ngdoc overview
 * @name ui.bootstrap.carousel
@@ -97,6 +158,10 @@ angular.module('ui.bootstrap.carousel', [])
     }
     return currentIndex;
   };
+
+  $scope.getCurrentIndex = function(){
+      return self.getCurrentIndex();
+  }
 
   /* Allow outside people to call indexOf on slides array */
   $scope.indexOfSlide = function(slide) {
