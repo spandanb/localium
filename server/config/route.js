@@ -85,6 +85,18 @@ app.get('/auth/facebook/callback',
 /*
 Hack to send {userId: <userId>} to url with that page
 */
+
+app.get('/#/home',auth.ensureAuthenticated,function(req,res){
+    console.log("In route.js:/home/------------------");
+    //console.log(req.session.passport.user);
+    //console.log(req.user);
+    var id = req.user;  
+    /*res.render('home', {
+            user : req.user // get the user out of session and pass to template
+    });*/
+    res.send(req.user);
+});
+
 app.get('/home/person?', function(req, res, next){
     console.log("In userId route *******************************")
     //parser only matches url; not query params

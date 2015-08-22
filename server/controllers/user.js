@@ -106,6 +106,10 @@ exports.session = function(req,res,next){
 	console.log("session method is being called");
 	console.log(req.session);
 	//next({personId:req.user});
-	res.send({personId:req.user});
+	//res.send({personId:req.user});
+  User.findOne({_id:req.user}, function(err,user){
+        console.log(user);
+        res.status(200).send(user);
+    });
 };
 

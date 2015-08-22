@@ -24,7 +24,8 @@ fs.readdirSync(modelsPath).forEach(function (file) {
   require(modelsPath + '/' + file);
 });
 
-
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 //NOTE: Uncomment if need to connect to DB
 
 app.use(session({
@@ -58,7 +59,7 @@ app.use(function(req, res, next) {
     } 
 });
 
-
+app.set('views', __dirname + '/client/views');
 app.use(express.static(path.join(__dirname, 'client')));
 app.set('port', process.env.PORT || 9000);
 
