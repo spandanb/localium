@@ -23,7 +23,7 @@ exports.createPost = function(req,res){
     var eTag = [];
     
       s3.createBucket({Bucket:'haberdashery'}, function(){
-   	    
+   	    console.log(req.body); 
         for(var i=0; i<req.body.image.length; i++){
           var buf = new Buffer(req.body.image[i].replace(/^data:image\/\w+;base64,/, ""),'base64');
           var title = req.body.title.split(' ').join('_');     
@@ -50,12 +50,13 @@ exports.createPost = function(req,res){
               if(req.body.image.length == eTag.length){
                   var post = new Post({creator:req.body.personId,
                                         imageUrl:imageUrl,
-                                        message:req.body.message,
+                                        message:req.body.description,
                                         title:req.body.title,
-                                        price:req.body.price,
-                                        status:req.body.status,
-                                        size:req.body.size,
-                                        categories:req.body.categories
+                                        price:req.body.askingPrice,
+                                        //status:req.body.status,
+                                        //size:req.body.size,
+                                        //categories:req.body.categories,
+                                        categories: [req.body.category]
                             });
                   post.save(function(err){
                     if(err){
