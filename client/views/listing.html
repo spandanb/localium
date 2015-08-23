@@ -56,9 +56,16 @@
                             <div class="item-container-inner portfolio-item"> 
                                 <div class="item-container-top">
                                     <carousel interval=0 no-wrap=false template-url="imgCarouselTemplate.html">
-                                        <slide ng-repeat="slide in item.slides" active="slide.active">
+
+                                        <slide ng-repeat="img in item.imageUrl" active="slide.active" ng-show="item.imageUrl.length > 0">
                                             <div class="img-container"> 
-                                                <img ng-src="{{slide.img}}" class="img-responsive">
+                                                <img ng-src="{{img}}" class="img-responsive">
+                                            </div>
+                                        </slide>
+                                        <!-- If no images -->
+                                        <slide ng-repeat="img in ['img/no_image_available.jpg']" active="slide.active" ng-show="item.imageUrl.length == 0">
+                                            <div class="img-container"> 
+                                                <img ng-src="{{img}}" class="img-responsive">
                                             </div>
                                         </slide>
                                     </carousel>
