@@ -46,7 +46,9 @@ $scope.bookMore = function(){
       $state.go('chatPage');
 };
 
-
+$scope.$on('slide1', function ($evt, active, locals) {
+  console.log("event being fired");
+});
 
 })
 .controller('demoCtrl',function($scope,$state){

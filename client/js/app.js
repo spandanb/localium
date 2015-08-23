@@ -17,6 +17,7 @@ angular.module('prada',['ngResource',
                         'duScroll',
                         'app.ctrl.nav',
                         'app.services',
+                        'pc035860.scrollWatch',
                         'angularFileUpload' //For file upload
 
                         ])
