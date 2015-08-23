@@ -23,9 +23,8 @@ exports.createPost = function(req,res){
     var eTag = [];
     
       s3.createBucket({Bucket:'haberdashery'}, function(){
-   	    console.log(req.body); 
-        for(var i=0; i<req.body.image.length; i++){
-          var buf = new Buffer(req.body.image[i].replace(/^data:image\/\w+;base64,/, ""),'base64');
+        for(var i=0; i<req.body.images.length; i++){
+          var buf = new Buffer(req.body.images[i].replace(/^data:image\/\w+;base64,/, ""),'base64');
           var title = req.body.title.split(' ').join('_');     
           var dateId = Date.now().toString();
           var key =  [dateId, title, Math.random()].join('_');
@@ -44,10 +43,10 @@ exports.createPost = function(req,res){
       		    console.log("Successfully uploaded data to haberdashery/myKey");   
       		   // console.log(data);
               eTag.push(data);
-              console.log(req.body.image.length);
+              console.log(req.body.images.length);
               console.log(eTag.length);
 
-              if(req.body.image.length == eTag.length){
+              if(req.body.images.length == eTag.length){
                   var post = new Post({creator:req.body.personId,
                                         imageUrl:imageUrl,
                                         message:req.body.description,

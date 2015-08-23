@@ -2,7 +2,8 @@
 
 angular.module('app.ctrl.listing', [])
 .controller('listingCtrl', function($scope, 
-                                    Mock){
+                                    Mock,
+                                    Posts){
 
     //Called when top dropdown toggled
     $scope.toggled = function(open) {
@@ -10,14 +11,16 @@ angular.module('app.ctrl.listing', [])
     };
     
     //Create items
-    $scope.items = Mock.mockClothing();
+    //$scope.items = Mock.mockClothing();
+    $scope.items = Posts.query();
+
+    console.log($scope.items);
 
     //For paginator
     $scope.currentPage = 1;
     $scope.pageChanged = function(){
         //console.log("Page changed");    
     }
-
 
 
     

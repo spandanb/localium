@@ -150,7 +150,8 @@ angular.module('app.services',['constants'])
     m.mockClothing = function(){
         var items = [];
         for(var i=1; i<9; i++){
-            var item = {price: "2" + i, name: "Retrofit Fairisle Shawl Pullover"};
+            //TODO: change name to title
+            var item = {price: "2" + i, title: "Retrofit Fairisle Shawl Pullover"};
     
             //Slides for image carousel
             var slides = [];

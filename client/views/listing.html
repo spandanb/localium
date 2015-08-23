@@ -77,12 +77,13 @@
             
                                     <!-- User Image -->
                                     <div class="user-pic-container">
-                                       <img src="img/user/profile-pic.jpg">
+                                       <!--img src="img/user/profile-pic.jpg"-->
+                                       <img ng-src="{{'http://graph.facebook.com/' + item.creator.providerId + '/picture?type=square'}}">
                                     </div>
 
                                 </div><!-- Ends .item-container-top-->    
                                 <div class="portfolio-caption">
-                                    <a href="">{{item.name}}</a>
+                                    <a href="">{{item.title}}</a>
                                 </div>
                             </div><!-- .item-container-inner -->
                         </div><!-- .item-container -->

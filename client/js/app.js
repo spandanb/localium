@@ -18,8 +18,7 @@ angular.module('prada',['ngResource',
                         'app.ctrl.nav',
                         'app.services',
                         'pc035860.scrollWatch',
-                        'angularFileUpload' //For file upload
-
+                        'ngFileUpload' //For file upload
                         ])
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
