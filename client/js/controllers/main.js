@@ -5,9 +5,11 @@ angular.module('app.controllers',[])
   //$scope.boolChangeClass = false;
     Session.get(function(data){
             console.log(data);
-      console.log(data.personId);
-            $rootScope.personId = data.personId;
+            console.log(data._id);
+            $rootScope.personId = data._id;
+            $rootScope.personName = data.displayName;
     });
+
 	$scope.login = function(){
 		var modalInstance = $modal.open({
       animation: false,
