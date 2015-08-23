@@ -5,9 +5,11 @@ angular.module('app.controllers',[])
   //$scope.boolChangeClass = false;
     Session.get(function(data){
             console.log(data);
-      console.log(data.personId);
-            $rootScope.personId = data.personId;
+            console.log(data._id);
+            $rootScope.personId = data._id;
+            $rootScope.personName = data.displayName;
     });
+
 	$scope.login = function(){
 		var modalInstance = $modal.open({
       animation: false,
@@ -46,7 +48,9 @@ $scope.bookMore = function(){
       $state.go('chatPage');
 };
 
-
+$scope.$on('slide1', function ($evt, active, locals) {
+  console.log("event being fired");
+});
 
 })
 .controller('demoCtrl',function($scope,$state){

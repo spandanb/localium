@@ -187,42 +187,42 @@ fieldset[disabled] .btn-xl.active {
     background-color: #fff;
 }
 
-.navbar-default {
+.navbar-newdefault {
     border-color: transparent;
     background-color: #222;
 }
 
-.navbar-default .navbar-brand {
+.navbar-newdefault .navbar-brand {
     font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
     color: #fed136;
 }
 
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus,
-.navbar-default .navbar-brand:active,
-.navbar-default .navbar-brand.active {
+.navbar-newdefault .navbar-brand:hover,
+.navbar-newdefault .navbar-brand:focus,
+.navbar-newdefault .navbar-brand:active,
+.navbar-newdefault .navbar-brand.active {
     color: #fec503;
 }
 
-.navbar-default .navbar-collapse {
+.navbar-newdefault .navbar-collapse {
     border-color: rgba(255,255,255,.02);
 }
 
-.navbar-default .navbar-toggle {
+.navbar-newdefault .navbar-toggle {
     border-color: #fed136;
     background-color: #fed136;
 }
 
-.navbar-default .navbar-toggle .icon-bar {
+.navbar-newdefault .navbar-toggle .icon-bar {
     background-color: #fff;
 }
 
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
+.navbar-newdefault .navbar-toggle:hover,
+.navbar-newdefault .navbar-toggle:focus {
     background-color: #fed136;
 }
 
-.navbar-default .nav li a {
+.navbar-newdefault .nav li a {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 600;
@@ -230,26 +230,26 @@ fieldset[disabled] .btn-xl.active {
     color: #ffffff!important;
 }
 
-.navbar-default .nav li a:hover,
-.navbar-default .nav li a:focus {
+.navbar-newdefault .nav li a:hover,
+.navbar-newdefault .nav li a:focus {
     outline: 0;
     color: #fed136;
 }
 
-.navbar-default .navbar-nav>.active>a {
+.navbar-newdefault .navbar-nav>.active>a {
     border-radius: 0;
     color: #fff;
     background-color: #fed136;
 }
 
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:focus {
+.navbar-newdefault .navbar-nav>.active>a:hover,
+.navbar-newdefault .navbar-nav>.active>a:focus {
     color: #fff;
     background-color: #fec503;
 }
 
 @media(min-width:768px) {
-    .navbar-default {
+    .navbar-newdefault {
         padding: 25px 0;
         border: 0;
         background-color: transparent!important;
@@ -258,23 +258,23 @@ fieldset[disabled] .btn-xl.active {
         transition: padding .3s;
     }
 
-    .navbar-default .navbar-brand {
+    .navbar-newdefault .navbar-brand {
         font-size: 2em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
     }
 
-    .navbar-default .navbar-nav>.active>a {
+    .navbar-newdefault .navbar-nav>.active>a {
         border-radius: 3px;
     }
 
-    .navbar-default.navbar-shrink {
+    .navbar-newdefault.navbar-shrink {
         padding: 10px 0;
         background-color: #222;
     }
 
-    .navbar-default.navbar-shrink .navbar-brand {
+    .navbar-newdefault.navbar-shrink .navbar-brand {
         font-size: 1.5em;
     }
 }

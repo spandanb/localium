@@ -1,11 +1,19 @@
 "use strict";
 
 angular.module('app.ctrl.nav', [])
-.controller('navCtrl', function($scope, Mock){
-
+.controller('navCtrl', function($scope, Mock, $rootScope,$modal){
+    //$rootScope.boolChangeClass = false;
     $scope.showSearchResults = false;
     $scope.search = "";
 
+    $scope.login = function(){
+        var modalInstance = $modal.open({
+      animation: false,
+      templateUrl: '../views/loginModal.html',
+      controller: 'ModalInstanceCtrl',
+      size: 'sm'
+    });
+    };
     /*
     $scope.$watchCollection('search', function() { 
         if(!!$scope.search){
