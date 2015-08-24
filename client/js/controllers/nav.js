@@ -1,7 +1,7 @@
 "use strict";
 
 angular.module('app.ctrl.nav', [])
-.controller('navCtrl', function($scope, Mock, $rootScope,$modal){
+.controller('navCtrl', function($scope, Mock, $rootScope,$modal, Session){
     //$rootScope.boolChangeClass = false;
     $scope.showSearchResults = false;
     $scope.search = "";
@@ -14,6 +14,31 @@ angular.module('app.ctrl.nav', [])
       size: 'sm'
     });
     };
+    
+    //watch if the user is logged in or not
+    $rootScope.$watch("personId", function(user) {
+        console.log(user);
+        if(user == null || user ==undefined){
+            $scope.showUserName = false;
+
+        }else{
+            $scope.showUserName = true;
+        }
+    });
+
+    //logout 
+    $scope.logout = function() {
+        console.log('Deleting the session');
+        Session.delete(function(res) {
+            console.log(res);
+            if(res[0] =='O'){
+                 $scope.showUserName = false;
+
+            }
+        }, function(err) {
+            console.log("error");
+        });
+    };
     /*
     $scope.$watchCollection('search', function() { 
         if(!!$scope.search){
@@ -21,6 +46,8 @@ angular.module('app.ctrl.nav', [])
         }
         console.log("Search text changed to " + $scope.search);
     });*/
+    
+
 
     //Create list of lists for carousel for search results
     $scope.getItemCollection = function(){
