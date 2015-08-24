@@ -63,14 +63,14 @@
                     </li>
                     <li>
                         <div class="search-container">
-                            <input type="text" placeholder="Search" ng-model="search"> 
+                            <input type="text" placeholder="Search" ng-model="search" stlye="width:25%"> 
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </div>
                     </li>
                 </ul>
     
                 <!-- Right section -->
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" ng-if="!showUserName">
                     <li >
                         <a id="post-item-btn" ui-sref="post">
                             Post 
@@ -79,7 +79,7 @@
                     </li>
     
                     <li class="dropdown">
-                         <a  href="" data-toggle="modal" data-target="#myModal" ng-click="login()">
+                         <a  href="" ng-click="login()">
                             Log In
                         </a>
                     </li>
@@ -105,6 +105,22 @@
                          </ul>
                     </li>
                     -->
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-if="showUserName">
+                    <li dropdown on-toggle="toggled(open)">
+                        <a href is-open dropdown-toggle>
+                            {{personName}} 
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href>Postings</a></li>
+                            <li><a href>Favorites</a></li>
+                            <li><a href>Messages</a></li>
+                            <li class="divider"></li>
+                            <li><a href>Preferences</a></li>
+                            <li><a href="" ng-click="logout()">Logout</a></li>
+                         </ul>
+                    </li>
                 </ul>
             </div><!-- .navbar-collapse -->
         </div><!-- .row-->
