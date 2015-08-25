@@ -107,6 +107,12 @@
                     -->
                 </ul>
                 <ul class="nav navbar-nav navbar-right" ng-if="showUserName">
+                    <li >
+                        <a id="post-item-btn" ui-sref="post">
+                            Post 
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </li>
                     <li dropdown on-toggle="toggled(open)">
                         <a href is-open dropdown-toggle>
                             {{personName}} 

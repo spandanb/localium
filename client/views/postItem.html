@@ -2,13 +2,13 @@
 <link href="css/custom-agency-listing.css" rel="stylesheet">
 <link href="css/custom-listing.css" rel="stylesheet">
 <link href="css/custom-post.css" rel="stylesheet">
-
+<link href="css/style2.css" rel="stylesheet">
 <!-- Custom Dependencies -->
 <script src="other_components/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
 
 <!-- Header -->
-<header>
+<!-- <header>
     <div class="container">
         <div class="row">
             <div class="intro-text col-md-6 col-md-offset-3">
@@ -19,9 +19,129 @@
             </div>
         </div>
     </div>
-</header>
+</header> -->
 
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-sm-offset-1">
+            <div class="account-wall-2" style="margin-top:8%">
+                <div class="row">
+                    <div class="text-right" style="padding-right:1%">
+                        <a class="btn btn-success">Publish item</a>
+                    </div>
+                </div>
+                <hr class="colorgraph-custom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row"> 
+                            <md-input-container>
+                                <label>Title</label>
+                                <input ng-model="item.title">
+                            </md-input-container>
+                        </div>
+                        <div class="row"> 
+                            <div class="col-md-6 col-xs-6 col-sm-6" style="padding-left:0px;padding-right:0px">
+                              <md-input-container flex="">
+                                    <label>Price</label>
+                                    <input ng-model="item.price">
+                              </md-input-container>
+                            </div>
+                            <div class="col-md-6 col-xs-6 col-sm-6" style="padding-left:2px;padding-right:0px">
+                              <md-input-container flex="">
+                                    <label>Orginal Price(Optional)</label>
+                                    <input ng-model="item.orginalPrice">
+                              </md-input-container>
+                            </div>
+                        </div>
+                        <div class="row"> 
+                          <md-input-container flex="">
+                            <label>Description</label>
+                            <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+                          </md-input-container>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                    <div class="upload-img-container" layout="row" Style="width:100%;height:100%">
+                        <input type="file" ngf-select ng-model="images" name="file" accept="image/*" multiple ngf-max-size="2MB" required>
+                        <img src="img/icons/upload.png" alt="">
+                        <div> Add Photos</div>
+                    </div>
+                    </div>
+                </div><!-- End of second row-->
+                <br>
+                <div class="row">
+                    <div class="col-md-12" style="padding-left:0px;padding-right:0px;">
+                        <md-tabs md-border-bottom="" Style="border: 1px solid #e1e1e1;"  md-dynamic-height="">
+                            <md-tab label="Books">
+                                <md-content class="md-padding">
+                                     <form name="userForm">
+
+                                      <div layout="" layout-sm="column">
+                                        <md-input-container flex="">
+                                          <label>Book Name</label>
+                                          <input ng-model="user.firstName">
+                                        </md-input-container>
+                                        <md-input-container flex="">
+                                          <label>Course</label>
+                                          <input ng-model="theMax">
+                                        </md-input-container>
+                                      </div>
+
+                                      <div layout="" layout-sm="column">
+                                        <md-input-container flex="">
+                                          <label>Author</label>
+                                          <input ng-model="user.firstName">
+                                        </md-input-container>
+                                        <md-input-container flex="">
+                                          <label>Edition</label>
+                                          <input ng-model="theMax">
+                                        </md-input-container>
+                                      </div>
+
+                                      <div layout="" layout-sm="column">
+                                        <md-input-container flex="">
+                                            <label>Condition</label>
+                                            <md-select ng-model="size">
+                                              <md-option ng-repeat="size in sizes" value="{{size}}">{{size}}</md-option>
+                                            </md-select>
+                                          </md-input-container>
+                                          <md-input-container flex="">
+                                            <label>Year</label>
+                                            <md-select ng-model="size">
+                                              <md-option ng-repeat="size in sizes" value="{{size}}">{{size}}</md-option>
+                                            </md-select>
+                                          </md-input-container>
+                                      </div>
+
+                                    </form>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="Clothes">
+                                <md-content class="md-padding">
+                                
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="Electronics">
+                                <md-content class="md-padding">
+                                
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="Furniture">
+                                <md-content class="md-padding">
+                                
+                                </md-content>
+                            </md-tab>
+                        </md-tabs>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="container-fluid">
     <div class="row-fluid">
         <div class="col-md-10 col-md-offset-1"> 
 
@@ -88,8 +208,7 @@
                 </div>
             </div>
 
-            <!-- Category specific fields -->
-            <!-- Clothing -->
+            
             <div ng-show="item.category=='clothing'">
                     <div class="col-md-6"> 
                         <md-input-container>
@@ -99,7 +218,7 @@
                     </div>
             </div>
 
-            <!-- Books -->
+        
             <div ng-show="item.category=='books'">
                 <div class="row-fluid">
                     <div class="col-md-6"> 
@@ -117,7 +236,7 @@
                 </div>
             </div>
 
-            <!-- Electronics -->
+            
             <div ng-show="item.category=='electronics'">
                     <div class="col-md-6"> 
                         <md-input-container>
@@ -127,7 +246,7 @@
                     </div>
             </div>
 
-            <!-- Furniture -->
+           
             <div ng-show="item.category=='furniture'">
             </div>
 
@@ -147,8 +266,8 @@
         </div>
  
     </div>
-</div><!-- Closes main .container -->
+</div>
 
-
+ -->
 
 

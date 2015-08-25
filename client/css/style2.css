@@ -337,3 +337,7 @@ background-color: #f5f5f5;
     background-color: #F0F0F0;
     padding-right: 13px;
 }
+
+.md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
