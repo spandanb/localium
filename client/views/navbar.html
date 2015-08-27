@@ -64,9 +64,7 @@
                     <li>
                         <div class="search-container">
                             <span class="glyphicon glyphicon-search" aria-hidden="true" ng-show="searchFSM.state != 'searching'"></span>
-                            <span class="spinner-container" ng-show="searchFSM.state == 'searching'">
-                               <img src="img/icons/loader.gif"> 
-                            </span>
+                            <img src="img/icons/loader.gif" ng-show="searchFSM.state == 'searching'"> 
                             <input type="text" placeholder="Search" ng-model="search" > 
                         </div>
                     </li>

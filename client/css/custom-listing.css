@@ -182,8 +182,6 @@ for white vertical line*/
    font-size: 150%;
 }
 
-
-
 /******* User **********/
 .user-pic-container{
     position: absolute;
@@ -258,7 +256,6 @@ for white vertical line*/
     
 }
 
-
 .next-img-container{
     right: 5px;
 }
@@ -267,185 +264,6 @@ for white vertical line*/
     left: 5px;
 }
 
-
-/**********Chat ************/
-#dummy-chat-holder{
-    background:transparent;
-}
-
-.chat{
-   width: 250px; 
-   height: 200px;
-}
-
-.chat .top-bar{
-    padding: 10px 5px;
-    background-color: #BEBEBE;
-
-}
-.chat .top-bar .chat-img-container{
-    width: 80px;
-    height: 80px;
-    position: absolute;
-}
-.chat .top-bar .chat-img-container img{
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 50%;
-    padding: 2px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    position: relative; 
-    top: -65px;
-    
-    left: 85px; /* =250/2 - 80/2 */
-}
-
-.chat .top-bar .username{
-    font-family:"raleway-regular", sans-serif;
-    font-size: 125%;
-}
-
-.chat .top-bar .quit-sym{
-    color: #983232;
-    padding-left: 5px;
-}
-
-.chat .top-bar .minimize-sym {
-}
-
-.chat .messages-container{
-    max-width: 100%;
-    max-height: 80%;
-    overflow: scroll; 
-       
-}
-
-
-/* CSS talk bubble */
-/*Source: http://codepen.io/Founts/pen/gmhcl?editors=110*/
-.talk-bubble {
-    margin: 40px;
-    display: inline-block;
-    position: relative;
-    width: 200px;
-    height: auto;
-    background-color: #4BB74C;
-}
-.border{
-    border: 8px solid #666;
-}
-
-/* Right triangle placed top left. */
-.tri-right.border.left-top:before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: -40px;
-    right: auto;
-    top: -8px;
-    bottom: auto;
-    border: 32px solid;
-    border-color: #666 transparent transparent transparent;
-}
-.tri-right.left-top:after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: -20px;
-    right: auto;
-    top: 0px;
-    bottom: auto;
-    border: 22px solid;
-    border-color: #4BB74C transparent transparent transparent;
-}
-
-
-/* left triangle placed top right. */
-.tri-left.border.right-top:before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    right: -40px;
-    left: auto;
-    top: -8px;
-    bottom: auto;
-    border: 32px solid;
-    border-color: #666 transparent transparent transparent;
-}
-.tri-left.right-top:after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    right: -20px;
-    left: auto;
-    top: 0px;
-    bottom: auto;
-    border: 22px solid;
-    border-color: #4BB74C transparent transparent transparent;
-}
-
-/* talk bubble contents */
-.talktext{
-  padding: 1em;
-  text-align: left;
-  line-height: 1.5em;
-}
-
-.talktext p{
-  /* remove webkit p margins */
-  -webkit-margin-before: 0em;
-  -webkit-margin-after: 0em;
-}
-
-/********* Post Modal *********/
-.upload-img-container {
-    padding: 10px;
-    border: 1px dashed #BEBEBE;
-    color: #BEBEBE;
-    text-size: 80%; 
-    cursor: pointer;
-    display:inline-block;
-    margin-left:20px;
-}
-
-.upload-img-container img{
-   width: 64px; 
-   height: auto;
-   display: block;
-   margin-left:auto;
-   margin-right:auto;
-}
-.modal-title input{
-    width: 48%;
-}
-
-.form-control.invisible-box{
-    border:none;
-    border-bottom: 1px solid #326AFF;
-    border-radius: 0;
-}
-
-
-.form-control.invisible-box:focus,
-.form-control.invisible-box:hover,
-.form-control.invisible-box:active {
-    border:none;
-    border-bottom: 1px solid #66AFEF;
-}
-
-footer a{
-    color:black;    
-}
-
-footer a:hover {
-    color:#326AFF;    
-    text-decoration: none;
-}
 
 /********* UI Bootstrap **********/
 /*Show navigation arrows on image carousel on hover*/
@@ -493,20 +311,6 @@ footer a:hover {
     margin-left: 20px;
 }
 
-/*
-.search-container input{
-    border-width: 0 0 0px 0;
-    border-radius: 20px;
-    padding:5px 20px 5px 15px;
-    height: 100%;
-    background-color: #F0F0F0;
-    width: 200px;
-}
-.search-container input:focus {
-    outline: none;
-    box-shadow: none;
-}
-*/
 .search-container input{
     margin-top: 5px;
     border: none;
@@ -519,15 +323,7 @@ footer a:hover {
     outline: none;
 }
 
-div .spinner-container{
-    width: 10px;
-}
-
-.loading-gif {
-   background:url('http://www.hsi.com.hk/HSI-Net/pages/images/en/share/ajax-loader.gif') no-repeat right center;
-}
-
-/**Search Bar**/
+/*********Search Results*********/
 .container.search-results-container{
    margin-top: 20px;     
    margin-bottom:20px;
