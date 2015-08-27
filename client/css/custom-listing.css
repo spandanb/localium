@@ -490,26 +490,41 @@ footer a:hover {
     padding-left: 10px;
     margin-top:10px;
     margin-bottom:10px;
+    margin-left: 20px;
 }
 
+/*
 .search-container input{
     border-width: 0 0 0px 0;
-    /*box-shadow: 0 01px 3px 0px #d4d4d5; */
     border-radius: 20px;
-    padding:5px 0 5px 15px;
+    padding:5px 20px 5px 15px;
     height: 100%;
     background-color: #F0F0F0;
-    width: 400px;
+    width: 200px;
 }
 .search-container input:focus {
     outline: none;
     box-shadow: none;
 }
+*/
+.search-container input{
+    margin-top: 5px;
+    border: none;
+    border-bottom: solid 0px #c9c9c9;
+    transition: border 0.3s;
+    width: 200px;
+}
+.search-container input:focus {
+    border-bottom: solid 0px #969696;
+    outline: none;
+}
 
-.pagination-container{
-    float: none;
-    margin: 0 auto;
-    width: 50%;
+div .spinner-container{
+    width: 10px;
+}
+
+.loading-gif {
+   background:url('http://www.hsi.com.hk/HSI-Net/pages/images/en/share/ajax-loader.gif') no-repeat right center;
 }
 
 /**Search Bar**/
@@ -529,4 +544,17 @@ footer a:hover {
     border: 1px solid #D3D3D3;
     border-radius: 4px;
     margin: 5px;
+}
+
+.item-row{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+/****** Pagination ******/
+
+.pagination-container{
+    float: none;
+    margin: 0 auto;
+    width: 50%;
 }

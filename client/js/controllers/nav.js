@@ -1,9 +1,15 @@
 "use strict";
 
 angular.module('app.ctrl.nav', [])
-.controller('navCtrl', function($scope, Mock, $rootScope,$modal, Session){
+.controller('navCtrl', function($scope, 
+                                $rootScope,
+                                $timeout,
+                                $modal, 
+                                Mock, 
+                                Session){
     //$rootScope.boolChangeClass = false;
     $scope.showSearchResults = false;
+    //The search text 
     $scope.search = "";
 
     $scope.login = function(){
@@ -20,7 +26,6 @@ angular.module('app.ctrl.nav', [])
         console.log(user);
         if(user == null || user ==undefined){
             $scope.showUserName = false;
-
         }else{
             $scope.showUserName = true;
         }
@@ -64,16 +69,52 @@ angular.module('app.ctrl.nav', [])
     }
     
     $scope.itemCollection = $scope.getItemCollection();
-    
+   
+
+    $scope.searchFSM = {
+        //A machine for search. 
+        //A search operation is in one of 
+        //  {idle|waiting|searching} states.
+        //In idle do nothing
+        //In waiting state, you are waiting for user to finish typing 
+        //wait 500ms, in case user is still typing
+        //The go to searching state, where it actually searches 
+        //This shows the loader for 1s
+        state: "idle", 
+        waitHandle: null, //handle for promise, while in waiting state
+        searchHandle: null,
+
+        startSearching : function(){
+            this.state = "searching";
+            this.searchHandle = $timeout(function(){
+                $scope.showSearchResults = true;
+                $scope.searchFSM.state = "idle";
+            }, 1000);
+        },
+
+        newValueEntered : function(newValue){
+            //If value is empty 
+            if(!newValue){
+                $scope.showSearchResults = false;
+                return;
+            }
+
+            //Cancel if existing promise exists 
+            if(this.state == "waiting"){
+                this.waitHandle.cancel();   
+            }
+            this.state = "waiting";
+            this.waitHandle = $timeout(function(){
+                $scope.searchFSM.startSearching(); 
+            }, 500);
+
+        },
+    }
+
+
     //Detects when text changed in search field 
     $scope.$watch("search", function(newValue, oldValue) {
-        //console.log(newValue, oldValue);
-        if(!!newValue){
-            $scope.showSearchResults = true;
-            //$scope.itemCollection = $scope.getItemCollection();
-        }else{
-            $scope.showSearchResults = false;
-        }
+        $scope.searchFSM.newValueEntered(newValue);
     });
 
     $scope.exitSearch = function(){

@@ -63,8 +63,11 @@
                     </li>
                     <li>
                         <div class="search-container">
-                            <input type="text" placeholder="Search" ng-model="search" stlye="width:25%"> 
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-search" aria-hidden="true" ng-show="searchFSM.state != 'searching'"></span>
+                            <span class="spinner-container" ng-show="searchFSM.state == 'searching'">
+                               <img src="img/icons/loader.gif"> 
+                            </span>
+                            <input type="text" placeholder="Search" ng-model="search" > 
                         </div>
                     </li>
                 </ul>
@@ -184,4 +187,5 @@
         </div>
     </div><!-- .container -->
 </nav>
+
 
