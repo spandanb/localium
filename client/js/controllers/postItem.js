@@ -38,6 +38,10 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
         console.log($scope.item);
     }
 
+    $scope.launchLoginModal = function(){
+        $rootScope.$emit('launchLoginModal');
+    }
+
     $scope.post = function(){
         console.log("Current user is: " + $rootScope.personId);
         if(!$rootScope.personId)
