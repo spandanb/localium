@@ -14,12 +14,16 @@ angular.module('app.ctrl.nav', [])
 
     $scope.login = function(){
         var modalInstance = $modal.open({
-      animation: false,
-      templateUrl: '../views/loginModal.html',
-      controller: 'ModalInstanceCtrl',
-      size: 'sm'
-    });
+            animation: false,
+            templateUrl: '../views/loginModal.html',
+            controller: 'ModalInstanceCtrl',
+            size: 'sm'
+        });
     };
+
+    $rootScope.$on('launchLoginModal', function(event, args){
+        $scope.login();
+    });
     
     //watch if the user is logged in or not
     $rootScope.$watch("personId", function(user) {
@@ -99,7 +103,7 @@ angular.module('app.ctrl.nav', [])
                 return;
             }
 
-            //Cancel if existing promise exists 
+            //Cancel existing promise if it exists 
             if(this.state == "waiting"){
                 this.waitHandle.cancel();   
             }

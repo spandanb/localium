@@ -10,6 +10,15 @@ angular.module('app.directives',[])
             scope.$apply();
         });
     };
+}).directive('hideSearchResults', function ($window) {
+    //Detects scroll and hides the search results dropdown
+    return function(scope, element, attrs) {
+        angular.element($window).bind("scroll", function() {
+            scope.showSearchResults = false;
+            scope.search = "";
+            scope.$apply();
+        });
+    };
 }).directive('ngThumb', ['$window', function($window) {
     var helper = {
         support: !!($window.FileReader && $window.CanvasRenderingContext2D),

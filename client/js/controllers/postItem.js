@@ -9,25 +9,38 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
                                     Upload 
                                     ){
 
-    //Initialize 
-    $scope.sizes = [
-          "small (12-inch)",
-          "medium (14-inch)",
-          "large (16-inch)",
-          "insane (42-inch)"
-      ];
-      
-      $scope.toppings = [
-        { category: 'meat', name: 'Pepperoni' },
-        { category: 'meat', name: 'Sausage' },
-        { category: 'meat', name: 'Ground Beef' },
-        { category: 'meat', name: 'Bacon' },
-        { category: 'veg', name: 'Mushrooms' },
-        { category: 'veg', name: 'Onion' },
-        { category: 'veg', name: 'Green Pepper' },
-        { category: 'veg', name: 'Green Olives' }
-      ];
+    $scope.imgGroups = [];
 
+    //Use this for books
+    $scope.bookConditions = [
+        {condition: "Mint Condition", value: 1},
+        {condition:"Slightly Used", value: 2},
+        {condition:"Heavily Used", value: 3},
+        {condition:"Acceptable", value: 4}
+    ];
+      
+    $scope.electronicsConditions = [
+        {condition: "Unopened", value: 1},
+        {condition:"Unused (but without original packaging)", value: 2},
+        {condition:"Slightly Used", value: 3},
+        {condition:"Works", value: 4}
+    ];
+
+    $scope.clothingConditions = [
+        {condition: "Unworn", value: 1},
+        {condition:"Slightly Worn", value: 2},
+        {condition:"Heavily Worn", value: 3}
+    ];
+
+    $scope.furnitureConditions = [
+        {condition:"Unused", value: 1},
+        {condition:"Slightly Used", value: 2},
+        {condition:"Heavily Used", value: 3}
+    ];
+
+    $scope.years = function(){for(var i=1990, arr=[]; i<2016; i++, arr.push(i)); return arr;}()
+    console.log($scope.years);
+    
     if(!$scope.item){
         $scope.item = {category: null};
     }
@@ -38,10 +51,29 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
         console.log($scope.item);
     }
 
+    $scope.launchLoginModal = function(){
+        $rootScope.$emit('launchLoginModal');
+    }
+
+    $scope.$watch("images", function(newValue, oldValue) {
+        //TODO: Make this smarter, and put in directive
+        $scope.imgGroups = [[],[],[]];
+        for(var i=0; !!$scope.images && i<$scope.images.length; i++){
+            $scope.imgGroups[i % 3].push( $scope.images[i] );  
+            console.log($scope.images[i])
+        }
+    });
+
+    $scope.setCategory = function(category){
+        $scope.item.category = category;
+    }
+
     $scope.post = function(){
-        console.log("Current user is: " + $rootScope.personId);
-        if(!$rootScope.personId)
+        if(!$rootScope.personId){
             return;
+        }
+        
+        console.log($scope.item);
 
         //Turn images to data url
         $scope.item.images = [];
@@ -59,6 +91,7 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
         $q.all(imgPromises).then(function() {
             $scope.item.personId = $rootScope.personId;
             console.log($scope.item);        
+            return;
 
             Posts.save($scope.item, function(){
                 console.log("Success");
@@ -67,9 +100,6 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
                 console.log("Error");
             });
         });
-
-   
-
     }
 
 }); 

@@ -25,18 +25,55 @@
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-10 col-sm-offset-1">
             <div class="account-wall-2" style="margin-top:8%">
+                
                 <div class="row">
                     <div class="text-right" style="padding-right:1%">
-                        <a class="btn btn-success">Publish item</a>
+                        <a class="btn btn-success" ng-if="$root.personId" ng-click="post()">Post item</a>
+                        <a class="btn btn-success" ng-if="!$root.personId" ng-click="launchLoginModal()">Login to Post</a>
                     </div>
-                </div>
+                </div><!-- .row -->
                 <hr class="colorgraph-custom">
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12"><!-- Col 1 -->
+                        <div class="row">
+                            <div class="upload-img-container" layout="row" Style="width:100%;height:100%" 
+                                tooltip="Having 2-5, good quality images can increase views and help you sell faster."
+                                tooltip-class="custom-tooltip">
+                                <input type="file" ngf-select ng-model="images" name="file" accept="image/*" multiple ngf-max-size="2MB" required>
+                                <img src="img/icons/upload.png" alt="">
+                                <div> Add Photos</div>
+                            </div>
+
+                            <div ng-repeat="img in imgGroups[2]" class="col-md-12">
+                                <img ngf-src="img" class="preview-img" ng-click="remove(img)"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12"><!-- Col 2 -->
+                        <div class="row">
+                            <div ng-repeat="img in imgGroups[0]" class="col-md-12">
+                                <img ngf-src="img" class="preview-img" ng-click="remove(img)"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12"><!-- Col 3 -->
+                        <div class="row">
+                            <div ng-repeat="img in imgGroups[1]" class="col-md-12">
+                                <img ngf-src="img" class="preview-img" ng-click="remove(img)"> 
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .row -->
+                
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="row"> 
+                        <div class="row" > 
                             <md-input-container>
                                 <label>Title</label>
-                                <input ng-model="item.title">
+                                <input ng-model="item.title" 
+                                    tooltip="Have a title that is short and descriptive"
+                                    tooltip-class="custom-tooltip">
                             </md-input-container>
                         </div>
                         <div class="row"> 
@@ -56,80 +93,156 @@
                         <div class="row"> 
                           <md-input-container flex="">
                             <label>Description</label>
-                            <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+                            <textarea ng-model="item.description" columns="1" md-maxlength="150"></textarea>
                           </md-input-container>
                         </div>
 
                     </div>
                     <div class="col-md-6">
-                    <div class="upload-img-container" layout="row" Style="width:100%;height:100%">
-                        <input type="file" ngf-select ng-model="images" name="file" accept="image/*" multiple ngf-max-size="2MB" required>
-                        <img src="img/icons/upload.png" alt="">
-                        <div> Add Photos</div>
                     </div>
-                    </div>
-                </div><!-- End of second row-->
+
+                </div><!-- .row-->
                 <br>
                 <div class="row">
                     <div class="col-md-12" style="padding-left:0px;padding-right:0px;">
                         <md-tabs md-border-bottom="" Style="border: 1px solid #e1e1e1;"  md-dynamic-height="">
-                            <md-tab label="Books">
+
+                            <md-tab label="Clothing" 
+                                    tooltip="This includes clothing, apparel, and accessories"
+                                    tooltip-class="custom-tooltip"
+                                    md-on-select="setCategory('clothing')">
                                 <md-content class="md-padding">
-                                     <form name="userForm">
+                                    <form> 
+                                        <div layout="row" layout-sm="column">
+                                            <md-input-container flex="">
+                                              <label>Brand</label>
+                                              <input ng-model="item.brand">
+                                            </md-input-container>
+                                        </div>
+                                        
+                                        <div layout="row" layout-sm="column">
+                                            <p> Size </p>
+                                            <md-radio-group ng-model="item.size">
+                                                <md-radio-button value="xs"> XS </md-radio-button>
+                                                <md-radio-button value="s"> S </md-radio-button>
+                                                <md-radio-button value="m"> M </md-radio-button>
+                                            </md-radio-group>
+                                            <md-radio-group ng-model="item.size">
+                                                <md-radio-button value="l"> L </md-radio-button>
+                                                <md-radio-button value="xl"> XL </md-radio-button>
+                                                <md-radio-button value="xxl"> XXL </md-radio-button>
+                                            </md-radio-group>
+                                        </div>
 
-                                      <div layout="" layout-sm="column">
-                                        <md-input-container flex="">
-                                          <label>Book Name</label>
-                                          <input ng-model="user.firstName">
-                                        </md-input-container>
-                                        <md-input-container flex="">
-                                          <label>Course</label>
-                                          <input ng-model="theMax">
-                                        </md-input-container>
-                                      </div>
-
-                                      <div layout="" layout-sm="column">
-                                        <md-input-container flex="">
-                                          <label>Author</label>
-                                          <input ng-model="user.firstName">
-                                        </md-input-container>
-                                        <md-input-container flex="">
-                                          <label>Edition</label>
-                                          <input ng-model="theMax">
-                                        </md-input-container>
-                                      </div>
-
-                                      <div layout="" layout-sm="column">
-                                        <md-input-container flex="">
-                                            <label>Condition</label>
-                                            <md-select ng-model="size">
-                                              <md-option ng-repeat="size in sizes" value="{{size}}">{{size}}</md-option>
-                                            </md-select>
-                                          </md-input-container>
-                                          <md-input-container flex="">
-                                            <label>Year</label>
-                                            <md-select ng-model="size">
-                                              <md-option ng-repeat="size in sizes" value="{{size}}">{{size}}</md-option>
-                                            </md-select>
-                                          </md-input-container>
-                                      </div>
-
+                                        <div layout="row" layout-sm="column">
+                                            <md-input-container flex="">
+                                                <label>Condition</label>
+                                                <md-select ng-model="item.condition">
+                                                  <md-option ng-repeat="cond in clothingConditions" value="{{cond.value}}">{{cond.condition}}</md-option>
+                                                </md-select>
+                                             </md-input-container>
+                                             <md-input-container flex="">
+                                                <label>Year</label>
+                                                <md-select ng-model="item.year">
+                                                  <md-option ng-repeat="year in years" value="{{year}}">{{year}}</md-option>
+                                                </md-select>
+                                             </md-input-container>
+                                         </div>
+                                    </form> 
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="Books" md-on-select="setCategory('books')">
+                                <md-content class="md-padding">
+                                     <form >
+                                        <div layout="row" layout-sm="column">
+                                            <md-input-container flex="">
+                                              <label>Book Name</label>
+                                              <input ng-model="item.bookTitle">
+                                            </md-input-container>
+                                            <md-input-container flex="">
+                                              <label>Course</label>
+                                              <input ng-model="item.course">
+                                            </md-input-container>
+                                          </div>
+    
+                                          <div layout="row" layout-sm="column">
+                                            <md-input-container flex="">
+                                              <label>Author</label>
+                                              <input ng-model="item.bookAuthor">
+                                            </md-input-container>
+                                            <md-input-container flex="">
+                                              <label>Edition</label>
+                                              <input ng-model="item.edition">
+                                            </md-input-container>
+                                          </div>
+    
+                                          <div layout="row" layout-sm="column">
+                                            <md-input-container flex="">
+                                                <label>Condition</label>
+                                                <md-select ng-model="item.condition">
+                                                  <md-option ng-repeat="cond in bookConditions" value="{{cond.value}}">{{cond.condition}}</md-option>
+    
+                                                </md-select>
+                                              </md-input-container>
+                                              <md-input-container flex="">
+                                                <label>Year</label>
+                                                <md-select ng-model="item.year">
+                                                  <md-option ng-repeat="year in years" value="{{year}}">{{year}}</md-option>
+                                                </md-select>
+                                              </md-input-container>
+                                          </div>
+                                     </form>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="Electronics" md-on-select="setCategory('electronics')">
+                                <md-content class="md-padding">
+                                    <form>
+                                        <div layout="row" layout-sm="column">
+                                            <md-input-container flex="">
+                                              <label>Manufacturer</label>
+                                              <input ng-model="item.manufacturer">
+                                            </md-input-container>
+                                            <md-input-container flex="">
+                                              <label>Model</label>
+                                              <input ng-model="item.model">
+                                            </md-input-container>
+                                          </div>
+                                          <div layout="row" layout-sm="column">
+                                            <md-input-container flex="">
+                                                <label>Condition</label>
+                                                <md-select ng-model="item.condition">
+                                                  <md-option ng-repeat="cond in electronicsConditions" value="{{cond.value}}">{{cond.condition}}</md-option>
+                                                </md-select>
+                                             </md-input-container>
+                                             <md-input-container flex="">
+                                                <label>Year</label>
+                                                <md-select ng-model="item.year">
+                                                  <md-option ng-repeat="year in years" value="{{year}}">{{year}}</md-option>
+                                                </md-select>
+                                             </md-input-container>
+                                          </div>
                                     </form>
                                 </md-content>
                             </md-tab>
-                            <md-tab label="Clothes">
+                            <md-tab label="Furniture" md-on-select="setCategory('furniture')">
                                 <md-content class="md-padding">
-                                
-                                </md-content>
-                            </md-tab>
-                            <md-tab label="Electronics">
-                                <md-content class="md-padding">
-                                
-                                </md-content>
-                            </md-tab>
-                            <md-tab label="Furniture">
-                                <md-content class="md-padding">
-                                
+                                    <form> 
+                                          <div layout="row" layout-sm="column">
+                                            <md-input-container flex="">
+                                                <label>Condition</label>
+                                                <md-select ng-model="item.condition">
+                                                  <md-option ng-repeat="cond in furnitureConditions" value="{{cond.value}}">{{cond.condition}}</md-option>
+    
+                                                </md-select>
+                                              </md-input-container>
+                                              <md-input-container flex="">
+                                                <label>Year</label>
+                                                <md-select ng-model="item.year">
+                                                  <md-option ng-repeat="year in years" value="{{year}}">{{year}}</md-option>
+                                                </md-select>
+                                              </md-input-container>
+                                          </div>
+                                     </form>
                                 </md-content>
                             </md-tab>
                         </md-tabs>
