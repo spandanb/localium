@@ -1227,7 +1227,7 @@ angular.module('ui.bootstrap.carousel', [])
     }
   }
 
-  self.getCurrentIndex = function() {
+  $scope.getCurrentIndex = self.getCurrentIndex = function() {
     if (self.currentSlide && angular.isDefined(self.currentSlide.index)) {
       return +self.currentSlide.index;
     }
