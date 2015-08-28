@@ -73,8 +73,6 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
             return;
         }
         
-        console.log($scope.item);
-
         //Turn images to data url
         $scope.item.images = [];
         var imgPromises = [];
@@ -91,7 +89,6 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
         $q.all(imgPromises).then(function() {
             $scope.item.personId = $rootScope.personId;
             console.log($scope.item);        
-            return;
 
             Posts.save($scope.item, function(){
                 console.log("Success");
