@@ -8,6 +8,7 @@ angular.module('prada',['ngResource',
                         'ui.bootstrap.dropdown',
                         'ui.bootstrap.modal',
                         'ui.bootstrap.pagination',
+                        'ui.bootstrap.tooltip',
                         'ui.router',
                         'ngMaterial',
                         'app.directives',
@@ -18,7 +19,8 @@ angular.module('prada',['ngResource',
                         'app.ctrl.nav',
                         'app.services',
                         'pc035860.scrollWatch',
-                        'ngFileUpload' //For file upload
+                        'ngFileUpload', //For file upload
+                        //'mdChips'
                         ])
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
