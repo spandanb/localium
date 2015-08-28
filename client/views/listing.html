@@ -59,13 +59,13 @@
 
                                         <slide ng-repeat="img in item.imageUrl" active="slide.active" ng-show="item.imageUrl.length > 0">
                                             <div class="img-container"> 
-                                             <a href="" ng-click="postDetail()">   <img ng-src="{{img}}" class="img-responsive"></a>
+                                             <a href="" ng-click="postDetail(item)">   <img ng-src="{{img}}" class="img-responsive"></a>
                                             </div>
                                         </slide>
                                         <!-- If no images -->
                                         <slide ng-repeat="img in ['img/no_image_available.jpg']" active="slide.active" ng-show="item.imageUrl.length == 0">
                                             <div class="img-container"> 
-                                                 <a href="" ng-click="postDetail()"> <img ng-src="{{img}}" class="img-responsive"> </a>
+                                                 <a href="" ng-click="postDetail(item)"> <img ng-src="{{img}}" class="img-responsive"> </a>
                                             </div>
                                         </slide>
                                     </carousel>

@@ -39,7 +39,8 @@ angular.module('prada',['ngResource',
       console.log("In run: " + personId);
       if (!personId && personId == undefined) {
         Session.get(function(data){
-            console.log(data);           
+            console.log(data);
+            $rootScope.person = data;           
             $rootScope.personId = data._id;
             $rootScope.personName = data.displayName;
         });
@@ -152,10 +153,11 @@ $stateProvider
     controller:'loginCtrl'
 })
 .state('detail', {
-    url:'/detail',
+    url:'/detail/:postId',
         views: {
         'navbar': {
-            templateUrl: '../views/navbar.html'
+            templateUrl: '../views/navbar.html',
+             controller: 'navCtrl'
         },
         'main':{
            templateUrl:'../views/detail.html',

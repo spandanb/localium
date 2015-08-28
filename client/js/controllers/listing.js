@@ -3,7 +3,7 @@
 angular.module('app.ctrl.listing', [])
 .controller('listingCtrl', function($scope, 
                                     Mock,
-                                    Posts){
+                                    Posts,$state,$rootScope,$location){
 
     //Called when top dropdown toggled
     $scope.toggled = function(open) {
@@ -20,7 +20,14 @@ angular.module('app.ctrl.listing', [])
     $scope.currentPage = 1;
     $scope.pageChanged = function(){
         //console.log("Page changed");    
-    }
+    };
+
+    $scope.postDetail = function(post){
+        console.log("Post detail");
+        $rootScope.currentPost = post; 
+        //$state.go('detail');
+        $location.path('detail/' + post._id);
+    };
 
 
     
