@@ -22,6 +22,31 @@ angular.module('prada',['ngResource',
                         'ngFileUpload', //For file upload
                         //'mdChips'
                         ])
+.run(function($rootScope,
+              $location,              
+              Session,
+              $timeout,
+              $state) {
+
+  //editableOptions.theme = 'bs3';
+  
+  $rootScope.appReady = {status:false};
+   
+    
+    $rootScope.$watch('personId', function(personId) {
+      // if no currentUser and on a page that requires authorization then try to update it
+      // will trigger 401s if user does not have a valid session
+      console.log("In run: " + personId);
+      if (!personId && personId == undefined) {
+        Session.get(function(data){
+            console.log(data);
+            $rootScope.person = data;           
+            $rootScope.personId = data._id;
+            $rootScope.personName = data.displayName;
+        });
+      }
+    });
+})
 .config(function($stateProvider,$urlRouterProvider){
 $stateProvider
 .state('home',{ 
@@ -128,10 +153,11 @@ $stateProvider
     controller:'loginCtrl'
 })
 .state('detail', {
-    url:'/detail',
+    url:'/detail/:postId',
         views: {
         'navbar': {
-            templateUrl: '../views/navbar.html'
+            templateUrl: '../views/navbar.html',
+             controller: 'navCtrl'
         },
         'main':{
            templateUrl:'../views/detail.html',

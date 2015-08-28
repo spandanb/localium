@@ -1,33 +1,5 @@
-<!-- <div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-            <div class="account-wall-2">
-
-                <h3 class="text-center">LOG IN</h3>
-
-                <hr class="colorgraph-custom">
-            
-                <form role="form" name="form" novalidate ng-submit="signin()">
-                    <div class="form-group col-xs-12 col-sm-6 col-md-12">
-                        <input type="text" ng-model=acctnumber name=acctnumber class="form-control" placeholder="USERNAME" tabindex="1" required>
-                    </div>
-                    <div class="form-group col-xs-12 col-sm-6 col-md-12">
-                        <input type="password" ng-model=password name=password class="form-control" placeholder="PASSWORD" tabindex="2" required>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-12">
-                                <hr class="colorgraph-custom">
-                                <input type="submit" value="LOGIN" class="btn btn-success btn-block btn-lg">
-                                <a class="btn btn-info btn-block btn-lg" href="" >REGISTER </a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div> -->
 <link href="css/style2.css" rel="stylesheet">
-
+<script src="bower_components/angular-material/angular-material.js"></script>
 <div class="container-fluid detail-color">
     <div class="row" style="padding-top:50px;margin-top: 5%">
          <div class="col-sm-12 col-md-4">
@@ -35,22 +7,7 @@
                  <img src="img/book1.jpg" height="400px" width="100%" class=" img-centered" alt="">
             </div>
             <BR>
-            <!-- div class="image-thumnail">
-                <div class ="row">
-                    <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
-                        <img src="img/billboard.jpg" width="100%" class="img-centered" alt="">
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
-                    <img src="img/billboard.jpg" width="100%" class="img-responsive img-centered" alt="">
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
-                    <img src="img/billboard.jpg" width="100%" class="img-responsive img-centered" alt="">
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
-                    <img src="img/billboard.jpg" width="100%" class="img-responsive img-centered" alt="">
-                    </div>
-                </div>
-            </div> -->
+           
             <div class="row">
                 <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
                         <img src="img/book1.jpg" height="80px" width="100%" class="img-centered" alt="">
@@ -61,13 +18,9 @@
                     <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
                     <img src="img/book1.jpg" height="80px" width="100%" class="img-centered" alt="">
                     </div>
-                    <!-- <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
-                    <img src="img/billboard.jpg" height="80px" width="100%" class="img-centered" alt="">
-                    </div> -->
+                 
             </div>
-          <!--   <div class="account-wall-2"  style="margin-top: 5%">
-                 <h3>Categories</h3>
-            </div> -->
+      
          </div>
 
          <div class="col-sm-12 col-md-8">
@@ -77,13 +30,13 @@
 
                         <div class="media" style="margin-left:5%">
                             <a class="pull-left" href="#">
-                                  <img class="media-object img-circle" src="img/client1.jpg" height="70px" width="70px" alt="Media Object">
+                                  <img class="media-object img-circle" ng-src="https://graph.facebook.com/{{post.creator.providerId}}/picture?type=large" height="70px" width="70px" alt="Media Object">
                             </a>
                            <div class="media-body" style="magin-top:5px">
                             <ul class="list-inline">
                               <li>
-                                <h3 class="media-heading">H.C VERMA - APSC 131</h3>
-                                <P><i>by Spandan, 3 days ago</i></p>
+                                <h3 class="media-heading">{{post.title}}</h3>
+                                <P><i>by {{post.creator.displayName}}, 3 days ago</i></p>
                               </li> 
                             <li class="pull-right" style="padding-right:2.5%">
                                 <a class="btn btn-success">Contact Now</a>
@@ -100,7 +53,7 @@
                             <h4>Description:</h4>
                         </div>
                         <div class="col-sm-12 col-md-9">
-                            <p>Is a very good comprehensive theoretical and a conceptual guide which covers the topics like from heat and temperature to the semiconductor devices. </p>
+                            <p>{{post.message}} </p>
                         </div>
                     </div>
                     <hr>
@@ -109,7 +62,7 @@
                             <h4>Prices:</h4>
                         </div>
                         <div class="col-sm-12 col-md-9">
-                            <h5><b>$45</b><h5> 
+                            <h5><b>{{post.price}}</b><h5> 
                         </div>
                     </div>
                 <hr>
@@ -132,58 +85,47 @@
                     </div>
 
                     <hr class="colorgraph-custom">
-
-                    <div class="row">
+                
+                    <div class="row" ng-if="personId == null || personId == undefined">
+                     <p>No comments. To comment please login.</p>
+                    </div>
+                    <div ng-repeat="comment in comments">
+                        <div class="row">
                         <div class="col-xs-3 col-md-1">
                             <div class="pull-right">
-                            <img src="img/client1.jpg" height="50px" width="50px" class=" img-centered" alt="">
+                            <img ng-src="https://graph.facebook.com/{{person.providerId}}/picture?type=large" height="50px" width="50px" class=" img-centered" alt="" style="margin-left:30%">
                             </div>
                         </div>
                         <div class="col-xs-9 col-md-11 ">
-                         <div>
-                            <a>Spandan</a>
-                            <span class="pull-right">12 days ago</span>
+                             <div>
+                                <a><b>Aditya</b></a>
+                                <span class="pull-right">Current</span>
+                            </div>
+                            <p>{{comment.message}}</p>
                         </div>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
                         </div>
-        
+                        <hr>                 
                     </div>
-
-                     <hr>
-
-                     <div class="row">
+                    <div class="row" ng-if="personId != null && personId != undefined">
                         <div class="col-xs-3 col-md-1">
                             <div class="pull-right">
-                            <img src="img/client3.jpg" height="50px" width="50px" class=" img-centered" alt="">
+                            <img ng-src="https://graph.facebook.com/{{person.providerId}}/picture?type=large" height="50px" width="50px" class=" img-centered" alt="" style="margin-left:30%" >
                             </div>
                         </div>
                         <div class="col-xs-9 col-md-11 ">
-                         <div>
-                            <a>Jessica</a>
-                            <span class="pull-right">12 days ago</span>
-                        </div>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
-                        </div>
-        
-                    </div>
-
-                    <hr>
-
-                     <div class="row">
-                        <div class="col-xs-3 col-md-1">
-                            <div class="pull-right">
-                            <img src="img/client2.jpg" height="50px" width="50px" class=" img-centered" alt="">
+                             <div>
+                                <a><b>{{person.displayName}}</b></a>
+                                <span class="pull-right"></span>
                             </div>
+                            <form ng-submit="addComment()"> 
+                             <md-input-container md-no-float="">
+                              <input ng-model="$parent.newComment" type="text" placeholder="Comment" type="submit">
+                            </md-input-container>
+                            </form>
                         </div>
-                        <div class="col-xs-9 col-md-11 ">
-                         <div>
-                            <a>Aditya</a>
-                            <span class="pull-right">12 days ago</span>
-                        </div>
-                            <p>This product was great in terms of quality. I would definitely buy another!</p>
-                        </div>
-        
+                        
                     </div>
+                  
             </div>
 
             </div>

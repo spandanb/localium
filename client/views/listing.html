@@ -53,19 +53,19 @@
                 <div class="container-fluid">
                     <div class="row-fluid item-row">
                         <div ng-repeat="item in items" class="item-container col-md-4 col-sm-6  ">
-                            <div class="item-container-inner portfolio-item"> 
+                            <div class="item-container-inner portfolio-item">
                                 <div class="item-container-top">
                                     <carousel interval=0 no-wrap=false template-url="imgCarouselTemplate.html">
 
                                         <slide ng-repeat="img in item.imageUrl" active="slide.active" ng-show="item.imageUrl.length > 0">
                                             <div class="img-container"> 
-                                                <img ng-src="{{img}}" class="img-responsive">
+                                             <a href="" ng-click="postDetail(item)">   <img ng-src="{{img}}" class="img-responsive"></a>
                                             </div>
                                         </slide>
                                         <!-- If no images -->
                                         <slide ng-repeat="img in ['img/no_image_available.jpg']" active="slide.active" ng-show="item.imageUrl.length == 0">
                                             <div class="img-container"> 
-                                                <img ng-src="{{img}}" class="img-responsive">
+                                                 <a href="" ng-click="postDetail(item)"> <img ng-src="{{img}}" class="img-responsive"> </a>
                                             </div>
                                         </slide>
                                     </carousel>
