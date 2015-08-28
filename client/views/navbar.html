@@ -4,11 +4,11 @@
 
 
 <!-- Img Carousel Template -->
-<script type="text/ng-template" id="imgCarouselTemplate.html">
+<script type="text/ng-template" id="imgCarouselTemplate2.html">
     <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
         <div class="carousel-inner" ng-transclude></div>
-        <a class="left carousel-control custom-carousel-control" ng-click="prev()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
-        <a class="right carousel-control custom-carousel-control" ng-click="next()" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a>
+        <a class="left carousel-control custom-carousel-control" ng-click="prev(false)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a class="right carousel-control custom-carousel-control" ng-click="next(false)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a>
     </div>
 </script>
 
@@ -151,7 +151,7 @@
                                     <div class="item-container-inner portfolio-item"> 
                                         <div class="item-container-top">
                                             <!-- Item Carousel -->
-                                            <carousel interval=0 no-wrap=false template-url="imgCarouselTemplate.html">
+                                            <carousel interval=0 no-wrap=false template-url="imgCarouselTemplate2.html">
                                                 <slide ng-repeat="slide in item.slides" active="slide.active">
                                                     <div class="img-container"> 
                                                         <img ng-src="{{slide.img}}" class="img-responsive">
