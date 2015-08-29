@@ -2,24 +2,30 @@
 
 angular.module('app.ctrl.listing', [])
 .controller('listingCtrl', function($scope, 
+                                    $state,
+                                    $rootScope,
+                                    $location,
                                     Mock,
-                                    Posts,$state,$rootScope,$location){
+                                    Posts){
 
     //Called when top dropdown toggled
     $scope.toggled = function(open) {
         //console.log('Dropdown is now: ', open);
     };
     
-    //Create items
-    //$scope.items = Mock.mockClothing();
-    $scope.items = Posts.query();
-
+    //Get items
+    $scope.items = Posts.query({count: 9}); 
     console.log($scope.items);
+
+    Posts.count().$promise.then(function(data){
+        $scope.totalItems = data.count;
+    });
 
     //For paginator
     $scope.currentPage = 1;
     $scope.pageChanged = function(){
-        //console.log("Page changed");    
+        var offset = ($scope.currentPage - 1) * 9;
+        $scope.items = Posts.query({count: 9, offset:offset}); 
     };
 
     $scope.postDetail = function(post){

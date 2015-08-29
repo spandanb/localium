@@ -103,8 +103,9 @@ exports.profile = function(req,res){
 };
 
 exports.session = function(req,res,next){
-	console.log("session method is being called");
-	console.log(req.session);
+	//console.log("session method is being called");
+	//console.log(req.session);
+
 	//next({personId:req.user});
 	//res.send({personId:req.user});
   User.findOne({_id:req.user}, function(err,user){

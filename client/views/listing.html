@@ -57,9 +57,9 @@
                                 <div class="item-container-top">
                                     <carousel interval=0 no-wrap=false template-url="imgCarouselTemplate.html">
 
-                                        <slide ng-repeat="img in item.images" active="slide.active" >
+                                        <slide ng-repeat="img in item.imageUrl" active="slide.active" ng-show="item.imageUrl.length != 0">
                                             <div class="img-container"> 
-                                                <a href="" ng-click="postDetail(item)"><img ng-src="{{img.url}}" class="img-responsive"></a>
+                                                <a href="" ng-click="postDetail(item)"><img ng-src="{{img}}" class="img-responsive"></a>
                                             </div>
                                         </slide>
                                         <!-- If no images -->
@@ -100,9 +100,9 @@
                         <div class="pagination-container">
                                 <pagination ng-model="currentPage" 
                                             ng-change="pageChanged()" 
-                                            total-items="60" 
-                                            max-size="4" 
-                                            items-per-page="12"
+                                            total-items="totalItems" 
+                                            max-size="5"  
+                                            items-per-page="9"
                                             class="pagination-sm" 
                                             rotate="false" ></pagination>
                         </div>
