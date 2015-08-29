@@ -39,7 +39,8 @@
                                 <P><i>by {{post.creator.displayName}}, 3 days ago</i></p>
                               </li> 
                             <li class="pull-right" style="padding-right:2.5%">
-                                <a class="btn btn-success">Contact Now</a>
+                                <a class="btn btn-success" ng-if="$root.personId">Contact Now</a>
+                                 <a class="btn btn-success" ng-if="!$root.personId" ng-click="launchLoginModal()">Login to Contact</a>
                             </li>  
                             </ul>
                            </div>
@@ -81,24 +82,25 @@
 
             <div class="account-wall-2">
                 <div class="text-right">
-                        <a class="btn btn-success">Comment</a>
+                        <a class="btn btn-success" ng-if="$root.personId">Comment</a>
+                        <a class="btn btn-success" ng-if="!$root.personId" ng-click="launchLoginModal()">Login to Comment</a>
                     </div>
 
                     <hr class="colorgraph-custom">
                 
-                    <div class="row" ng-if="personId == null || personId == undefined">
-                     <p>No comments. To comment please login.</p>
+                    <div class="row" ng-if="comments.length < 1">
+                     <p style="padding-left:2%">No comments</p>
                     </div>
                     <div ng-repeat="comment in comments">
                         <div class="row">
                         <div class="col-xs-3 col-md-1">
                             <div class="pull-right">
-                            <img ng-src="https://graph.facebook.com/{{person.providerId}}/picture?type=large" height="50px" width="50px" class=" img-centered" alt="" style="margin-left:30%">
+                            <img ng-src="https://graph.facebook.com/{{comment.providerId}}/picture?type=large" height="50px" width="50px" class=" img-centered" alt="" style="margin-left:30%">
                             </div>
                         </div>
                         <div class="col-xs-9 col-md-11 ">
                              <div>
-                                <a><b>Aditya</b></a>
+                                <a><b>{{comment.displayName}}</b></a>
                                 <span class="pull-right">Current</span>
                             </div>
                             <p>{{comment.message}}</p>
