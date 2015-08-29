@@ -164,7 +164,7 @@ app.post('/posts/filter', auth.ensureAuthenticated, post.filter);
 app.get('/posts/count', auth.ensureAuthenticated, post.count);
 
 //Get one item
-app.get('/posts/:id',auth.ensureAuthenticated, post.findById);
+app.get('/posts/:id', post.findById);
 //update an item
 app.post('/posts/:postId',auth.ensureAuthenticated, post.update);
 app.post('/comments', auth.ensureAuthenticated, post.createComment);

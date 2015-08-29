@@ -152,7 +152,8 @@ exports.loadFeed = function(req,res){
     
     //Basic query
     var query = Post.find({})
-                .populate('creator','providerId displayName');
+                .populate('creator','providerId displayName')
+                .populate('comments');
 
     var count = req.query.count;
     if(!!count){
@@ -196,7 +197,7 @@ exports.findById = function (req, res, next) {
     query
     //.populate('comments offerPrice.username consumer','displayName')
     .populate('creator', 'providerId displayName')
-    .populate('comments', 'message')
+    .populate('comments')
     .populate('offerPrice.username','displayName')
     .exec(function (err, post){
         if (err) { return next(err); }
@@ -219,11 +220,13 @@ exports.findByUser = function (req, res) {
 
 exports.createComment = function(req, res, next){
 	//console.log("In create comment");
-	//console.log(req.body);
+	console.log(req.body);
 
 	var comment = new Comment({creator:req.body.personId,
 				message:req.body.message,
-				post:req.body.postId
+				post:req.body.postId,
+        displayName:req.body.displayName,
+        providerId:req.body.providerId
 				});
 	comment.save(function(err){
 		if(err){return next(err);}

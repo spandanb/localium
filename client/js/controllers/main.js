@@ -92,15 +92,12 @@ $scope.person = $rootScope.person;
             $scope.post = data;
             $scope.comments = $scope.post.comments
             console.log(data);
-            $scope.commentArray = data.comments;
-            console.log($scope.commentArray);
         });
     }else{
         $scope.post = $rootScope.currentPost;
-            $scope.comments = $scope.post.comments;
+            $scope.comments = $rootScope.currentPost.comments;
             console.log($rootScope.currentPost);   
-            $scope.commentArray = $rootScope.currentPost.comments;
-            console.log($scope.commentArray);
+
     }
 
 $scope.addComment = function(){
@@ -109,10 +106,13 @@ $scope.addComment = function(){
         Comments.save({
             postId: $stateParams.postId,
             message: $scope.newComment,
-            personId: $rootScope.personId
+            personId: $rootScope.personId,
+            displayName:$rootScope.person.displayName,
+            providerId:$rootScope.person.providerId
         }, function(comment) {
             console.log(comment);
-            $scope.comments.push({message: comment.message, _id: comment._id});    
+            $scope.comments.push({message: comment.message, _id: comment._id,
+                                   displayName:comment.displayName,providerId:comment.providerId});    
     
             
             $scope.newComment = null;

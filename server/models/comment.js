@@ -8,6 +8,8 @@ var CommentSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
+  displayName:String,
+  providerId:String,
   created:{
   	type:Date,
   	default:Date.now
