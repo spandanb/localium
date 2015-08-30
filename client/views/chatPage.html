@@ -9,8 +9,8 @@
 
       <hr>
 
-      <div class="row" ng-repeat="chat in chats track by $index" ng-class="{'chatRowActive':chat.active == true}" style="padding-top:5%">
-           <div class="media" style="margin-left:5%" ng-click="showChatPage(chat,$index)">
+      <div class="row" ng-repeat="chat in chats track by $index" ng-class="{'chatRowActive':chat.active == true}" style="padding-top:5%" ng-click="showChatPage(chat,$index)">
+           <div class="media" style="margin-left:5%" >
            
               <a class="pull-left" href="#">
                     <img class="media-object img-circle" ng-src="https://graph.facebook.com/{{chat.chatToProviderId}}/picture?type=large" height="50px" width="50px" alt="Media Object">
