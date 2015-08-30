@@ -170,7 +170,8 @@ $stateProvider
     url:'/chatPage',
         views: {
         'navbar': {
-            templateUrl: '../views/navbar.html'
+            templateUrl: '../views/navbar.html',
+            controller: 'navCtrl'
         },
         'main':{
            templateUrl:'../views/chatPage.html',

@@ -39,7 +39,7 @@
                                 <P><i>by {{post.creator.displayName}}, 3 days ago</i></p>
                               </li> 
                             <li class="pull-right" style="padding-right:2.5%">
-                                <a class="btn btn-success" ng-if="$root.personId">Contact Now</a>
+                                <a class="btn btn-success" ng-if="$root.personId && $root.personId != post.creator._id" ng-click="openChatPage(post._id,post.creator._id)">Contact Now</a>
                                  <a class="btn btn-success" ng-if="!$root.personId" ng-click="launchLoginModal()">Login to Contact</a>
                             </li>  
                             </ul>

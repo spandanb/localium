@@ -3,84 +3,25 @@
   <div id="sidebar-wrapper" class="col-md-4">
             <div id="sidebar">
                 <ul class="nav list-group">
-                          <div class="row" style="
-    padding-top: 5%;">
-        <h4 class="text-center">Messages</h4>
-      </div>
+                <div class="row" style="padding-top: 5%;">
+                <h4 class="text-center">Messages</h4>
+              </div>
 
       <hr>
 
-      <div class="row">
-           <div class="media" style="margin-left:5%">
+      <div class="row" ng-repeat="chat in chats track by $index" ng-class="{'chatRowActive':chat.active == true}" style="padding-top:5%">
+           <div class="media" style="margin-left:5%" ng-click="showChatPage(chat,$index)">
+           
               <a class="pull-left" href="#">
-                    <img class="media-object img-circle" src="img/client1.jpg" height="50px" width="50px" alt="Media Object">
+                    <img class="media-object img-circle" ng-src="https://graph.facebook.com/{{chat.chatToProviderId}}/picture?type=large" height="50px" width="50px" alt="Media Object">
               </a>
              <div class="media-body" style="magin-top:5px">
-                  <h5 class="media-heading">H.C VERMA - APSC 131</h5>
-                  <p><i>by Spandan, 3 days ago</i></p>
+                  <h5 class="media-heading">{{chat.postId.title}}</h5>
+                  <p><i>{{chat.chatTo}}</i></p>
              </div>
+
           </div>
          <hr>
-
-           <div class="media" style="margin-left:5%">
-              <a class="pull-left" href="#">
-                    <img class="media-object img-circle" src="img/client1.jpg" height="50px" width="50px" alt="Media Object">
-              </a>
-             <div class="media-body" style="magin-top:5px">
-                  <h5 class="media-heading">H.C VERMA - APSC 131</h5>
-                  <p><i>by Spandan, 3 days ago</i></p>
-             </div>
-          </div>
-   
-         <hr>
-
-           <div class="media" style="margin-left:5%">
-              <a class="pull-left" href="#">
-                    <img class="media-object img-circle" src="img/client1.jpg" height="50px" width="50px" alt="Media Object">
-              </a>
-             <div class="media-body" style="magin-top:5px">
-                  <h5 class="media-heading">H.C VERMA - APSC 131</h5>
-                  <p><i>by Spandan, 3 days ago</i></p>
-             </div>
-          </div>
-
-         <hr>
-
-           <div class="media" style="margin-left:5%">
-              <a class="pull-left" href="#">
-                    <img class="media-object img-circle" src="img/client1.jpg" height="50px" width="50px" alt="Media Object">
-              </a>
-             <div class="media-body" style="magin-top:5px">
-                  <h5 class="media-heading">H.C VERMA - APSC 131</h5>
-                  <p><i>by Spandan, 3 days ago</i></p>
-             </div>
-          </div>
-
-          <hr>
-
-          <div class="media" style="margin-left:5%">
-              <a class="pull-left" href="#">
-                    <img class="media-object img-circle" src="img/client1.jpg" height="50px" width="50px" alt="Media Object">
-              </a>
-             <div class="media-body" style="magin-top:5px">
-                  <h5 class="media-heading">H.C VERMA - APSC 131</h5>
-                  <p><i>by Spandan, 3 days ago</i></p>
-             </div>
-          </div>
-
-          <hr>
-
-          <div class="media" style="margin-left:5%">
-              <a class="pull-left" href="#">
-                    <img class="media-object img-circle" src="img/client1.jpg" height="50px" width="50px" alt="Media Object">
-              </a>
-             <div class="media-body" style="magin-top:5px">
-                  <h5 class="media-heading">H.C VERMA - APSC 131</h5>
-                  <p><i>by Spandan, 3 days ago</i></p>
-             </div>
-          </div>
-
-          <hr>
       </div>
 
                 </ul>
@@ -88,57 +29,35 @@
   </div>
   <div id="main-wrapper" class="col-md-8 pull-right hidden-sm hidden-xs">
             <div id="main">
-              <div class="row" id="userList">
-              <div class="col-sm-12">
+                <div class="row" id="userList">
+                <div class="col-sm-12">
                 
-                <div class="row">
-                  <div class="col-xs-2">
-                    <a href="" ><img src="img/client1.jpg" class="img-thumbnail img-responsive img-circle pull-right" style="width:70px;"></a>
-                  </div>  
-                  <div class="col-xs-10">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        Blah text goes here blah bla! Hello blah period.<br>
-                        <span class="label label-info">45 minutes ago</span>
+                  <div class="row" ng-repeat="message in messages">
+                    <div class="col-xs-2" ng-class="{'col-xs-push-10':message.userId != personId}">
+                      <a href="" ><img ng-src="https://graph.facebook.com/{{message.providerId}}/picture?type=large" class="img-thumbnail img-responsive  pull-right" ng-class="{'pull-left':message.userId != personId}" style="width:70px;"></a>
+                    </div>  
+                    <div class="col-xs-10" ng-class="{'col-xs-pull-2':message.userId != personId}">
+                      <div class="panel panel-default">
+                        <div class="panel-body">
+                          {{message.content}}<br>
+                          <span class="label label-info">45 minutes ago</span>
+                        </div>
                       </div>
-                    </div>
-                  </div><!--/col-->
-                </div><!--/row-->
+                    </div><!--/col-->
+                  </div><!--/row-->
               
-              </div><!--/col-->
+                </div><!--/col-->
             
-            </div><!--/row-->
-
-              <div class="row" id="userList">
-              <div class="col-sm-12">
-                
-                <div class="row">
-                  <div class="col-xs-10">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        Blah text goes here blah bla! Hello blah period.<br>
-                        <span class="label label-info">45 minutes ago</span>
-                      </div>
-                    </div>
-                  </div><!--/col-->
-                  <div class="col-xs-2">
-                    <a href="" ><img src="img/client1.jpg" class="img-thumbnail img-responsive img-circle pull-left" style="width:70px;"></a>
-                  </div>  
-      
                 </div><!--/row-->
-              
-              </div><!--/col-->
-            
-            </div><!--/row-->
             </div>
           
             <div class="col-md-12 footer">
-              <form class="form-inline">
+              <form class="form-inline" ng-submit="sendMessage()">
                 <div class="form-group" style="width:61% !important;">
                 
-                  <input class="form-control input-large" type="text" placeholder="Add to the conversation" style="width:100%;">
+                  <input class="form-control input-large" type="text" placeholder="Add to the conversation" style="width:100%;" type="submit" ng-model="newMessage">
                 </div>
-                <button type="submit" class="btn btn-default">POST</button>
+                <button type="submit" class="btn btn-success" ng-submit="sendMessage()">POST</button>
               </form>
             </div>
           

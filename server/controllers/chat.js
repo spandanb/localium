@@ -35,12 +35,22 @@ exports.createChat = function(req, res) {
           if(err){
             res.json(500,err);
           }else{
-             res.send(newChat);}
+              newChat.populate('creator postCreator postId','displayName displayName providerId title',function(err)
+              {
+                console.log(newChat);
+                res.send(newChat);
+              });
+           }
         });
 
       }else{
       console.log('chat already exists')
-      res.json(chat);
+        //Chat.update({_id:chat._id}, {$set: {lastModify:Date.now()}});
+       chat.populate('creator postCreator postId','displayName displayName providerId title',function(err)
+              {
+                console.log(chat);
+                res.json(chat);
+              });     
       }
     }
 
@@ -59,7 +69,7 @@ exports.createChat = function(req, res) {
 
   });*/
   var personId = new ObjectId(req.query.personId);
-  Chat.find({ "$or":[ {"creator":personId}, {"postCreator":personId} ]}).populate('creator postCreator postId','displayName displayName providerId title').exec(function(err,chats){
+  Chat.find({ "$or":[ {"creator":personId}, {"postCreator":personId} ]}).populate('creator postCreator postId','displayName displayName providerId title').sort({lastModify:1}).exec(function(err,chats){
        if(err){
           res.json(500,err);
         }else{
