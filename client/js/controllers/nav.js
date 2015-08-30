@@ -48,20 +48,11 @@ angular.module('app.ctrl.nav', [])
             console.log("error");
         });
     };
-    /*
-    $scope.$watchCollection('search', function() { 
-        if(!!$scope.search){
-            $scope.showSearchResults = !$scope.showSearchResults;
-        }
-        console.log("Search text changed to " + $scope.search);
-    });*/
-    
-
 
     //Create list of lists for carousel for search results
     $scope.getItemCollection = function(){
         var itemCollection = [];
-        var items = Mock.mockClothing()
+        var items = Mock.mockClothing();
         for(var i=0; i<items.length; i+=1){
             var j = Math.floor(i/3);
             if(!itemCollection[j]){
@@ -105,7 +96,7 @@ angular.module('app.ctrl.nav', [])
 
             //Cancel existing promise if it exists 
             if(this.state == "waiting"){
-                this.waitHandle.cancel();   
+                $timeout.cancel(this.waitHandle);   
             }
             this.state = "waiting";
             this.waitHandle = $timeout(function(){

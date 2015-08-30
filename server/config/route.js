@@ -14,13 +14,29 @@ module.exports = function(app){
 //Useful for debugging
 app.all('*', function(req, res, next){
         //Output string
-        /*req.session.ip_addr = req.connection.remoteAddress;
+        
+        //req.session.ip_addr = req.connection.remoteAddress;
         var output = "\n" + req.method + " " + req.url;
         if (!!req.body && Object.keys(req.body).length) { //Contains passed in params
-            output += ", " + JSON.stringify(req.body);
+            var jsonStr = JSON.stringify(req.body);
+            
+            if(jsonStr.length < 200){
+                output += ", " + jsonStr;
+            }else{
+                //Watch out for long bodies
+                output += "{";
+                for(var i=0, keys=Object.keys(req.body); i<keys.length; i++){
+                    var value = JSON.stringify(req.body[keys[i]]);
+                    if(value.length > 50)
+                        value.substring(0, 25);
+                    output += "    " + keys[i] + ": " + value + ",\n" 
+                }
+                output += "}";
+            }
         }
-        output += "; IP ADDR: " + req.connection.remoteAddress;*/
-        //console.log(output);
+        output += "; IP ADDR: " + req.connection.remoteAddress;
+        console.log(output);
+        
         next();
 });
 
@@ -143,6 +159,9 @@ app.get('/posts', post.loadFeed);
 
 //Get filtered items
 app.post('/posts/filter', auth.ensureAuthenticated, post.filter);
+
+//Get number of posts
+app.get('/posts/count', auth.ensureAuthenticated, post.count);
 
 //Get one item
 app.get('/posts/:id', post.findById);

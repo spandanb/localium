@@ -5,14 +5,14 @@ var mongoose = require('mongoose');
 var  User = mongoose.model('User');
 	
 	passport.serializeUser(function(user, done) {
-		console.log("In serializeUser");
-		console.log(user);
+		//console.log("In serializeUser");
+		//console.log(user);
 		done(null, user._id);
 	});
 
 	passport.deserializeUser(function(obj, done) {
-		console.log("In deserializeUser");
-		console.log(obj);
+		//console.log("In deserializeUser");
+		//console.log(obj);
 		done(null, obj);
 	});
 	

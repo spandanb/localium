@@ -46,7 +46,6 @@ app.use(passport.session());
 
 
 app.use(function(req, res, next) {
-    console.log("I am in the app use");
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');

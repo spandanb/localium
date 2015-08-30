@@ -136,22 +136,42 @@ exports.filter = function(req,res){
     });
 }
 
+//Get total number of posts
+exports.count = function(req, res){
+    Post.count({}, function(err, count){
+        if(!err){
+           res.json({count:count});
+        }
+    });
+}
+
 exports.loadFeed = function(req,res){
+    //@param count: number of documents requested, (optional; default=all)
+    //@param offset: offset for the number of document 
     console.log("In loadFeed");
     
-    Post.find({})
-        .populate('creator', //only populates following 2 fields
-                  'providerId displayName')
-        .populate('comments')
-        .sort({updated:-1})
-        .limit(10)
-        .exec(function(err,posts){
-	        if (err) {
-               res.json(500, err);
-            } else {
-               res.json(posts);
-            }
-	});
+    //Basic query
+    var query = Post.find({})
+                .populate('creator','providerId displayName')
+                .populate('comments');
+
+    var count = req.query.count;
+    if(!!count){
+        count = parseInt(count);
+        var offset = req.query.offset || 0;
+
+        query = query.sort({updated: -1})
+        .limit(count)
+        .skip(offset)
+    }
+
+    query.exec(function(err, posts){
+        if (err) {
+           res.status(500).send(err);
+        } else {
+           res.status(200).json(posts);
+        }
+    });
 };
 
 exports.loadMore = function(req,res){

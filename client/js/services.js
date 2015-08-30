@@ -31,10 +31,17 @@ angular.module('app.services',['constants'])
     };
 }).factory('Posts', function($resource, SERVER_ADDR){
 	return $resource(SERVER_ADDR + '/posts/:postId', {}, {
-			match:{ method: "POST",
+			//For filtering
+            match:{ 
+                method: "POST",
 				isArray: true,
 				url: SERVER_ADDR + '/posts/filter'
-			}				
+			},
+            count:{
+                method: "GET",
+				isArray: false,
+				url: SERVER_ADDR + '/posts/count'
+            }
 		});
 }).factory('Surveys',function($resource, SERVER_ADDR){
 	return $resource(SERVER_ADDR + '/survey',{});
