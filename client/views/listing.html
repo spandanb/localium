@@ -51,7 +51,7 @@
             <!-- Portfolio Grid Section -->
             <section id="portfolio" class="bg-light-gray">
                 <div class="container-fluid">
-                    <div class="row-fluid item-row">
+                    <div class="row item-row">
                         <div ng-repeat="item in items" class="item-container col-md-4 col-sm-6  ">
                             <div class="item-container-inner portfolio-item">
                                 <div class="item-container-top">
@@ -59,13 +59,13 @@
 
                                         <slide ng-repeat="img in item.imageUrl" active="slide.active" ng-show="item.imageUrl.length != 0">
                                             <div class="img-container"> 
-                                                <a href="" ng-click="postDetail(item)"><img ng-src="{{img}}" class="img-responsive"></a>
+                                                <a href="" ng-click="postDetail(item)"><img ng-src="{{img}}" class="" height="450px"  width="100%"></a>
                                             </div>
                                         </slide>
                                         <!-- If no images -->
                                         <slide ng-repeat="img in ['img/no_image_available.jpg']" active="slide.active" ng-show="item.imageUrl.length == 0">
                                             <div class="img-container"> 
-                                                 <a href="" ng-click="postDetail(item)"> <img ng-src="{{img}}" class="img-responsive"> </a>
+                                                 <a href="" ng-click="postDetail(item)"> <img ng-src="{{img}}" class="" height="450px"  width="100%"> </a>
                                             </div>
                                         </slide>
                                     </carousel>
@@ -89,14 +89,14 @@
                                     </div>
 
                                 </div><!-- Ends .item-container-top-->    
-                                <div class="portfolio-caption">
+                                <div class="portfolio-caption" style="height:70px!important">
                                     <a href="">{{item.title}}</a>
                                 </div>
                             </div><!-- .item-container-inner -->
                         </div><!-- .item-container -->
                     </div><!-- .row-fluid-->
 
-                    <div class="row-fluid">
+                    <div class="row">
                         <div class="pagination-container">
                                 <pagination ng-model="currentPage" 
                                             ng-change="pageChanged()" 

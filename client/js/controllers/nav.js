@@ -6,7 +6,7 @@ angular.module('app.ctrl.nav', [])
                                 $timeout,
                                 $modal, 
                                 Mock, 
-                                Session){
+                                Session,$state){
     //$rootScope.boolChangeClass = false;
     $scope.showSearchResults = false;
     //The search text 
@@ -119,5 +119,9 @@ angular.module('app.ctrl.nav', [])
         $scope.search = null;
     }
     
+    $scope.ShowMessage = function()
+    {
+        $state.go('chatPage');
+    }
 
 });

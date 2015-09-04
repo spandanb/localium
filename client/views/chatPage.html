@@ -34,7 +34,7 @@
                 
                   <div class="row" ng-repeat="message in messages">
                     <div class="col-xs-2" ng-class="{'col-xs-push-10':message.userId != personId}">
-                      <a href="" ><img ng-src="https://graph.facebook.com/{{message.providerId}}/picture?type=large" class="img-thumbnail img-responsive  pull-right" ng-class="{'pull-left':message.userId != personId}" style="width:70px;"></a>
+                      <a href="" ><img ng-src="https://graph.facebook.com/{{message.providerId}}/picture?type=large" class="img-thumbnail img-responsive img-circle pull-right" ng-class="{'pull-left':message.userId != personId}" style="width:75px;height:75px;"></a>
                     </div>  
                     <div class="col-xs-10" ng-class="{'col-xs-pull-2':message.userId != personId}">
                       <div class="panel panel-default">
