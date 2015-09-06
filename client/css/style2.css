@@ -143,11 +143,11 @@
 .service-box p {
     margin-bottom: 0;
 }
-.navbar-default{
+/*.navbar-default{
 	background-color: transparent;
 
 }
-
+*/
 .bs-sidebar .nav>.active:focus>a, .bs-sidebar .nav>.active:hover>a, .bs-sidebar .nav>.active>a {
     padding-right: 13px;
     font-weight: 700;
@@ -239,14 +239,24 @@ background-color: #f5f5f5;
     height: 100%;
     overflow-y: auto;
     padding: 0 15px;
-    background-color: #F0FFFf;
+    background-color: #F7FAFA;
     padding-top: 5%;
+    padding-bottom:5%;
 }
+
+.chatRowActive{
+    background-color: #F7FAFA;
+}
+
 #sidebar-wrapper {
     height: 100%;
     padding: 50px 0 0px 0;
     position: fixed;
     border-right: 1px solid gray;
+}
+#sidebar-wrapper hr{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
 #sidebar {
     position: relative;
@@ -341,3 +351,10 @@ background-color: #f5f5f5;
 .md-tabs {
     background: #f6f6f6;
     border: 1px solid #e1e1e1; }
+
+header .scroll-down {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    text-align: center;
+}

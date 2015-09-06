@@ -10,10 +10,12 @@ var ChatPageSchema = new Schema({
     username: String,
     content: String,
     userId:String,
+    providerId:String,
     trim: true
   },
   created: Date,
   updated: [Date],
+  lastModify: Date,
   creator: {
     type: Schema.ObjectId,
     ref: 'User'
@@ -34,7 +36,7 @@ ChatPageSchema.pre('save', function(next, done){
     this.created = Date.now();
 
   this.updated.push(Date.now());
-
+  this.lastModify = Date.now();
   next();
 });
 

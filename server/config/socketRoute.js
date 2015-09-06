@@ -31,14 +31,21 @@ io.on('connection', function(socket){
       }else{
         sockets[data.userId] = socket;
       }
-		  Chat.findOne({_id:data.chatId}).populate('creator postCreator' , 'displayName displayName').exec(function(err,chat){
+		  Chat.findOne({_id:data.chatId}).populate('creator postCreator' , 'displayName providerId displayName providerId').exec(function(err,chat){
 			  if(err) console.log('Socket Chat is not working');
   			else{
   				 if(!chat) console.log('The chatId is messed up');
   				 //console.log(chat);
-  				 if(data.username == chat.creator._id) {username = chat.creator.displayName; userId =chat.creator._id; }
-  				 else {username = chat.postCreator.displayName; userId = chat.postCreator._id;}
-  				 chat.message.push({username:username,content:data.content,userId:userId});
+  				 if(data.username == chat.creator._id) {
+            username = chat.creator.displayName; 
+            userId =chat.creator._id; 
+            providerId = chat.creator.providerId;
+            }else {
+              username = chat.postCreator.displayName; 
+              userId = chat.postCreator._id;
+              providerId = chat.postCreator.providerId;
+            }
+  				 chat.message.push({username:username,content:data.content,userId:userId,providerId:providerId});
   				 chat.save(function(err){
   				 		if(err)console.log('Couldnt save in the database');
   				 		else{
@@ -47,17 +54,17 @@ io.on('connection', function(socket){
   				 		}
   				 });
 
-
   			}
 
   			if(sockets[chat.postCreator._id] != undefined && sockets[chat.creator._id] != undefined){
 				console.log('This basically means that the message is to the blogger');
 				//console.log(chatPage.blogger.username);
-				sockets[chat.postCreator._id].emit('privateMessage',{content:data.content, username:username ,userId:userId})	;
-				sockets[chat.creator._id].emit('privateMessage',{content:data.content, username:username ,userId:userId})	;
+				sockets[chat.postCreator._id].emit('privateMessage',{content:data.content, username:username ,userId:userId,providerId:providerId})	;
+				sockets[chat.creator._id].emit('privateMessage',{content:data.content, username:username ,userId:userId,providerId:providerId})	;
 			   }else{
 				console.log(sockets[data.userId]);
-         		sockets[data.userId].emit('privateMessage',{content:data.content, username:username ,userId:userId});
+        console.log(providerId);
+         		sockets[data.userId].emit('privateMessage',{content:data.content, username:username ,userId:userId, providerId:providerId});
 			   }
 
 
