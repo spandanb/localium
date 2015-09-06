@@ -8,6 +8,7 @@ angular.module('app.ctrl.listing', [])
                                     Mock,
                                     Posts){
 
+    /*$scope.navbarCollapsed = true;*/
     //Called when top dropdown toggled
     $scope.toggled = function(open) {
         //console.log('Dropdown is now: ', open);

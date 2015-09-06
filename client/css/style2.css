@@ -143,11 +143,11 @@
 .service-box p {
     margin-bottom: 0;
 }
-.navbar-default{
+/*.navbar-default{
 	background-color: transparent;
 
 }
-
+*/
 .bs-sidebar .nav>.active:focus>a, .bs-sidebar .nav>.active:hover>a, .bs-sidebar .nav>.active>a {
     padding-right: 13px;
     font-weight: 700;
@@ -352,3 +352,9 @@ background-color: #f5f5f5;
     background: #f6f6f6;
     border: 1px solid #e1e1e1; }
 
+header .scroll-down {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    text-align: center;
+}

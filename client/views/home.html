@@ -3,81 +3,21 @@
 <link href="css/agency.css" rel="stylesheet">
 <link href="css/style2.css" rel="stylesheet">
 
-
-<!--  <nav class="navbar navbar-fixed-top" scroll style="border:0px;" ng-class="{'navbar-default':!boolChangeClass,'navbar-custom':boolChangeClass}">
-   
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand page-scroll" href="#page-top"><b><font color="white">PRADA</font></b></a>
-        </div>
-
-    
-        <div class="collapse navbar-collapse">
-        
-            <ul class="nav navbar-nav navbar-left">
-                <li class="hidden">
-                    <a href="#page-top"></a>
-                </li>
-                <li>
-                    <a class="" href="#">Clothing</a>
-                </li>
-                <li>
-                    <a class="" href="#">Books</a>
-                </li>
-                <li>
-                    <a class="" href="#">Electronics</a>
-                </li>
-                <li>
-                    <a class="" href="#">Furniture</a>
-                </li>
-            </ul>
-
-      
-            <ul class="nav navbar-nav navbar-right">
-                 <li >
-                    <a id="post-item-btn" href="" data-toggle="modal" data-target="#myModal">
-                        Post
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </a>
-              
-                </li>
-
-                <li class="dropdown">
-                     <a id="post-item-btn" href="" data-toggle="modal" data-target="#myModal" ng-click="login()">
-                        Log In
-                       
-                    </a>
-                </li>
-                <li class="dropdown">
-                     <a id="post-item-btn" href="" data-toggle="modal" data-target="#myModal" style="padding-right:50px">
-                        Sign Up
-                        
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-</nav> -->
-
-
 <header>
         <div class="container">
             <div class="intro-text" style="padding-top:150px">
                 <div class="intro-lead-in">Welcome To Our Studio!</div>
                 <div class="intro-heading">It's Nice To Meet You</div>
                 <!-- <button class="btn btn-default btn" ng-click="description()" style="padding:20px">Browse</button> -->
-               
             </div>
+        </div>
+        <div class="scroll-down" du-scrollspy="intro" >
+            <a href="#intro" du-smooth-scroll style="text-decoration:none;color:#FFFFFF !important;"> <i class="fa fa-chevron-circle-down fa-4x"></i></a>
         </div>
 </header>
 
 
-<section id="portfolio" class="bg-light">
+<section id="intro" class="bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -199,25 +139,6 @@
         </div>
         <div class="row">
             <div class="col-md-2 hidden-sm hidden-xs fixedColumn" Style="padding-left:0px;">
-                <!-- <div class="bs-sidebar" role="complementary" data-offset-top="-80" bs-affix >
-                  <ul class="nav bs-sidenav">
-                    <li bs-scrollspy data-target="#books" >
-                      <a ng-click="scrollToHref('books')"><font size="4" color="black">Books</font></a>
-                    </li>
-               
-                    <li bs-scrollspy data-target="#Clothes">
-                      <a  ng-click="scrollToHref('Clothes')"><font size="4" color="black">Clothes</font></a>
-                    </li>
-                    <li bs-scrollspy data-target="#Electronics" >
-                      <a ng-click="scrollToHref('Electronics')"><font size="4" color="black">Electronics</font></a>
-                    </li>
-                    
-                    <li bs-scrollspy data-target="#Furniture">
-                      <a  ng-click="scrollToHref('Furniture')"><font size="4" color="black">Furniture</font></a>
-                    </li>
-                  
-                  </ul>
-                </div> -->
                  <div class="fixedColumnDiv" scroll-watch="{from :0, to: -1}" sw-class="{
             fixedActive: $percentage >48
             }">
