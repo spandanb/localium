@@ -21,10 +21,10 @@ var PostSchema = new Schema({
   imageUrl:[String],
   title:String,
   price:String,
-  message:String,
+  description:String, //message
+  category: String, 
   status:String,
-  size: String,
-  categories: [String],
+  
   offerPrice: [{
     username:{
       type:Schema.Types.ObjectId,
@@ -43,7 +43,29 @@ var PostSchema = new Schema({
   offers:[{
     type: Schema.Types.ObjectId,
     ref: 'Offer'
-  }]
+  }],
+
+  tags: [String],  
+  condition: String,
+
+  brand: String, //for clothing and furniture
+  year: String, //for books, and electronics
+
+  //clothing
+  size:String,
+  
+  //Books
+  bookTitle:String,
+  author:String,
+  course:String,
+  edition: String,
+
+  //Electronics
+  manufacturer:String
+
+  //Furniture
+
+
 });
 
 mongoose.model('Post', PostSchema);

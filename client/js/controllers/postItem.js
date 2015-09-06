@@ -38,17 +38,38 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
         {condition:"Heavily Used", value: 3}
     ];
 
+    //Create a list of years from 1990-> 2016
     $scope.years = function(){for(var i=1990, arr=[]; i<2016; i++, arr.push(i)); return arr;}()
-    console.log($scope.years);
     
-    if(!$scope.item){
-        $scope.item = {category: null};
+    //Transform an array of tags into 
+    //format required by md-chips, i.e. {title: 'foo', subtitle: 'bar'}
+    $scope.boxTagList = function(list){
+        var ret = [];
+        for(var i=0; i<list.length; i++){
+            ret.push({title: list[i], subtitle: ' '});
+        }
+        return ret;
     }
-    console.log("Current user is: " + $rootScope.personId);
-            
-    $scope.selectType = function(category){
-        $scope.item.category = category;
-        console.log($scope.item);
+    
+    //Extract tag names from list of tag objects
+    $scope.unboxTagList = function(list){
+        var ret = [];
+        for(var i=0; i<list.length; i++){
+            ret.push(list[i].title);
+        }
+        return ret;
+    }
+
+    $scope.clothingTags = $scope.boxTagList(['New Arrival', 'Top', 'Jacket', 'Sweater', 'Bottom', 'Jeans', 
+                           'Skirt', 'Shoes', 'Accessories']);
+    $scope.booksTags = $scope.boxTagList(['APS105', 'ECE110', 'CHE101', 'MIE100']);
+    $scope.electronicsTags = $scope.boxTagList([]);
+    $scope.furnitureTags = $scope.boxTagList(['Chair','Table', 'Coffee Maker']);
+
+    $scope.tags = []; //Holds the raw tag objects
+
+    if(!$scope.item){
+        $scope.item = {}; //{category: null};
     }
 
     $scope.launchLoginModal = function(){
@@ -60,23 +81,47 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
         $scope.imgGroups = [[],[],[]];
         for(var i=0; !!$scope.images && i<$scope.images.length; i++){
             $scope.imgGroups[i % 3].push( $scope.images[i] );  
-            console.log($scope.images[i])
+            //console.log($scope.images[i])
         }
     });
-
-    $scope.setCategory = function(category){
-        $scope.item.category = category;
+    
+    $scope.alerts = [];
+    
+    $scope.alertClosed = function(idx){
+       $scope.alerts.splice(idx, 1); 
     }
 
-    $scope.post = function(){
-        if(!$rootScope.personId){
-            return;
-        }
+    $scope.post = function(form){
+        //if(!$rootScope.personId){
+        //    return;
+        //}
         
+        $scope.alerts = []; //Clear all alerts
+        //Do error checking
+        if(form.$invalid){
+            if(form.title.$invalid){
+                $scope.alerts.push({'msg':'Please enter a valid title!'}) 
+            }
+            if(form.price.$invalid){
+                $scope.alerts.push({'msg':'Please enter a valid selling price!'}) 
+            }
+            if(form.description.$invalid){
+                $scope.alerts.push({'msg':'Please enter a valid description!'}) 
+            }
+            if(form.categorySelect.$invalid){
+                $scope.alerts.push({'msg':'Please enter a valid category!'}) 
+            }
+       
+            return; 
+        }
+
         //Turn images to data url
         $scope.item.images = [];
+        console.log($scope.images);
+        $scope.item.tags = $scope.unboxTagList($scope.tags);
+
         var imgPromises = [];
-        for(var i=0; i<$scope.images.length; i++){
+        for(var i=0; $scope.images && i<$scope.images.length; i++){
             var promise = Upload.dataUrl($scope.images[i], true)
             .then(function(dataUrl){
                 $scope.item.images.push(dataUrl);
@@ -84,19 +129,29 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
             imgPromises.push(promise);
         }
         
-        //Wait for all image promises to resolve before
-        //posting to server
-        $q.all(imgPromises).then(function() {
-            $scope.item.personId = $rootScope.personId;
-            console.log($scope.item);        
+        $scope.item.personId = $rootScope.personId;
+        console.log($scope.item);    
 
+        //There are no images
+        if(imgPromises.length == 0){
             Posts.save($scope.item, function(){
                 console.log("Success");
                 $state.go('listing.clothing');
             }, function(){
                 console.log("Error");
             });
-        });
+        }else{
+            //Wait for all image promises to resolve before
+            //posting to server
+            $q.all(imgPromises).then(function() {
+                Posts.save($scope.item, function(){
+                    console.log("Success");
+                    $state.go('listing.clothing');
+                }, function(){
+                    console.log("Error");
+                });
+            });
+        }
     }
 
 }); 

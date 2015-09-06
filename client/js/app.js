@@ -3,6 +3,7 @@
 angular.module('prada',['ngResource',
                         'mgcrea.ngStrap',
                         'mgcrea.ngStrap.helpers.dimensions',
+                        'ui.bootstrap.alert',
                         'ui.bootstrap.carousel',
                         'ui.bootstrap.collapse',
                         'ui.bootstrap.dropdown',
@@ -20,7 +21,7 @@ angular.module('prada',['ngResource',
                         'app.services',
                         'pc035860.scrollWatch',
                         'ngFileUpload', //For file upload
-                        //'mdChips'
+                        'mdChips'
                         ])
 .run(function($rootScope,
               $location,              

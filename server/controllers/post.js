@@ -47,26 +47,38 @@ exports.createPost = function(req,res){
               console.log(eTag.length);
 
               if(req.body.images.length == eTag.length){
-                  var post = new Post({creator:req.body.personId,
-                                        imageUrl:imageUrl,
-                                        message:req.body.description,
-                                        title:req.body.title,
-                                        price:req.body.askingPrice,
-                                        //status:req.body.status,
-                                        //size:req.body.size,
-                                        //categories:req.body.categories,
-                                        categories: [req.body.category]
-                            });
+                  var post = new Post({
+                       creator:req.body.personId,
+                       imageUrl:imageUrl, //The url for Amazon
+                       description:req.body.description,
+                       title:req.body.title,
+                       price:req.body.price,
+                       size:req.body.size,
+                       category:req.body.category,
+
+                       tags: req.body.tags,
+                       condition: req.body.condition,
+
+                       //Category specific fields
+                       brand: req.body.brand,
+                       year: req.body.year,
+                       size: req.body.size
+                       bookTitle: req.body.bookTitle,
+                       author: req.body.author, 
+                       course: req.body.course,
+                       edition:req.body.edition 
+                       manufacturer.req.body.manufacturer
+
+                  });
                   post.save(function(err){
                     if(err){
-                    console.log('there is error'+err);
-                    res.send(err);                        
+                        console.log('there is error'+err);
+                        res.send(err);                        
                     }
                     else{
-                    //done(null,newUser);
-                    res.send(post);               
+                        //done(null,newUser);
+                        res.send(post);               
                     } 
-              
                   });
               }
       	    }
@@ -74,19 +86,6 @@ exports.createPost = function(req,res){
         }
 
       });
-    
-    
-	/*post.save(function(err){
-   	if(err){
-			console.log('there is error'+err);
-			res.send(err);				   							
-   		}
-   	else{
-				//done(null,newUser);
-				res.send(post); 							
-   	 } 
-   						
-   });*/
 };
 
 exports.filter = function(req,res){

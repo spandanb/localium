@@ -14,29 +14,29 @@ module.exports = function(app){
 //Useful for debugging
 app.all('*', function(req, res, next){
         //Output string
-        
-        //req.session.ip_addr = req.connection.remoteAddress;
         var output = "\n" + req.method + " " + req.url;
+
+        //Iterate over body parameters
         if (!!req.body && Object.keys(req.body).length) { //Contains passed in params
             var jsonStr = JSON.stringify(req.body);
-            
             if(jsonStr.length < 200){
-                output += ", " + jsonStr;
+                output += ", " + jsonStr + ";";
             }else{
                 //Watch out for long bodies
-                output += "{";
+                output += "\n{";
                 for(var i=0, keys=Object.keys(req.body); i<keys.length; i++){
                     var value = JSON.stringify(req.body[keys[i]]);
-                    if(value.length > 50)
-                        value.substring(0, 25);
+                    if(value.length > 50){
+                        //If too long, take a small substring
+                        value = value.substring(0, 25) + "...";
+                    }
                     output += "    " + keys[i] + ": " + value + ",\n" 
                 }
-                output += "}";
+                output += "};\n";
             }
         }
-        output += "; IP ADDR: " + req.connection.remoteAddress;
+        output += " IP ADDR: " + req.connection.remoteAddress;
         console.log(output);
-        
         next();
 });
 
