@@ -136,10 +136,10 @@
     <div collapse="!showSearchResults" class="container search-results-container">
         <div class="row">
             <a href="" class="pull-right" ng-click="exitSearch()">
-                    <span class="glyphicon glyphicon-remove"></span>
+                    <span class="fa fa-times-circle-o fa-3x"></span>
             </a>
         </div> 
-
+        <hr>
         <div class="row">
             <!-- Row Carousel -->
             <carousel interval=0 template-url="rowCarouselTemplate.html">
@@ -178,7 +178,7 @@
                 </slide>
             </carousel>
         </div> <!-- .row -->           
-
+        <hr>
         <div class="row">
            <p class="search-results-text">Showing items matching tag <b>{{search}}</b></p> 
            <button type="button" class="btn btn-default btn-success pull-right" ui-sref="listing.furniture">See all items!</button>

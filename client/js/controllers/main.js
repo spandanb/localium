@@ -2,13 +2,6 @@
 angular.module('app.controllers',[])
 .controller('homeCtrl',function($scope,$state,$modal,$scrollspy,$location,$anchorScroll,Session,$rootScope,Comments){
    console.log('I am in the controller');
-  //$scope.boolChangeClass = false;
-/*    Session.get(function(data){
-            console.log(data);
-            console.log(data._id);
-            $rootScope.personId = data._id;
-            $rootScope.personName = data.displayName;
-    });*/
 
 	$scope.login = function(){
 		var modalInstance = $modal.open({
@@ -83,6 +76,9 @@ $scope.item = $rootScope.currentPost;*/
     });*/
 $scope.personId = $rootScope.personId;
 $scope.personName = $rootScope.personName;
+/*$scope.post = null;
+$scope.post.imageUrl =[];*/
+$scope.imageUrl =[];
 console.log($rootScope.person);
 $scope.person = $rootScope.person;
  if($rootScope.currentPost == null || $rootScope.currentPost == undefined){
@@ -90,12 +86,16 @@ $scope.person = $rootScope.person;
             postId: $stateParams.postId
         }, function(data) {
             $scope.post = data;
-            $scope.comments = $scope.post.comments
-            console.log(data);
+            $scope.comments = $scope.post.comments;
+            for(i=0;i<data.imageUrl.length; i++){
+              $scope.imageUrl.push(data.imageUrl[i]);
+            }
+            console.log( $scope.imageUrl );
         });
     }else{
         $scope.post = $rootScope.currentPost;
             $scope.comments = $rootScope.currentPost.comments;
+            $scope.imageUrl = $rootScope.currentPost.imageUrl;
             console.log($rootScope.currentPost);   
 
     }

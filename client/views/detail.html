@@ -1,23 +1,50 @@
 <link href="css/style2.css" rel="stylesheet">
+<link href="css/custom-listing.css" rel="stylesheet">
+
+<!-- Custom Dependencies -->
+<script src="other_components/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<!-- Img Carousel Template -->
+<script type="text/ng-template" id="newImgCarouselTemplate.html">
+    <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
+        <div class="carousel-inner" ng-transclude></div>
+        <a class="left carousel-control custom-carousel-control" ng-click="prev(true)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a class="right carousel-control custom-carousel-control" ng-click="next(true)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a>
+    </div>
+</script>
 <script src="bower_components/angular-material/angular-material.js"></script>
 <div class="container-fluid detail-color">
     <div class="row" style="padding-top:50px;margin-top: 5%">
          <div class="col-sm-12 col-md-4">
             <div class="account-wall-1">
-                 <img src="img/book1.jpg" height="400px" width="100%" class=" img-centered" alt="">
+                 <!-- <img ng-src="{{post.imageUrl[0]}}" height="400px" width="100%" class=" img-centered" alt="">   -->
+                <carousel interval=0 no-wrap=false template-url="newImgCarouselTemplate.html">
+                  <!--   <img ng-src="{{post.imageUrl[0]}}" height="400px" width="100%" class=" img-centered" alt="">   -->
+                    <slide ng-repeat="img in post.imageUrl" active="slide.active" ng-show="post.imageUrl.length != 0">
+                        <div class="img-container"> 
+                             <img ng-src="{{img}}" height="400px" width="100%" class=" img-centered" alt="">
+                        </div>
+                    </slide>
+                    <!-- If no images -->
+                    <slide ng-repeat="img in ['img/no_image_available.jpg']" active="slide.active" ng-show="post.imageUrl.length == 0">
+                        <div class="img-container"> 
+                             <img ng-src="{{img}}" class="" height="450px"  width="100%"> 
+                        </div>
+                    </slide>
+                </carousel>
             </div>
             <BR>
            
             <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 img-margin" ng-repeat="img in post.imageUrl">
+                    <img src="{{img}}" height="80px" width="100%" class="img-centered" alt="">
+                </div>
+                <!-- <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
+                    <img src="img/book1.jpg" height="80px" width="100%" class="img-centered" alt="">
+                </div>  
                 <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
-                        <img src="img/book1.jpg" height="80px" width="100%" class="img-centered" alt="">
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
                     <img src="img/book1.jpg" height="80px" width="100%" class="img-centered" alt="">
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 img-margin">
-                    <img src="img/book1.jpg" height="80px" width="100%" class="img-centered" alt="">
-                    </div>
+                </div> -->
                  
             </div>
       
