@@ -7,8 +7,8 @@
 <script type="text/ng-template" id="imgCarouselTemplate2.html">
     <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
         <div class="carousel-inner" ng-transclude></div>
-        <a class="left carousel-control custom-carousel-control" ng-click="prev(false)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
-        <a class="right carousel-control custom-carousel-control" ng-click="next(false)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a>
+        <a class="left carousel-control custom-carousel-control" ng-click="prev(true)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a class="right carousel-control custom-carousel-control" ng-click="next(true)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a>
     </div>
 </script>
 
@@ -172,7 +172,8 @@
                     <li><a href="" ng-click="logout()">&nbsp;Logout</a></li>
                   </ul>               
     </div>
-    <div collapse="!showSearchResults" class="container search-results-container">
+    <!--div collapse="!showSearchResults" class="container search-results-container" -->
+    <div ng-if="showSearchResults" class="container search-results-container">
         <div class="row">
             <a href="" class="pull-right" ng-click="exitSearch()">
                     <span class="fa fa-times-circle-o fa-3x"></span>
@@ -191,9 +192,9 @@
                                         <div class="item-container-top">
                                             <!-- Item Carousel -->
                                             <carousel interval=0 no-wrap=false template-url="imgCarouselTemplate2.html">
-                                                <slide ng-repeat="slide in item.slides" active="slide.active">
+                                                <slide ng-repeat="img in item.imageUrl" active="slide.active" >
                                                     <div class="img-container"> 
-                                                        <img ng-src="{{slide.img}}" class="img-responsive">
+                                                        <img ng-src="{{img}}" class="img-responsive">
                                                     </div>
                                                 </slide>
                                             </carousel>

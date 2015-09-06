@@ -92,9 +92,9 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
     }
 
     $scope.post = function(form){
-        //if(!$rootScope.personId){
-        //    return;
-        //}
+        if(!$rootScope.personId){
+            return;
+        }
         
         $scope.alerts = []; //Clear all alerts
         //Do error checking

@@ -160,6 +160,9 @@ app.get('/posts', post.loadFeed);
 //Get filtered items
 app.post('/posts/filter', auth.ensureAuthenticated, post.filter);
 
+//Get searched items
+app.post('/posts/search', auth.ensureAuthenticated, post.search);
+
 //Get number of posts
 app.get('/posts/count', auth.ensureAuthenticated, post.count);
 

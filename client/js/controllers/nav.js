@@ -6,7 +6,9 @@ angular.module('app.ctrl.nav', [])
                                 $timeout,
                                 $modal, 
                                 Mock, 
-                                Session,$state){
+                                Session,
+                                Posts,
+                                $state){
     //$rootScope.boolChangeClass = false;
     $scope.showSearchResults = false;
     //The search text 
@@ -50,9 +52,8 @@ angular.module('app.ctrl.nav', [])
     };
 
     //Create list of lists for carousel for search results
-    $scope.getItemCollection = function(){
+    $scope.getItemCollection = function(items){
         var itemCollection = [];
-        var items = Mock.mockClothing();
         for(var i=0; i<items.length; i+=1){
             var j = Math.floor(i/3);
             if(!itemCollection[j]){
@@ -63,7 +64,7 @@ angular.module('app.ctrl.nav', [])
         return itemCollection;
     }
     
-    $scope.itemCollection = $scope.getItemCollection();
+    //$scope.itemCollection = $scope.getItemCollection(Mock.mockClothing());
    
 
     $scope.searchFSM = {
@@ -81,10 +82,29 @@ angular.module('app.ctrl.nav', [])
 
         startSearching : function(){
             this.state = "searching";
+            
+            /*
             this.searchHandle = $timeout(function(){
                 $scope.showSearchResults = true;
                 $scope.searchFSM.state = "idle";
             }, 1000);
+            */
+
+            Posts.search({searchText: $scope.search}).$promise.then(
+                //Success
+                function(results){
+                    $scope.itemCollection = $scope.getItemCollection(results);
+                    console.log($scope.itemCollection);
+                    $scope.showSearchResults = true;
+                    $scope.searchFSM.state = "idle";
+                },
+                //Error
+                function(err){
+                    $scope.showSearchResults = true;
+                    $scope.searchFSM.state = "idle";
+                
+                }
+            )
         },
 
         newValueEntered : function(newValue){
@@ -102,7 +122,6 @@ angular.module('app.ctrl.nav', [])
             this.waitHandle = $timeout(function(){
                 $scope.searchFSM.startSearching(); 
             }, 500);
-
         },
     }
 

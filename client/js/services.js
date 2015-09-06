@@ -37,10 +37,17 @@ angular.module('app.services',['constants'])
 				isArray: true,
 				url: SERVER_ADDR + '/posts/filter'
 			},
+            //For pagination, returns count of posts
             count:{
                 method: "GET",
 				isArray: false,
 				url: SERVER_ADDR + '/posts/count'
+            },
+            //For search
+            search:{
+                method: "POST",
+				isArray: true,
+				url: SERVER_ADDR + '/posts/search'
             }
 		});
 }).factory('Surveys',function($resource, SERVER_ADDR){

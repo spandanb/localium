@@ -62,12 +62,12 @@ exports.createPost = function(req,res){
                        //Category specific fields
                        brand: req.body.brand,
                        year: req.body.year,
-                       size: req.body.size
+                       size: req.body.size,
                        bookTitle: req.body.bookTitle,
                        author: req.body.author, 
                        course: req.body.course,
-                       edition:req.body.edition 
-                       manufacturer.req.body.manufacturer
+                       edition:req.body.edition,
+                       manufacturer:req.body.manufacturer
 
                   });
                   post.save(function(err){
@@ -87,6 +87,20 @@ exports.createPost = function(req,res){
 
       });
 };
+
+exports.search = function(req, res){
+    //TODO: Extend this search tags and other fields
+    var searchText = req.body.searchText;
+    Post.find(
+        {"title": 
+            {"$regex" : searchText, "$options": "i"} 
+        },
+        function(err, posts){
+            console.log(posts)
+            res.send(posts);
+        }
+    )
+}
 
 exports.filter = function(req,res){
     console.log("In filter");
