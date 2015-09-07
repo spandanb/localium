@@ -10,8 +10,10 @@
 <script type="text/ng-template" id="imgCarouselTemplate.html">
     <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
         <div class="carousel-inner" ng-transclude></div>
-        <a class="left carousel-control custom-carousel-control" ng-click="prev(true)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
-        <a class="right carousel-control custom-carousel-control" ng-click="next(true)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a>
+        <a class="left carousel-control custom-carousel-control" ng-click="prev(true)" ng-show="slides.length > 2"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a class="right carousel-control custom-carousel-control" ng-click="next(true)" ng-show="slides.length > 2"><span class="glyphicon glyphicon-menu-right"></span></a>
+        <!--a class="left carousel-control custom-carousel-control" ng-click="prev(false)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a class="right carousel-control custom-carousel-control" ng-click="next(false)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a-->
     </div>
 </script>
 

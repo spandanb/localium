@@ -185,7 +185,7 @@ angular.module('ui.bootstrap.carousel', [])
     }
   }
 
-  self.getCurrentIndex = function() {
+  $scope.getCurrentIndex = self.getCurrentIndex = function() {
     if (self.currentSlide && angular.isDefined(self.currentSlide.index)) {
       return +self.currentSlide.index;
     }
@@ -197,9 +197,12 @@ angular.module('ui.bootstrap.carousel', [])
     return angular.isDefined(slide.index) ? +slide.index : slides.indexOf(slide);
   };
 
-  $scope.next = function() {
+  $scope.next = function(lenFix) {
     var newIndex = (self.getCurrentIndex() + 1) % slides.length;
-
+    //Sometimes slides has lenth +1 than what 
+    //it should be. This is a fix for that
+    if(!!lenFix)
+        newIndex = (self.getCurrentIndex() + 1) % (slides.length-1);
     if (newIndex === 0 && $scope.noWrap()) {
       $scope.pause();
       return;
@@ -208,8 +211,11 @@ angular.module('ui.bootstrap.carousel', [])
     return self.select(getSlideByIndex(newIndex), 'next');
   };
 
-  $scope.prev = function() {
+  $scope.prev = function(lenFix) {
     var newIndex = self.getCurrentIndex() - 1 < 0 ? slides.length - 1 : self.getCurrentIndex() - 1;
+    //See comment above
+    if(!!lenFix)
+        newIndex = self.getCurrentIndex() - 1 < 0 ? (slides.length - 2) : self.getCurrentIndex() - 1;
 
     if ($scope.noWrap() && newIndex === slides.length - 1){
       $scope.pause();
