@@ -23,6 +23,15 @@ angular.module('app.ctrl.nav', [])
         });
     };
 
+    $scope.signup = function(){
+        var modalInstance = $modal.open({
+            animation: false,
+            templateUrl: '../views/signupModal.html',
+            controller: 'ModalInstanceCtrl',
+            size: 'sm'
+        });
+    };
+
     $rootScope.$on('launchLoginModal', function(event, args){
         $scope.login();
     });

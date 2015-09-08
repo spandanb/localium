@@ -78,7 +78,7 @@
                 <hr class="colorgraph-custom">
                     <div class="row">
                         <div class="col-sm-12 col-md-3 text-muted">
-                            <h4>Description:</h4>
+                            <h4><font color="#326AFF">Description:</font></h4>
                         </div>
                         <div class="col-sm-12 col-md-9">
                             <p>{{post.description}} </p>
@@ -87,17 +87,17 @@
                 <hr>
                     <div class="row">
                         <div class="col-sm-12 col-md-3 text-muted">
-                            <h4>Prices:</h4>
+                            <h4><font color="#326AFF">Prices: </font></h4>
                         </div>
                         <div class="col-sm-12 col-md-9">
-                            <h5><b>{{post.price}}</b><h5> 
+                            <h2><b><font color="red">${{post.price}}</font></b><h2> 
                         </div>
                     </div>
             
                 <div class="row" ng-if='post.category=="clothing" || post.category=="furniture" '>
                     <hr>
                     <div class="col-sm-12 col-md-3 text-muted">
-                        <h4>brand:</h4>
+                        <h4><font color="#326AFF">brand:</font></h4>
                     </div>
                     <div class="col-sm-12 col-md-9">
                         <h5><b>{{post.brand}}</b><h5> 
@@ -107,22 +107,24 @@
                 <div class="row" ng-if='post.category=="clothing"'>
                     <hr>
                     <div class="col-sm-12 col-md-3 text-muted">
-                        <h4>size:</h4>
+                        <h4><font color="#326AFF">size:</font></h4>
                     </div>
                     <div class="col-sm-12 col-md-9">
                         <h5><b>{{post.size}}</b><h5> 
                     </div>
                 </div>
                 <hr>
-                    <div class="row">
+                    <div class="row" ng-if="post.tags.length > 0">
                         <div class="col-sm-12 col-md-3 text-muted">
-                            <h4>Tags:</h4>
+                            <h4><font color="#326AFF">Tags:</font></h4>
                         </div>
                         <div class="col-sm-12 col-md-9">
-                           <a class="btn btn-default "><b>books</b></a>
-                           <a class="btn btn-default"><b>apsc131</b></a>
+                        <div ng-repeat="tag in post.tags" style="display:inline;">
+                           <a class="btn btn-default"><b>{{tag}}</b></a>
+                        </div>
+                          <!--  <a class="btn btn-default"><b>apsc131</b></a>
                             <a class="btn btn-default"><b>3rdYear</b></a>
-                           <a class="btn btn-default"><b>physics</b></a>
+                           <a class="btn btn-default"><b>physics</b></a> -->
                         </div>
                     </div>
             </div>
@@ -135,8 +137,12 @@
 
                     <hr class="colorgraph-custom">
                 
-                    <div class="row" ng-if="comments.length < 1">
+                    <div class="row" ng-if="comments.length < 1 && !$root.personId">
                      <p style="padding-left:2%">No comments</p>
+                    </div>
+                    <div class="row" ng-if="comments.length < 1 && $root.personId">
+                     <p style="padding-left:2%">Be first to comment</p>
+                     <br>
                     </div>
                     <div ng-repeat="comment in comments">
                         <div class="row">
