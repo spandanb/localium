@@ -1,0 +1,56 @@
+<!-- Custom CSS -->
+<link href="css/custom-agency-listing.css" rel="stylesheet">
+<link href="css/custom-listing.css" rel="stylesheet">
+
+<!-- Custom Dependencies -->
+<script src="other_components/ui-bootstrap-custom-build/ui-bootstrap-custom-tpls-0.13.3.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+
+<!-- Img Carousel Template -->
+<script type="text/ng-template" id="imgCarouselTemplate.html">
+    <div ng-mouseenter="pause()" ng-mouseleave="play()" class="carousel" ng-swipe-right="prev()" ng-swipe-left="next()">
+        <div class="carousel-inner" ng-transclude></div>
+        <a class="left carousel-control custom-carousel-control" ng-click="prev(true)" ng-show="slides.length > 2"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a class="right carousel-control custom-carousel-control" ng-click="next(true)" ng-show="slides.length > 2"><span class="glyphicon glyphicon-menu-right"></span></a>
+        <!--a class="left carousel-control custom-carousel-control" ng-click="prev(false)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-left"></span></a>
+        <a class="right carousel-control custom-carousel-control" ng-click="next(false)" ng-show="slides.length > 1"><span class="glyphicon glyphicon-menu-right"></span></a-->
+    </div>
+</script>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="intro-text col-md-6 col-md-offset-3">
+                        <div class="hero-main-text">My Posting</div>
+                        <div class="hero-sub-text">Check out all your posting</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div ng-repeat="item in posts" class="col-md-4 col-sm-6 col-xs-12" Style="padding:2%">
+        <div class="item-container-inner portfolio-item">
+            <div class="item-container-top">
+                <carousel interval=0 no-wrap=false template-url="imgCarouselTemplate.html">
+
+                    <slide ng-repeat="img in item.imageUrl" active="slide.active" ng-show="item.imageUrl.length != 0">
+                        <div class="img-container"> 
+                            <a href="" ng-click="postDetail(item)"><img ng-src="{{img}}" class="" height="450px"  width="100%"></a>
+                        </div>
+                    </slide>
+                    <!-- If no images -->
+                    <slide ng-repeat="img in ['img/no_image_available.jpg']" active="slide.active" ng-show="item.imageUrl.length == 0">
+                        <div class="img-container"> 
+                             <a href="" ng-click="postDetail(item)"> <img ng-src="{{img}}" class="" height="450px"  width="100%"> </a>
+                        </div>
+                    </slide>
+                </carousel>
+        </div><!-- .item-container-inner -->
+        </div>
+    </div>
+</div>

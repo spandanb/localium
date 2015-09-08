@@ -63,6 +63,19 @@ $stateProvider
         }
     }
 })
+.state('myPosting',{ 
+    url:'/myPosting',
+    views:{
+        'navbar': {
+            templateUrl: '../views/navbar.html',
+            controller: 'navCtrl'
+        },
+        'main': {
+            templateUrl:'../views/myPosting.html',
+            controller: 'myPostCtrl',
+        }
+    }
+})
 .state('listing', {
     url:'/listing',
     abstract: true,

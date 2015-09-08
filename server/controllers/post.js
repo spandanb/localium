@@ -224,7 +224,8 @@ exports.findById = function (req, res, next) {
 
 exports.findByUser = function (req, res) {
 	console.log(req.params);
-	 Post.find({creator:req.params.userId}, function(err,post){
+	 Post.find({creator:req.params.userId}).populate('creator','providerId displayName')
+                .populate('comments').sort({created:-1}).exec(function(err,post){
 	 			console.log(post);
 	 			res.send(post);
 	 	});

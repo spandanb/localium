@@ -90,7 +90,7 @@
                             <h4><font color="#326AFF">Prices: </font></h4>
                         </div>
                         <div class="col-sm-12 col-md-9">
-                            <h2><b><font color="red">${{post.price}}</font></b><h2> 
+                            <h2><b><font color="red">${{post.price}}</font></b></h2> 
                         </div>
                     </div>
             
@@ -100,21 +100,75 @@
                         <h4><font color="#326AFF">brand:</font></h4>
                     </div>
                     <div class="col-sm-12 col-md-9">
-                        <h5><b>{{post.brand}}</b><h5> 
+                        <h5><b>{{post.brand}}</b></h5> 
                     </div>
                 </div>
                 
-                <div class="row" ng-if='post.category=="clothing"'>
+                <div class="row" ng-if='post.category=="clothing" && post.size'>
                     <hr>
                     <div class="col-sm-12 col-md-3 text-muted">
                         <h4><font color="#326AFF">size:</font></h4>
                     </div>
                     <div class="col-sm-12 col-md-9">
-                        <h5><b>{{post.size}}</b><h5> 
+                        <h5><b>{{post.size}}</b></h5> 
                     </div>
                 </div>
-                <hr>
-                    <div class="row" ng-if="post.tags.length > 0">
+                <div class="row" ng-if='post.category=="books" &&  post.bookTitle'>
+                    <hr>
+                    <div class="col-sm-12 col-md-3 text-muted">
+                        <h4><font color="#326AFF">Book Name:</font></h4>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <h5><b>{{post.bookTitle}}</b></h5> 
+                    </div>
+                </div>
+                <div class="row" ng-if='post.category=="books" && post.author'>
+                    <hr>
+                    <div class="col-sm-12 col-md-3 text-muted">
+                        <h4><font color="#326AFF">Author:</font></h4>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <h5><b>{{post.author}}</b></h5> 
+                    </div>
+                </div>
+                <div class="row" ng-if='post.category=="books" && post.course'>
+                    <hr>
+                    <div class="col-sm-12 col-md-3 text-muted">
+                        <h4><font color="#326AFF">Course:</font></h4>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <h5><b>{{post.course}}</b></h5> 
+                    </div>
+                </div>
+                <div class="row" ng-if='(post.category=="books" && post.category=="electronics") && post.year'>
+                    <hr>
+                    <div class="col-sm-12 col-md-3 text-muted">
+                        <h4><font color="#326AFF">Year:</font></h4>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <h5><b>{{post.year}}</b></h5> 
+                    </div>
+                </div>
+                <div class="row" ng-if='post.category=="electronics" && post.manufacturer'>
+                    <hr>
+                    <div class="col-sm-12 col-md-3 text-muted">
+                        <h4><font color="#326AFF">manufacturer:</font></h4>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <h5><b>{{post.manufacturer}}</b></h5> 
+                    </div>
+                </div>
+                <div class="row" ng-if='post.category=="books" && post.edition'>
+                    <hr>
+                    <div class="col-sm-12 col-md-3 text-muted">
+                        <h4><font color="#326AFF">Edition:</font></h4>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <h5><b>{{post.edition}}</b></h5> 
+                    </div>
+                </div>
+                <div class="row" ng-if="post.tags.length > 0">
+                   <hr>
                         <div class="col-sm-12 col-md-3 text-muted">
                             <h4><font color="#326AFF">Tags:</font></h4>
                         </div>

@@ -65,6 +65,22 @@ $scope.$on('slide1', function ($evt, active, locals) {
 
     });
   };
+}).controller('myPostCtrl',function($scope,myPost,$rootScope,$location){
+
+   myPost.query({
+        userId: $rootScope.personId
+    }, function(data) {
+        console.log(data);
+        $scope.posts = data;
+    });
+
+   $scope.postDetail = function(post){
+        console.log("Post detail");
+        $rootScope.currentPost = post; 
+        //$state.go('detail');
+        $location.path('detail/' + post._id);
+    };
+
 }).controller('detailCtrl', function($rootScope,$scope,Session, Posts, $stateParams,Comments,$state,Chats){
 /*console.log($rootScope.currentPost);
 $scope.item = $rootScope.currentPost;*/
