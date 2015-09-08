@@ -45,7 +45,8 @@ io.on('connection', function(socket){
               userId = chat.postCreator._id;
               providerId = chat.postCreator.providerId;
             }
-  				 chat.message.push({username:username,content:data.content,userId:userId,providerId:providerId});
+            var datenow = Date.now();
+  				 chat.message.push({username:username,content:data.content,userId:userId,providerId:providerId,created:datenow});
   				 chat.save(function(err){
   				 		if(err)console.log('Couldnt save in the database');
   				 		else{
@@ -59,12 +60,12 @@ io.on('connection', function(socket){
   			if(sockets[chat.postCreator._id] != undefined && sockets[chat.creator._id] != undefined){
 				console.log('This basically means that the message is to the blogger');
 				//console.log(chatPage.blogger.username);
-				sockets[chat.postCreator._id].emit('privateMessage',{content:data.content, username:username ,userId:userId,providerId:providerId})	;
-				sockets[chat.creator._id].emit('privateMessage',{content:data.content, username:username ,userId:userId,providerId:providerId})	;
+				sockets[chat.postCreator._id].emit('privateMessage',{content:data.content, username:username ,userId:userId,providerId:providerId,created:datenow})	;
+				sockets[chat.creator._id].emit('privateMessage',{content:data.content, username:username ,userId:userId,providerId:providerId,created:datenow})	;
 			   }else{
 				console.log(sockets[data.userId]);
         console.log(providerId);
-         		sockets[data.userId].emit('privateMessage',{content:data.content, username:username ,userId:userId, providerId:providerId});
+         		sockets[data.userId].emit('privateMessage',{content:data.content, username:username ,userId:userId, providerId:providerId,created:datenow});
 			   }
 
 

@@ -40,7 +40,7 @@
                       <div class="panel panel-default">
                         <div class="panel-body">
                           {{message.content}}<br>
-                          <span class="label label-info">45 minutes ago</span>
+                          <span class="label label-info">{{message.created | date:'d MMMM yyyy'}}</span>
                         </div>
                       </div>
                     </div><!--/col-->

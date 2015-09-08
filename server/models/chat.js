@@ -11,6 +11,7 @@ var ChatPageSchema = new Schema({
     content: String,
     userId:String,
     providerId:String,
+    created: Date,
     trim: true
   },
   created: Date,

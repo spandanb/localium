@@ -152,7 +152,7 @@ $scope.addComment = function(){
         }, function(comment) {
             console.log(comment);
             $scope.comments.push({message: comment.message, _id: comment._id,
-                                   displayName:comment.displayName,providerId:comment.providerId});    
+                                   displayName:comment.displayName,providerId:comment.providerId,created:comment.created});    
     
             
             $scope.newComment = null;
@@ -205,7 +205,7 @@ $scope.addComment = function(){
         console.log($scope.chats);
         $scope.chats[0].active = true;
         $scope.messages = $scope.chats[0].message;
-        $rootScope.tempChatId = $scope.chats[0];
+        $rootScope.tempChatId = $scope.chats[0]._id;
 
     });
 
