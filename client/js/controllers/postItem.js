@@ -95,7 +95,7 @@ angular.module('app.ctrl.postItem', ['ui.bootstrap'])
         if(!$rootScope.personId){
             return;
         }
-        
+        console.log("I am in");
         $scope.alerts = []; //Clear all alerts
         //Do error checking
         if(form.$invalid){

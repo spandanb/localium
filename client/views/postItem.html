@@ -23,48 +23,56 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-10 col-sm-offset-1">
+        <div class="col-xs-12 col-sm-12 col-md-8 col-sm-offset-2">
             <div class="account-wall-2" style="margin-top:8%">
                 <form name="postForm" ng-submit="post(postForm)" novalidate> 
 
                     <div class="row">
                         <alert ng-repeat="alert in alerts" type="danger" close="alertClosed($index)" >{{alert.msg}}</alert>
                     </div>
-
+                    <div class="row" style="padding-left:2%;">
+                        <h5>Step 1: Select Images</h5>
+                    </div>
+                    <hr style="margin-top:0px">
+                    <div class="row"  style="padding-left:2%;">
+                      <p>Hint: You can select multiple images using Ctrl and then selecting the image </p>
+                    </div>
                     <div class="row">
                         <div class="col-md-4 col-sm-6 col-xs-12"><!-- Col 1 -->
                             <div class="row">
-                                <div class="upload-img-container" layout="row" Style="width:100%;height:100%" 
+                                <div class="upload-img-container"  Style="width:100%;height:100%;margin-left:8%;" 
                                     tooltip="Having 2-5, good quality images can increase views and help you sell faster."
                                     tooltip-class="custom-tooltip">
                                     <input type="file" ngf-select ng-model="images" name="file" accept="image/*" multiple ngf-max-size="2MB" required>
                                     <img src="img/icons/upload.png" alt="">
                                     <div> Add Photos</div>
                                 </div>
-    
-                                <div ng-repeat="img in imgGroups[2]" class="col-md-12">
-                                    <img ngf-src="img" class="preview-img" ng-click="remove(img)"> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12"><!-- Col 2 -->
-                            <div class="row">
-                                <div ng-repeat="img in imgGroups[0]" class="col-md-12">
-                                    <img ngf-src="img" class="preview-img" ng-click="remove(img)"> 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 col-xs-12"><!-- Col 3 -->
-                            <div class="row">
-                                <div ng-repeat="img in imgGroups[1]" class="col-md-12">
-                                    <img ngf-src="img" class="preview-img" ng-click="remove(img)"> 
-                                </div>
                             </div>
                         </div>
                     </div><!-- .row 1 -->
-                    
-                    <div class="row" ng-show="images.length > 0"> <!-- row 2-->
-                        <div class="col-md-6 col-md-offset-3">
+                    <br>
+                    <div class ="row">
+                        <div class="col-md-4 col-sm-6 col-xs-12"><!-- Col 2 -->
+                                <div ng-repeat="img in imgGroups[0]" class="col-md-12">
+                                    <img ngf-src="img" class="preview-img" ng-click="remove(img)" height="250px"> 
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-xs-12"><!-- Col 3 -->
+                                <div ng-repeat="img in imgGroups[1]" class="col-md-12">
+                                    <img ngf-src="img" class="preview-img" ng-click="remove(img)" height="250px"> 
+                                </div> 
+                        </div>
+                        <div ng-repeat="img in imgGroups[2]" class="col-md-4 col-sm-6 col-xs-12">
+                              <img ngf-src="img" class="preview-img" ng-click="remove(img)" height="250px"> 
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" style="padding-left:2%;" ng-show="images.length > 0">
+                        <h5>Step 2: Fill out basic Information</h5>
+                    </div>
+                    <hr style="margin-top:0px">
+                    <div class="row" ng-show="images.length > 0" style="padding-left:2%;"> <!-- row 2-->
+                        <div class="col-md-12 col-sm-12 col-xs-12 ">
                             <div class="row"> 
                                 <md-input-container>
                                     <label>Title</label>
@@ -75,7 +83,7 @@
                             </div>
 
                             <div class="row"> 
-                                <div class="col-md-6 col-xs-6 col-sm-6">
+                                <div class="col-md-6 col-xs-6 col-sm-6" style="padding-left:0px; padding-left:0px;">
                                   <md-input-container>
                                         <label>Price</label>
                                         <input ng-model="item.price" name="price"
@@ -103,11 +111,14 @@
                         </div>
                     </div><!-- .row 2-->
                     <br>
-                    
-                    <div class="row" ng-show="images.length > 0">
-                        <div class="col-md-6 col-md-offset-3">
+                    <div class="row" style="padding-left:2%;" ng-show="images.length > 0">
+                        <h5>Step 3: Select Category</h5>
+                    </div>
+                    <hr style="margin-top:0px" ng-show="images.length > 0">
+                    <div class="row" ng-show="images.length > 0" style="padding-left:2%;">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="row"><!-- Category select -->
-                                <label for="categorySelect"> Select a Category </label>
+                                <label for="categorySelect"> Select a Category : </label>
                                 <br>
                                 <select name="categorySelect" ng-model="item.category" required>
                                       <option value="clothing">Clothing and Apparel</option>
@@ -115,19 +126,20 @@
                                       <option value="electronics">Electronics</option>
                                       <option value="furniture">Furniture</option>
                                 </select>
-                                <br>
+                                <br> 
                             </div>    
                             <div ng-show="item.category == 'clothing'"><!-- Clothing Fields-->
+                                <br>
                                 <div class="row">
-                                    <label> Size </label>
+                                    <label> Size :</label>
                                     <md-radio-group ng-model="item.size">
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <md-radio-button value="xs"> XS </md-radio-button>
                                                 <md-radio-button value="s"> S </md-radio-button>
                                                 <md-radio-button value="m"> M </md-radio-button>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                                 <md-radio-button value="l"> L </md-radio-button>
                                                 <md-radio-button value="xl"> XL </md-radio-button>
                                                 <md-radio-button value="xxl"> XXL </md-radio-button>
@@ -142,7 +154,14 @@
                                       <input ng-model="item.brand">
                                     </md-input-container>
                                 </div><!--.row brand -->
-    
+                                <div class="row">
+                                    <label for="conditionSelect"> Select the Condition :</label>
+                                    <br>
+                                    <select name="condition" ng-model="item.condition">
+                                        <option ng-repeat="cond in clothingConditions" value="{{cond.value}}">{{cond.condition}}</option>
+                                    </select>
+                                </div>
+                                <br>
                                 <div class="row">
                                     <label>Tags</label>
                                     <div class="tags-container">
@@ -151,19 +170,13 @@
                                             ng-model='tags' 
                                             md-title='title' 
                                             md-thumbnail='thumbnailUrl' 
-                                            md-subtitle='subtitle'>
+                                            md-subtitle='subtitle' Style="width:100%"></md-chips2>
                                     </div>
                                 </div> <!-- .row tags -->
-                                <div class="row">
-                                    <label for="conditionSelect"> Select the Condition </label>
-                                    <br>
-                                    <select name="condition" ng-model="item.condition">
-                                        <option ng-repeat="cond in clothingConditions" value="{{cond.value}}">{{cond.condition}}</option>
-                                    </select>
-                                </div>
                             </div><!-- clothing --> 
     
                             <div ng-show="item.category == 'books'"><!-- Books Fields-->
+                              <br>
                                 <div class="row">
                                     <md-input-container flex="">
                                       <label>Book Name</label>
@@ -177,32 +190,38 @@
                                     </md-input-container>
                                  </div>
                                 <div class="row">
-                                    <md-input-container flex="">
-                                      <label>Course</label>
-                                      <input ng-model="item.course">
-                                    </md-input-container>
-                                 </div>
-                                <div class="row">
-                                    <md-input-container flex="">
-                                      <label>Book Name</label>
+                                  <div class="col-md-6 col-xs-6 col-sm-6" style="padding-left:0px; padding-left:0px;">
+                                  <md-input-container>
+                                        <label>Course</label>
+                                         <input ng-model="item.course">
+                                  </md-input-container>
+                                </div>
+                                <div class="col-md-6 col-xs-6 col-sm-6">
+                                  <md-input-container>
+                                      <label>Edition</label>
                                       <input ng-model="item.edition">
-                                    </md-input-container>
+                                  </md-input-container>
+                                </div>
                                 </div>
                                 <div class="row">
-                                    <label for="conditionSelect"> Select the Condition </label>
+                                  <div class="col-md-6 col-xs-6 col-sm-6" style="padding-left:0px; padding-left:0px;">
+                                    <label for="conditionSelect"> Select the Condition : </label>
                                     <br>
                                     <select name="condition" ng-model="item.condition">
                                         <option ng-repeat="cond in bookConditions" value="{{cond.value}}">{{cond.condition}}</option>
                                     </select>
                                 </div>
-                                <div class="row">
-                                    <label for="yearSelect"> Select the Year</label>
+                                <div class="col-md-6 col-xs-6 col-sm-6">
+                                    <label for="yearSelect"> Select the year you got it :</label>
                                     <br>
                                     <select name="year" ng-model="item.year">
                                         <option ng-repeat="year in years " value="{{year}}">{{year}}</option>
                                     </select>
                                 </div>
+                                </div>
+                    
                                 <div class="row">
+                                  <br>
                                     <label>Tags</label>
                                     <div class="tags-container">
                                         <md-chips2
@@ -210,33 +229,37 @@
                                             ng-model='tags' 
                                             md-title='title' 
                                             md-thumbnail='thumbnailUrl' 
-                                            md-subtitle='subtitle'>
+                                            md-subtitle='subtitle' Style="width:100%">
                                     </div>
                                 </div> <!-- .row tags -->
                             </div>
     
                             <div ng-show="item.category == 'electronics'"><!-- Electronics Fields-->
                                 <div class="row">
+                                  <br>
                                     <md-input-container flex="">
                                       <label>Manufacturer</label>
                                       <input ng-model="item.manufacturer">
                                     </md-input-container>
                                 </div>
                                 <div class="row">
-                                    <label for="conditionSelect"> Select the Condition </label>
+                                  <div class="col-md-6 col-xs-6 col-sm-6" style="padding-left:0px; padding-left:0px;">
+                                  <label for="conditionSelect"> Select the Condition </label>
                                     <br>
                                     <select name="condition" ng-model="item.condition">
                                         <option ng-repeat="cond in electronicsConditions" value="{{cond.value}}">{{cond.condition}}</option>
                                     </select>
                                 </div>
-                                <div class="row">
+                                <div class="col-md-6 col-xs-6 col-sm-6">
                                     <label for="yearSelect"> Select the Year</label>
                                     <br>
                                     <select name="year" ng-model="item.year">
                                         <option ng-repeat="year in years " value="{{year}}">{{year}}</option>
                                     </select>
                                 </div>
+                                </div>
                                 <div class="row">
+                                  <br>
                                     <label>Tags</label>
                                     <div class="tags-container">
                                         <md-chips2
@@ -244,7 +267,7 @@
                                             ng-model='tags' 
                                             md-title='title' 
                                             md-thumbnail='thumbnailUrl' 
-                                            md-subtitle='subtitle'>
+                                            md-subtitle='subtitle' Style="width:100%">
                                     </div>
                                 </div> <!-- .row tags -->
                             </div>
@@ -263,6 +286,7 @@
                                         <option ng-repeat="cond in furnitureConditions" value="{{cond.value}}">{{cond.condition}}</option>
                                     </select>
                                 </div>
+                                <br>
                                 <div class="row">
                                     <label>Tags</label>
                                     <div class="tags-container">
@@ -271,12 +295,12 @@
                                             ng-model='tags' 
                                             md-title='title' 
                                             md-thumbnail='thumbnailUrl' 
-                                            md-subtitle='subtitle'>
+                                            md-subtitle='subtitle' Style="width:100%">
                                     </div>
                                 </div> <!-- .row tags -->
                             </div><!-- furniture -->
     
-    
+                            <hr>
                             <div class="row">
                                 <div class="text-right" style="padding-right:1%">
                                     <!--a class="btn btn-success" ng-if="$root.personId" ng-click="post()">Post item</a-->

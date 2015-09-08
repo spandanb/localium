@@ -81,10 +81,10 @@
                             <h4>Description:</h4>
                         </div>
                         <div class="col-sm-12 col-md-9">
-                            <p>{{post.message}} </p>
+                            <p>{{post.description}} </p>
                         </div>
                     </div>
-                    <hr>
+                <hr>
                     <div class="row">
                         <div class="col-sm-12 col-md-3 text-muted">
                             <h4>Prices:</h4>
@@ -93,6 +93,26 @@
                             <h5><b>{{post.price}}</b><h5> 
                         </div>
                     </div>
+            
+                <div class="row" ng-if='post.category=="clothing" || post.category=="furniture" '>
+                    <hr>
+                    <div class="col-sm-12 col-md-3 text-muted">
+                        <h4>brand:</h4>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <h5><b>{{post.brand}}</b><h5> 
+                    </div>
+                </div>
+                
+                <div class="row" ng-if='post.category=="clothing"'>
+                    <hr>
+                    <div class="col-sm-12 col-md-3 text-muted">
+                        <h4>size:</h4>
+                    </div>
+                    <div class="col-sm-12 col-md-9">
+                        <h5><b>{{post.size}}</b><h5> 
+                    </div>
+                </div>
                 <hr>
                     <div class="row">
                         <div class="col-sm-12 col-md-3 text-muted">
