@@ -21,8 +21,8 @@ passport.use(new FacebookStrategy({
 	clientSecret: '0e1cdebce300cc09763b88e9c157fe15', //Spandan
 	//clientID: '799344473467471', //Aditya
     //clientSecret: 'bb23deaf1ed3b4f80108bf2134791b80', //Aditya
-    callbackURL: "/auth/facebook/callback"
-    //callbackURL: "http://45.55.156.158:9000/auth/facebook/callback"
+    //callbackURL: "/auth/facebook/callback"
+    callbackURL: "http://104.236.1.23:9000/auth/facebook/callback"
 	},
 	function(accessToken, refreshToken, profile, done) {
 			console.log("THE ACCESS TOKEN IS: ----------------------------------------");
