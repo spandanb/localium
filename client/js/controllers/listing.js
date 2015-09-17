@@ -14,6 +14,11 @@ angular.module('app.ctrl.listing', [])
         //console.log('Dropdown is now: ', open);
     };
     
+    $rootScope.$watch('category', function(newval, oldval){
+        //If category changed, update the list of items
+        $scope.items = Posts.query({count: 9, category: $rootScope.category}); 
+    });
+
     //Get items
     $scope.items = Posts.query({count: 9, category: $rootScope.category}); 
     console.log($scope.items);
