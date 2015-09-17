@@ -151,7 +151,8 @@ exports.filter = function(req,res){
 
 //Get total number of posts
 exports.count = function(req, res){
-    Post.count({}, function(err, count){
+    var category = req.query.category; 
+    Post.count({category:category}, function(err, count){
         if(!err){
            res.json({count:count});
         }
@@ -162,9 +163,9 @@ exports.loadFeed = function(req,res){
     //@param count: number of documents requested, (optional; default=all)
     //@param offset: offset for the number of document 
     console.log("In loadFeed");
-    
+    var category = req.query.category; 
     //Basic query
-    var query = Post.find({})
+    var query = Post.find({category: category})
                 .populate('creator','providerId displayName')
                 .populate('comments');
 
