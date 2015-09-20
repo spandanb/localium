@@ -158,13 +158,13 @@ app.post('/posts', auth.ensureAuthenticated, post.createPost);
 app.get('/posts', post.loadFeed);
 
 //Get filtered items
-app.post('/posts/filter', auth.ensureAuthenticated, post.filter);
+app.post('/posts/filter', post.filter);
 
 //Get searched items
-app.post('/posts/search', auth.ensureAuthenticated, post.search);
+app.post('/posts/search', post.search);
 
 //Get number of pdosts
-app.get('/posts/count', auth.ensureAuthenticated, post.count);
+app.get('/posts/count', post.count);
 
 //Get one item
 app.get('/posts/:id', post.findById);

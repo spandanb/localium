@@ -96,6 +96,7 @@ exports.search = function(req, res){
             {"$regex" : searchText, "$options": "i"} 
         },
         function(err, posts){
+            console.log("In search. Found the following results for: " + searchText);
             console.log(posts)
             res.send(posts);
         }
