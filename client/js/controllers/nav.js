@@ -102,7 +102,7 @@ angular.module('app.ctrl.nav', [])
             Posts.search({searchText: $scope.search}).$promise.then(
                 //Success
                 function(results){
-                    $scope.itemCollection = $scope.getItemCollection(results);
+                    $scope.itemCollection = getItemCollection(results);
                     console.log($scope.itemCollection);
                     $scope.showSearchResults = true;
                     $scope.searchFSM.state = "idle";

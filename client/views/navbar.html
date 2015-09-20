@@ -61,13 +61,14 @@
                     <li>
                         <a class="" ui-sref="listing.furniture">Furniture</a>
                     </li>
-                    <li>
+                    <!-- Search -->
+                    <!--li>
                         <div class="search-container">
                             <span class="glyphicon glyphicon-search" aria-hidden="true" ng-show="searchFSM.state != 'searching'"></span>
                             <img src="img/icons/loader.gif" ng-show="searchFSM.state == 'searching'"> 
                             <input type="text" placeholder="Search" ng-model="search" > 
                         </div>
-                    </li>
+                    </li-->
                 </ul>
     
                 <!-- Right section -->
@@ -219,7 +220,7 @@
         </div> <!-- .row -->           
         <hr>
         <div class="row">
-           <p class="search-results-text">Showing items matching tag <b>{{search}}</b></p> 
+           <p class="search-results-text">Showing items matching <b>{{search}}</b></p> 
            <button type="button" class="btn btn-default btn-success pull-right" ui-sref="listing.furniture">See all items!</button>
         </div>
     </div><!-- .container -->
